@@ -1,0 +1,19 @@
+.navbar{
+    background: linear-gradient(135deg, #172a74, #21a9af);
+}
+
+.navbar-text{
+    margin-right: 3rem;
+}
+
+.navbar-brand{
+    margin-left: 2rem;
+}
+
+.nav-link {
+    margin-left: 2rem;
+}
+
+.btn_css{
+    margin-right: 20px;
+}
