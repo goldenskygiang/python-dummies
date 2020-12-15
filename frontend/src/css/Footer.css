@@ -7,9 +7,12 @@
     height: 5rem;
     font-size: 14px;
     font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
-	text-align: left;
-	padding: 20px 60px 30px;
+	padding-top: 15px;
 	overflow: hidden;
+	position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
 }
 
 
