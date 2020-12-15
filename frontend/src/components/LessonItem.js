@@ -1,0 +1,17 @@
+import React, { Component } from 'react';
+import '../css/LessonItem.css';
+
+export default class InsideNews extends Component {
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+        const {name} = this.props
+		return (
+			<div className="LessonItem">
+                <span>{name}</span>
+			</div>
+		);
+	}
+}

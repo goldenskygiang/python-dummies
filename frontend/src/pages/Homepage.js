@@ -2,13 +2,15 @@ import React, { Component } from "react";
 import "../css/Homepage.css";
 import Navbar from "../components/Navbar.js";
 import Footer from '../components/Footer.js';
+import LessonList from '../components/LessonList.js';
+import LessonContent from '../components/LessonContent.js';
 
 export default class Homepage extends Component {
   constructor(props) {
     super(props);
   }
 
-  render() {
+  render(){
     return (
       <div className="Homepage">
         <div className="HomepageHeader">

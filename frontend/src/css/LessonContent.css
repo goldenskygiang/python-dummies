@@ -1,0 +1,14 @@
+.LessonContent {
+	width: 75%;
+	height: 100%;
+    /* display: block; */
+    border: 1px solid #000;
+    margin-right: 2rem;
+    margin-left: 0.5rem;
+    border-left-color: rgba(0,0,0,0.3);
+}
+
+h1 {
+	text-align: center;
+}
+

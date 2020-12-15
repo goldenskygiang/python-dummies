@@ -19,7 +19,7 @@ export default class Navbar extends Component {
                 <span className="navbar-toggler-icon"></span>
             </button>
 
-            <a className="navbar-brand" href="#">PYTHON DUMMIES</a>
+            <a className="navbar-brand" href="/">PYTHON DUMMIES</a>
 
             <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
