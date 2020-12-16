@@ -12,3 +12,26 @@ h1 {
 	text-align: center;
 }
 
+.LessonName{
+    background-color: #346E9F;
+    color: #FFF;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    position: relative;
+    height: 4rem;
+    border-top: 1px solid #C83538;
+}
+
+.LessonName span{
+    font-size: 25px;
+}
+
+.LessonName .Logo{
+    position:absolute;
+    top: -3.1rem;
+    left: -4rem;
+}
+
+.LessonName .Logo img{
+    height: 10rem;
+}

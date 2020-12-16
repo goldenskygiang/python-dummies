@@ -24,11 +24,11 @@ export default class Navbar extends Component {
             <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li className="nav-item active">
-                        <a className="nav-link" href="#">Problemset<span className="sr-only"></span></a>
+                        <a className="nav-link" href="/Problemset">Problemset<span className="sr-only"></span></a>
                     </li>
 
                     <li className="nav-item active">
-                        <a className="nav-link" href="#">Quizzes<span className="sr-only"></span></a>
+                        <a className="nav-link" href="/Quizzes">Quizzes<span className="sr-only"></span></a>
                     </li>
                 </ul>
             </div>
