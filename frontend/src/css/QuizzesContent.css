@@ -1,0 +1,26 @@
+.QuizzesContentBody{
+    margin: auto;
+    width: 60%;
+
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    border-left: 0.3px solid #CCC;
+    padding-left: 1.7rem;
+}
+
+.QuizzesContentBodyHeader{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+#QCHeader{
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* .QuizzesContentBodyHeader{
+    font-size: 30px;
+} */

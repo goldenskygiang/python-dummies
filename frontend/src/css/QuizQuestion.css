@@ -1,0 +1,56 @@
+.QuizQuestion{
+    border:0.5px solid #AAA;
+    padding: 0.8rem;
+    padding-left: 1rem;
+    /* background-color:red; */
+    margin-top: 1.5rem;
+    border-radius: 0.5px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    /* display: inline-block */
+}
+
+.WordQuestion{
+    width: 100%;
+    /* text-align: left; */
+}
+
+.Code{
+    border: 0.4px solid #DDD;
+    width: 95%;
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.Options{
+    width: 100%;
+}
+
+.Options .Anser{
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.TickBtn{
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    margin-top: 0.25rem;
+    margin-left: 0.3rem;
+    margin-right: 0.8rem;
+}
+
+.TickBtn:hover{
+    cursor: pointer;
+}
+
+.TickBtnClicked{
+    background-color: #60E760;
+}
+
+.CodeStyle{
+    width: 100%;
+}
