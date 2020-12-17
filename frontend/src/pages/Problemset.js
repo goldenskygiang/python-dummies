@@ -5,7 +5,7 @@ import Footer from '../components/Footer.js';
 // import LessonList from '../components/LessonList.js';
 // import LessonContent from '../components/LessonContent.js';
 
-export default class Homepage extends Component {
+export default class Problemset extends Component {
   constructor(props) {
     super(props);
   }

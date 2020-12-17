@@ -3,8 +3,9 @@
 	height: 100%;
     /* display: block; */
     border: 1px solid #000;
-    margin-right: 2rem;
-    margin-left: 0.5rem;
+    border-top: none;
+    margin-right: 4.5rem;
+    margin-left: 0.8rem;
     border-left-color: rgba(0,0,0,0.3);
 }
 
@@ -13,13 +14,19 @@ h1 {
 }
 
 .LessonName{
+    width: 100%;
     background-color: #346E9F;
     color: #FFF;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     position: relative;
-    height: 4rem;
+    height: 11.6%;
     border-top: 1px solid #C83538;
+}
+
+.PPTViewer{
+    height: 88.5%;
+    border: 2px solid #000;
 }
 
 .LessonName span{
@@ -28,7 +35,7 @@ h1 {
 
 .LessonName .Logo{
     position:absolute;
-    top: -3.1rem;
+    top: -3.05rem;
     left: -4rem;
 }
 

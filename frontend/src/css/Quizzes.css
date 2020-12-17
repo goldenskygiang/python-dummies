@@ -1,8 +1,15 @@
 .QuizzesBody{
-    width: 100%;
 	/* display: flex;
     flex-direction: row; */
+    margin: auto;
+    width: 60%;
+
     margin-top: 2rem;
     margin-bottom: 2rem;
-    height: 50vh;
+
+    /* height: 50vh; */
+}
+
+.QuizzesBodyHeader{
+    font-size: 30px;
 }

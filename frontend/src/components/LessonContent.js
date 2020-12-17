@@ -1,4 +1,6 @@
-import React, { Component } from "react";
+import React, { Component , PropTypes} from "react";
+import ReactDOM from 'react-dom'
+
 import "../css/LessonContent.css";
 
 import start_logo_fix from "../imgs/start_logo_fix.png"
@@ -8,18 +10,21 @@ export default class LessonContent extends Component {
     super(props);
   }
 
+
   render() {
     return(
       <div className="LessonContent">
         <div className = "LessonName">
-            <span> Name of the lesson here</span>
+            <span> Name of the lesson </span>
             <div className = 'Logo'>
                 <img src={start_logo_fix}/>
             </div>
         </div>
-        <iframe src="https://vinuniversity-my.sharepoint.com/personal/20giang_vt_vinuni_edu_vn/_layouts/15/Doc.aspx?sourcedoc={f8001601-5c07-44d6-9d91-0faca5824c3c}&action=embedview&wdAr=1.7781512605042016" width="962px" height="565px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
-        
+
+        <div className = 'PPTViewer'>
+        <iframe src= "https://onedrive.live.com/embed?cid=5A0CD3B83567DE0F&amp;resid=5A0CD3B83567DE0F%21107&amp;authkey=AC7RLG7n35wooTo&amp;em=2&amp;wdAr=1.7777777777777777" width={'100%'} height={'100%'} frameBorder={'0'}>This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
         </div>
+      </div>
     );
   }
 }

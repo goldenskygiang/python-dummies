@@ -1,0 +1,34 @@
+.QuizItem{
+    border:1px solid #DDD;
+    padding: 0.8rem;
+    /* background-color:red; */
+    margin-top: 1.5rem;
+    height: 9rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    /* display: inline-block */
+}
+
+.ItemLeft{
+    width: 25%;
+    background-color: green;
+    /* display: inline-block */
+}
+
+.ItemRight{
+    /* background-color: blue; */
+    width: 75%;
+    /* display: inline-block */
+    text-align: left;
+    font-size: 20px;
+    padding-left: 1.5rem;
+}
+
+.QuizItemDescription span{
+    font-size: 15px;
+}
+
+.QuizItem:hover{
+    cursor: pointer;
+}

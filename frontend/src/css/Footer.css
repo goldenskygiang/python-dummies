@@ -9,10 +9,11 @@
     font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
 	padding-top: 15px;
 	overflow: hidden;
-	position: fixed;
+	/* position: fixed;
     bottom: 0px;
     left: 0px;
-    right: 0px;
+	right: 0px; */
+	/* display: block; */
 }
 
 

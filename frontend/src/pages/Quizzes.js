@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import "../css/Quizzes.css";
 import Navbar from "../components/Navbar.js";
 import Footer from '../components/Footer.js';
+import QuizItem from '../components/QuizItem.js';
 // import LessonList from '../components/LessonList.js';
 // import LessonContent from '../components/LessonContent.js';
 
-export default class Homepage extends Component {
+export default class Quizzes extends Component {
   constructor(props) {
     super(props);
   }
@@ -18,12 +19,13 @@ export default class Homepage extends Component {
         </div>
 
         <div className="QuizzesBody">
-          {/* <News></News>
-          {!localStorage.getItem('user') && <Login></Login>}
-          {localStorage.getItem('user') &&  <Profile></Profile>} */}
+          <div className="QuizzesBodyHeader">
+            <span>This is quizzes header</span>
+          </div>
 
-          {/* <LessonList></LessonList>
-          <LessonContent></LessonContent> */}
+          <QuizItem></QuizItem>
+          <QuizItem></QuizItem>
+          <QuizItem></QuizItem>
 
         </div>
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../css/LessonItem.css';
 
-export default class InsideNews extends Component {
+export default class LessonItem extends Component {
 	constructor(props) {
 		super(props);
 	}
