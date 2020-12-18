@@ -3,37 +3,39 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    college = models.CharField()
+    college = models.CharField(max_length=200)
 
 class Lesson(models.Model):
-    title = models.CharField()
+    title = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
-    embed_url = models.CharField()
-    description = models.CharField()
+    embed_url = models.CharField(max_length=500)
+    description = models.CharField(max_length=500)
 
     def __str__(self):
         return self.title
 
 class Problem(models.Model):
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
-    title = models.CharField()
-    link = models.CharField()
-    description = models.CharField()
+    title = models.CharField(max_length=100)
+    link = models.CharField(max_length=100)
+    description = models.CharField(max_length=500)
 
 class Quiz(models.Model):
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
-    title = models.CharField()
+    img = models.ImageField()
+    title = models.CharField(max_length=100)
 
     def __str__(self):
         return self.title
 
 class Question(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
-    question_text = models.CharField()
+    img = models.ImageField()
+    question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
 
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField()
+    choice_text = models.CharField(max_length=200)
     choice_img = models.ImageField()
     is_correct = models.BooleanField()
