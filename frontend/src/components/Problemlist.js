@@ -24,15 +24,15 @@ export default class Problemlist extends Component {
 						</tr>
 
                         <tr>
-                            <td><a href = "#">P001</a></td>
-                            <td><a href = "#">Problem Practice 1</a></td>
+                            <td><a href = "/Problemset/P001">P001</a></td>
+                            <td><a href = "/Problemset/P001">Problem Practice 1</a></td>
                             <td>While loop</td>
                             <td>2/5</td>
                         </tr>
 
                         <tr>
-                            <td><a href = "#">P001</a></td>
-                            <td><a href = "#">Problem Practice 1</a></td>
+                            <td><a href = "/Problemset/P002">P002</a></td>
+                            <td><a href = "/Problemset/P002">Problem Practice 2</a></td>
                             <td>While loop</td>
                             <td>2/5</td>
                         </tr>

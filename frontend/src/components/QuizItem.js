@@ -7,13 +7,13 @@ export default class QuizItem extends Component {
   }
 
   redirect(id){
-    window.location.href = '/Quizzes/1'
+    window.location.href = '/Quizzes/' + id
   }
 
   render() {
     // const {name} = this.props
     return (
-      <div className="QuizItem" onClick = {this.redirect.bind(this)}>
+      <div className="QuizItem" onClick = {this.redirect.bind(this,'1')}>
         {/* <span>{name}</span> */}
         <div className="ItemLeft"></div>
         <div className="ItemRight">

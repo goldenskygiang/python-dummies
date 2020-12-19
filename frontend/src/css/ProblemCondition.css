@@ -1,0 +1,65 @@
+.ProblemCondition {
+    margin: 0 0 0 2rem;
+    border: 1px solid rgba(0,0,0,0.2);
+    background: #f3f5f8 !important;
+    border-radius: 5px !important;
+    width: 24%;
+    height: 60vh;
+    /* padding: 0.5rem 0; */
+  }
+
+.ProblemConditionHeader{
+    border-bottom: 1px solid #ccc;
+    text-align:left;
+    padding: 0.3rem 0 0.4rem 0.5rem;
+    background: #3174AE;
+    border: 1px solid #3174AE;
+    color: #FFF;
+    font-size:15px;
+}
+
+.ProblemScore{
+    font-size: 24px;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 0.5px solid #ccc;
+    margin: 0 1rem 0 1rem;
+}
+
+.ProblemInfo{
+    width: 100%;
+    padding-left: 2rem;
+    padding-top: 1rem;
+    /* padding-bottom: 1rem;
+    border-bottom: 0.5px solid #ccc; */
+}
+
+.ProblemInfo table{
+    width: 100%;
+    padding-top: 5px;
+    opacity: 0.7;
+}
+
+.ProblemInfo table td{
+    text-align: left;
+}
+
+.ProblemSubmit{
+    margin-left: 2rem;
+    margin-right: 2rem;
+    background: #419641;
+    color: #FFF;
+    border: 0.5px solid #ccc;
+    border-radius: 5px;
+    padding-top: 0.3rem;
+    padding-bottom: 0.4rem;
+    font-size:18px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.ProblemSubmit:hover{
+    cursor: pointer;
+    /* background-color: #CCC; */
+    opacity: 0.7;
+}
