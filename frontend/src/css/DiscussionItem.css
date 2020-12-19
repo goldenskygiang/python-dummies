@@ -1,0 +1,52 @@
+.DiscussionItem{
+    border-top:0.5px solid #999;
+    padding: 1.2rem 0 0.8rem 0.8rem;
+    /* background-color:red; */
+    margin-top: 1.5rem;
+    /* height: 9rem; */
+    display: flex;
+    flex-direction: row;
+    /* display: inline-block */
+}
+
+.DiscussionItemLeft{
+    border-radius: 50%;
+    margin: 0 auto;
+    /* margin-top: 0.5rem; */
+	display: block;
+	width: 65px;
+	height: 65px;
+	border: 1px solid #aaa;
+	position: relative;
+}
+
+.DiscussionItemRight{
+    /* background-color: blue; */
+    width: 90%;
+    /* display: inline-block */
+    text-align: left;
+    font-size: 15px;
+    /* font-weight: 700; */
+    padding-left: 1.5rem;
+}
+
+.DiscussionItemComment {
+    font-size: 14px;
+    margin-top: 0.2rem;
+}
+
+.CommentDate {
+    margin-left: 0.5rem;
+    font-size: 13px;
+}
+
+.DiscusstionItemReply{
+    font-size: 12px;
+    opacity: 0.8;
+    margin-top: 3px;
+}
+
+.DiscusstionItemReply:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

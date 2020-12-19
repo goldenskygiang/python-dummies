@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../css/ProblemDescription.css";
+import Discussion from "./Discussion.js"
 
 export default class ProblemDescription extends Component {
   constructor(props) {
@@ -54,6 +55,8 @@ Output:
             <div className = "ProblemDescriptionSubmit" onClick = {this.moveToSubmit.bind(this,'P001')}>
                 <span>Submit</span>
             </div>
+
+            <Discussion></Discussion>
 
       </div>
     );
