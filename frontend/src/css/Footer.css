@@ -1,44 +1,37 @@
-.footer-distributed{
-    /* background-color: #292c2f; */
-    border-top: 1px solid rgba(0,0,0,0.3);
-	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-	box-sizing: border-box;
-    width: 100%;
-    height: 5rem;
-    font-size: 14px;
-    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
-	padding-top: 15px;
-	overflow: hidden;
-	/* position: fixed;
+.footer-distributed {
+  /* background-color: #292c2f; */
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  width: 100%;
+  height: 5rem;
+  font-size: 14px;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  padding-top: 15px;
+  overflow: hidden;
+  /* position: fixed;
     bottom: 0px;
     left: 0px;
 	right: 0px; */
-	/* display: block; */
+  /* display: block; */
 }
-
-
-
 
 /* If you don't want the footer to be responsive, remove these media queries */
 @media (max-width: 1000px) {
-
-	.footer-distributed {
-		font: bold 14px sans-serif;
-	}
+  .footer-distributed {
+    font: bold 14px sans-serif;
+  }
 }
 
 @media (max-width: 800px) {
-
-	.footer-distributed{
-		padding: 30px;
-	}
-
+  .footer-distributed {
+    padding: 30px;
+  }
 }
 
-.block{
-    display: block;
+.block {
+  display: block;
 }
 
-.text-center{
-
+.text-center {
 }

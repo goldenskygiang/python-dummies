@@ -9,26 +9,15 @@ export default class Navbar extends Component {
 
   render() {
     return (
-      <div className="Navbar">
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarTogglerDemo03"
-            aria-controls="navbarTogglerDemo03"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-
+      <nav className="navbar navbar-expand-lg">
+        <div className="nav-links">
           <a className="navbar-brand" href="/">
             PYTHON DUMMIES
           </a>
 
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+          {/* <span className="navbar-text"> <a className="login" href="#">Log In</a></span> */}
+          <div className="collapse navbar-collapse" id="navbarToggler">
+            <ul className="navbar-nav mr-auto mt-2 mt-lg-0 nav-link-container">
               <li className="nav-item active">
                 <a className="nav-link" href="/Problemset">
                   Problemset<span className="sr-only"></span>
@@ -42,17 +31,33 @@ export default class Navbar extends Component {
               </li>
             </ul>
           </div>
-          {/* <span className="navbar-text"> <a className="login" href="#">Log In</a></span> */}
-          <button className="btn btn-light btn_css btn-sm">Login</button>
+        </div>
+        <div className="nav-btns">
+          <button className="btn btn--login">Login</button>
           <a
-            className="btn btn-light action-button btn_css btn-sm"
+            className="btn btn--signup action-button"
             role="button"
             href="#"
           >
             Sign Up
           </a>
-        </nav>
-      </div>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarToggler"
+            aria-controls="navbarToggler"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon">
+              <div className="bar"></div>
+              <div className="bar"></div>
+              <div className="bar3"></div>
+            </span>
+          </button>
+        </div>
+      </nav>
     );
   }
 }

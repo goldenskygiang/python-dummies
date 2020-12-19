@@ -1,19 +1,74 @@
-.navbar{
-    background: linear-gradient(135deg, #172a74, #21a9af);
+.navbar {
+  background: linear-gradient(135deg, #172a74, #21a9af);
+  display: flex;
+  justify-content: space-between;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
-.navbar-text{
-    margin-right: 3rem;
+.navbar-text {
+  margin-right: 3rem;
 }
 
-.navbar-brand{
-    margin-left: 2rem;
+.navbar-brand {
+  font-weight: bold;
+  letter-spacing: 0.3em;
+  font-size: 1.4em;
+  color: #fcad17;
+}
+
+.navbar-brand:hover {
+  color: #fcad17;;
+}
+
+.nav-links {
+  display: flex;
+  width: 40%;
+}
+
+.nav-link-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
 .nav-link {
-    margin-left: 2rem;
+  font-size: 1em;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  font-family: "Montserrat", sans-serif;
+  color: #D8DEE9;
+  text-shadow: 0 0 0 0 0 #fcad17;
+  transition: text-shadow ease-in-out 0.2s;
 }
 
-.btn_css{
-    margin-right: 20px;
+.nav-link:hover {
+  color: #E5E9F0;
+  text-shadow: 0 0 0.5em #fcad17;
+}
+
+.nav-btns .btn {
+  margin-left: 1em;
+  border-radius: 0%;
+  min-width: 6em;
+  color: #E5E9F0;
+  border: 1px #fcad17 solid;
+}
+
+.nav-btns .btn:hover {
+  box-shadow: 0 0 0.3em 0.05em #fcad17;
+}
+
+.nav-btns .btn:active,
+.nav-btns .btn:focus {
+  box-shadow: 0 0 0.3em 0.2em #fcad17;
+}
+
+.nav-btns .btn--login {
+  color: #E5E9F0;
+}
+
+.nav-btns .btn--signup {
+  background-color: #fcad17;
+  color: #2E3440;
 }
