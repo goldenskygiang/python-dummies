@@ -1,22 +1,17 @@
 import React, { Component } from "react";
 import "../css/ProblemContent.css";
-import Navbar from "../components/Navbar.js";
-import Footer from '../components/Footer.js';
-import ProblemDescription from '../components/ProblemDescription.js';
-import ProblemCondition from '../components/ProblemCondition.js';
+import Layout from "../components/Layout";
+import ProblemDescription from "../components/ProblemDescription.js";
+import ProblemCondition from "../components/ProblemCondition.js";
 
 export default class ProblemContent extends Component {
   constructor(props) {
     super(props);
   }
 
-  render(){
+  render() {
     return (
-      <div className="ProblemContent">
-        <div className="ProblemContentHeader">
-          <Navbar></Navbar>
-        </div>
-
+      <Layout>
         <div className="ProblemContentBody">
           <ProblemDescription></ProblemDescription>
           {/* <Login></Login> */}
@@ -24,11 +19,7 @@ export default class ProblemContent extends Component {
           {/* {!localStorage.getItem('user') && <Login></Login>}
           {localStorage.getItem('user') &&  <Profile></Profile>} */}
         </div>
-
-        <div className ="ProblemContentFooter">
-          <Footer></Footer>
-        </div>
-      </div>
+      </Layout>
     );
   }
 }

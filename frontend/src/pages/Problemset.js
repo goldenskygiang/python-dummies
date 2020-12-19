@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "../css/Problemset.css";
-import Navbar from "../components/Navbar.js";
-import Footer from '../components/Footer.js';
+import Layout from "../components/Layout";
 import Problemlist from '../components/Problemlist.js';
 import Profile from '../components/Profile.js';
 
@@ -12,10 +11,7 @@ export default class Problemset extends Component {
 
   render(){
     return (
-      <div className="Problemset">
-        <div className="ProblemsetHeader">
-          <Navbar></Navbar>
-        </div>
+      <Layout>
 
         <div className="ProblemsetBody">
           <Problemlist></Problemlist>
@@ -25,10 +21,7 @@ export default class Problemset extends Component {
           {localStorage.getItem('user') &&  <Profile></Profile>} */}
         </div>
 
-        <div className ="ProblemsetFooter">
-          <Footer></Footer>
-        </div>
-      </div>
+      </Layout>
     );
   }
 }
