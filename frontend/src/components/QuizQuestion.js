@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import "../css/QuizQuestion.css";
-import Code from '../imgs/code.PNG'
+// import Code from '../imgs/code.PNG'
+import Highlight from '../components/Highlight'
+
+const Code = `\
+print("Hello World")
+`
 
 export default class QuizQuestion extends Component {
   constructor(props) {
@@ -30,9 +35,12 @@ export default class QuizQuestion extends Component {
             <span>1. What is the output of the following display() function call</span>
         </div>
 
-        <div className = "Code">
+        {/* <div className = "Code">
             <img className = 'CodeStyle' src = {Code}></img>
-        </div>
+        </div> */}
+        <Highlight language="python">
+          {Code}
+        </Highlight>
 
         <div className = "Options">
             <div className = "Anser">

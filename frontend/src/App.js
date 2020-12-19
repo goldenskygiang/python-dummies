@@ -2,17 +2,22 @@ import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+// Init hightlightjs for python from the start
+import hljs from "highlight.js/lib/core";
+import python from "highlight.js/lib/languages/python";
+
 import Homepage from "./pages/Homepage.js";
 import Problemset from "./pages/Problemset.js";
 import Quizzes from "./pages/Quizzes.js";
-import QuizzesContent from "./pages/QuizzesContent.js"
-import ProblemContent from "./pages/ProblemContent.js"
-import Submit from "./pages/Submit.js"
-
+import QuizzesContent from "./pages/QuizzesContent.js";
+import ProblemContent from "./pages/ProblemContent.js";
+import Submit from "./pages/Submit.js";
 
 class App extends Component {
   constructor() {
     super();
+    hljs.initHighlightingOnLoad();
+    hljs.registerLanguage("python", python);
   }
 
   render() {
