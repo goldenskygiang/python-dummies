@@ -1,0 +1,38 @@
+.Profile {
+    margin: 76px 10px 0 1.5rem;
+    border: 1px solid rgba(0,0,0,0.2);
+    background: #f3f5f8 !important;
+    border-radius: 5px !important;
+    width: 24%;
+    height: 75vh;
+    padding: 1rem 0;
+  }
+  
+  .Profile a {
+    color: #111;
+  }
+
+  .UserInfoName{
+    margin-top: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .Information {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+
+  .Information a:visited {
+    color: #111;
+  }
+  
+  .UserInfo {
+    margin-bottom: 10px;
+  }
+  

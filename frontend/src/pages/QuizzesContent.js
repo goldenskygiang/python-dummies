@@ -28,7 +28,7 @@ export default class QuizzesContent extends Component {
           <QuizQuestion></QuizQuestion>
 
           <div className = "Summited">
-              
+              <span>Submit</span>
           </div>
 
         </div>

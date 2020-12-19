@@ -24,3 +24,18 @@
 /* .QuizzesContentBodyHeader{
     font-size: 30px;
 } */
+
+.Summited{
+    border: 0.5px solid #000;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    font-size:18px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.Summited:hover{
+    cursor: pointer;
+    background-color: #CCC;
+}
+

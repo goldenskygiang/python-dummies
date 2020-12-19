@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import "../css/Problemset.css";
 import Navbar from "../components/Navbar.js";
 import Footer from '../components/Footer.js';
-// import LessonList from '../components/LessonList.js';
-// import LessonContent from '../components/LessonContent.js';
+import Problemlist from '../components/Problemlist.js';
+import Profile from '../components/Profile.js';
 
 export default class Problemset extends Component {
   constructor(props) {
@@ -18,13 +18,11 @@ export default class Problemset extends Component {
         </div>
 
         <div className="ProblemsetBody">
-          {/* <News></News>
-          {!localStorage.getItem('user') && <Login></Login>}
+          <Problemlist></Problemlist>
+          {/* <Login></Login> */}
+          <Profile></Profile>
+          {/* {!localStorage.getItem('user') && <Login></Login>}
           {localStorage.getItem('user') &&  <Profile></Profile>} */}
-
-          {/* <LessonList></LessonList>
-          <LessonContent></LessonContent> */}
-
         </div>
 
         <div className ="ProblemsetFooter">
