@@ -1,44 +1,52 @@
-import React, { Component } from "react";
+import React, { useState, useRef } from "react";
 import "../css/Submit.css";
-import Navbar from "../components/Navbar.js";
-import Footer from '../components/Footer.js';
-import Editor from "../components/Editor.js"
+import Layout from "../components/Layout";
+import Editor from "@monaco-editor/react";
+import { FillSpinner as Loader } from "react-spinners-kit";
 
-export default class Submit extends Component {
-  constructor(props) {
-    super(props);
+const Submit = () => {
+  // Will add change theme system
+  const theme = "dark";
+  const language = "python";
+  const [isEditorReady, setIsEditorReady] = useState(false);
+  const valueGetter = useRef();
+
+  const handleEditorDidMount = (_valueGetter) => {
+    setIsEditorReady(true);
+    valueGetter.current = _valueGetter;
+  };
+
+  const getValue = () => {
+    return valueGetter.current;
   }
 
-  render(){
-    return (
-      <div className="Submit">
-        <div className="SubmitHeader">
-          <Navbar></Navbar>
+  return (
+    <Layout>
+      <div className="SubmitBody">
+        <div className="SubmitTitle">
+          <span>Submit a solution</span>
         </div>
 
-        <div className="SubmitBody">
-          <div className = "SubmitTitle">
-              <span>Submit a solution</span>
-          </div>
-
-          <div className = "SubmitProblemId">
-              <span className = "SubmitProblemIdTitle">Problem code</span>
-              <span className = "SubmitProblemIdId">P001</span>
-          </div>
-
-          <div className = "SubmitLanguage">
-              <span className = "SubmitLanguageTitle">Language</span>
-              <span className = "SubmitLanguageLanguage">Python</span>
-          </div>
-
-          {/* <Editor></Editor> */}
-
+        <div className="SubmitProblemId">
+          <span className="SubmitProblemIdTitle">Problem code</span>
+          <span className="SubmitProblemIdId">P001</span>
         </div>
 
-        <div className ="SubmitFooter">
-          <Footer></Footer>
+        <div className="SubmitLanguage">
+          <span className="SubmitLanguageTitle">Language</span>
+          <span className="SubmitLanguageLanguage">Python</span>
         </div>
+
+        <Editor
+          height="90vh" // By default, it fully fits with its parent
+          theme={theme}
+          language={language}
+          loading={<Loader frontColor="#3dc9b0" backColor="#202124" />}
+          editorDidMount={handleEditorDidMount}
+        />
       </div>
-    );
-  }
-}
+    </Layout>
+  );
+};
+
+export default Submit;
