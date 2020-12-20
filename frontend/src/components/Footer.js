@@ -12,15 +12,18 @@ export default class Footer extends Component {
 
   render() {
     return (
-      <footer className="footer-distributed text-center">
-        <span className="block">
-          PYTHON DUMMIES Front-end, developed by Nguyen Thai Hung, Tran Huong
-          Lan
-        </span>
+      // <footer className="footer-distributed text-center">
+      //   <span className="block">
+      //     PYTHON DUMMIES Front-end, developed by Nguyen Thai Hung, Tran Huong
+      //     Lan
+      //   </span>
 
-        <span className="block">
-          PYTHON DUMMIES Back-end, developed by Vu Truong Giang
-        </span>
+      //   <span className="block">
+      //     PYTHON DUMMIES Back-end, developed by Vu Truong Giang
+      //   </span>
+      // </footer>
+      <footer className = "footer-distributed">
+
       </footer>
     );
   }

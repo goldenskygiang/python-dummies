@@ -36,14 +36,20 @@ const Submit = () => {
           <span className="SubmitLanguageTitle">Language</span>
           <span className="SubmitLanguageLanguage">Python</span>
         </div>
+        
+        <div className = "SubmitEditor">
+            <div className = "SubmitEditorHeader">
+                <span>Insert your source code</span>
+            </div>
 
-        <Editor
-          height="90vh" // By default, it fully fits with its parent
-          theme={theme}
-          language={language}
-          loading={<Loader frontColor="#3dc9b0" backColor="#202124" />}
-          editorDidMount={handleEditorDidMount}
-        />
+            <Editor
+            height="80vh" // By default, it fully fits with its parent
+            theme={theme}
+            language={language}
+            loading={<Loader frontColor="#3dc9b0" backColor="#202124" />}
+            editorDidMount={handleEditorDidMount}
+            />
+        </div>
       </div>
     </Layout>
   );
