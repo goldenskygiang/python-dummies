@@ -10,8 +10,9 @@ export default class Profile extends Component {
   render() {
     return (
       <div className="Profile">
-        {/* <InsideProfile></InsideProfile> */}
+        <div className = "ProfileHeader">
 
+        </div>
         <Avatar
         //   Ava={this.state.Avatar}
         //   id={localStorage.getItem("userId")}
@@ -20,9 +21,28 @@ export default class Profile extends Component {
         <div className="Information">
           <div className="UserInfo">
             <div className = "UserInfoName">Random user</div>
-            <span style={{ fontWeight: "300", fontSize: "1rem" }}>
+            <span style={{ fontWeight: "300", fontSize: "0.9rem" }}>
               Newbie
             </span>
+            <div className = "UserOtherInfo">
+                <table className = "UserOtherInfoTable">
+                    <tr>
+                        <td>Group: Year 2020</td>
+                    </tr>
+
+                    <tr>
+                        <td>Score: 0</td>
+                    </tr>
+
+                    <tr>
+                        <td>Edit</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Logout</td>
+                    </tr>
+                </table>
+            </div>
           </div>
         </div>
       </div>

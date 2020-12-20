@@ -1,7 +1,8 @@
 .ProblemCondition {
     margin: 0 0 0 2rem;
     border: 1px solid rgba(0,0,0,0.2);
-    background: #f3f5f8 !important;
+    /* background: #f3f5f8 !important; */
+    background: #fff !important;
     border-radius: 5px !important;
     width: 24%;
     height: 60vh;

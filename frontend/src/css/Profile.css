@@ -1,20 +1,33 @@
 .Profile {
     margin: 76px 10px 0 1.5rem;
-    border: 1px solid rgba(0,0,0,0.2);
-    background: #f3f5f8 !important;
+    border: 1px solid rgba(0,0,0,0.5);
+    background: #FFF !important;
     border-radius: 5px !important;
-    width: 24%;
+    width: 22%;
     height: 75vh;
-    padding: 1rem 0;
+    /* padding: 1rem 0; */
+  }
+
+  .ProfileHeader{
+      width: 100%;
+      height: 2rem;
+      background: #3174AE;
+      margin-bottom: 1rem;
   }
   
   .Profile a {
     color: #111;
   }
 
+  .UserInfo{
+      width: 75%;
+      margin-left:1rem;
+      margin-right:1rem;
+  }
+
   .UserInfoName{
     margin-top: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
   
   .Information {
@@ -35,4 +48,44 @@
   .UserInfo {
     margin-bottom: 10px;
   }
+
+  /* .UserOtherInfo table{
+      width: 100%;
+      border: 0.5px solid #000;
+      margin-top: 1rem;
+      border-radius: 5%;
+      height: 25vh;
+  } */
+
+
+  .UserOtherInfo{
+      border: 0.5px solid #555;
+      border-radius: 7px 7px 0 0;
+      margin-top: 0.7rem;
+  }
+
+
+  .UserOtherInfoTable {
+	width: 100%;
+    height: 25vh;
+	/* border-collapse: collapse; */
+	text-align: center;
+    font-size: 14px;
+  }
+
+  .UserOtherInfo table tr{
+      border-bottom: 0.5px solid #ddd;
+      padding: 0.5rem 0 0.5rem 0;
+  }
+  
+  .UserOtherInfo table tr:last-child{
+      border-bottom: none;
+  }
+
+  .UserOtherInfo table tr:hover{
+      border-bottom: 2px solid #C72127;
+      cursor: pointer;
+      /* opacity: 0.6; */
+  }
+
   
