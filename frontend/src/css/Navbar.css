@@ -1,5 +1,5 @@
 .navbar {
-  background: linear-gradient(135deg, #172a74, #21a9af);
+  background: #1f5b80;
   display: flex;
   justify-content: space-between;
   padding-left: 2rem;
@@ -12,13 +12,14 @@
 
 .navbar-brand {
   font-weight: bold;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.2em;
   font-size: 1.4em;
-  color: #fcad17;
+  color: #cd3c3f;
+  text-shadow: 0 0 0.15rem #80181a;
 }
 
 .navbar-brand:hover {
-  color: #fcad17;;
+  color: #cd3c3f;
 }
 
 .nav-links {
@@ -35,40 +36,39 @@
 .nav-link {
   font-size: 1em;
   font-weight: 500;
-  letter-spacing: 0.2em;
   font-family: "Montserrat", sans-serif;
-  color: #D8DEE9;
-  text-shadow: 0 0 0 0 0 #fcad17;
+  color: #d8dee9;
+  text-shadow: 0 0 0 0 0 #cd3c3f;
   transition: text-shadow ease-in-out 0.2s;
 }
 
 .nav-link:hover {
-  color: #E5E9F0;
-  text-shadow: 0 0 0.5em #fcad17;
+  color: #e5e9f0;
+  text-shadow: 0 0 0.5em #cd3c3f;
 }
 
 .nav-btns .btn {
   margin-left: 1em;
   border-radius: 0%;
   min-width: 6em;
-  color: #E5E9F0;
-  border: 1px #fcad17 solid;
+  color: #e5e9f0;
+  border: 1px #cd3c3f solid;
 }
 
 .nav-btns .btn:hover {
-  box-shadow: 0 0 0.3em 0.05em #fcad17;
+  box-shadow: 0 0 0.3em 0.05em #cd3c3f;
 }
 
 .nav-btns .btn:active,
 .nav-btns .btn:focus {
-  box-shadow: 0 0 0.3em 0.2em #fcad17;
+  box-shadow: 0 0 0.3em 0.2em #cd3c3f;
 }
 
 .nav-btns .btn--login {
-  color: #E5E9F0;
+  color: #e5e9f0;
 }
 
 .nav-btns .btn--signup {
-  background-color: #fcad17;
-  color: #2E3440;
+  background-color: #cd3c3f;
+  color: #e5e9f0;
 }
