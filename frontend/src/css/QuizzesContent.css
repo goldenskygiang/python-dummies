@@ -1,11 +1,30 @@
+.QuizzesContent{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+
 .QuizzesContentBody{
-    margin: auto;
+    margin: 0 0 0 3rem;
     width: 60%;
 
     margin-bottom: 2rem;
 
     border-left: 0.3px solid #CCC;
     padding-left: 1.7rem;
+
+    position: relative;
+}
+
+.QuizzesMask{
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    background: #fff;
+    top: 7rem;
+    left: 1rem;
+    /* opacity: 0.8; */
 }
 
 .QuizzesContentBodyHeader{
@@ -24,17 +43,20 @@
     font-size: 30px;
 } */
 
-.Summited{
-    border: 0.5px solid #000;
+.QuizzesSummited{
+    width: 100%;
+    background: #419641;
+    color: #FFF;
+    border: 0.5px solid #ccc;
+    border-radius: 5px;
     padding-top: 0.3rem;
-    padding-bottom: 0.3rem;
+    padding-bottom: 0.4rem;
     font-size:18px;
     margin-top: 1rem;
-    margin-bottom: 1rem;
 }
 
-.Summited:hover{
+.QuizzesSummited:hover{
     cursor: pointer;
-    background-color: #CCC;
+    opacity: 0.7;
 }
 
