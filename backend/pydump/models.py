@@ -20,6 +20,13 @@ class Problem(models.Model):
     link = models.CharField(max_length=100)
     description = models.CharField(max_length=500)
 
+class Submission(models.Model):
+    problem = models.ForeignKey(Problem, on_delete=models.CASCADE)
+    score = models.FloatField()
+    maxscore = models.FloatField()
+    author = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    date = models.DateTimeField('date submitted')
+
 class Quiz(models.Model):
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
     img = models.ImageField()

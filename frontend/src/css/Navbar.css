@@ -1,5 +1,6 @@
 .navbar {
-  background: #1f5b80;
+  /* background: #1f5b80; */
+  background: #346E9F;
   display: flex;
   justify-content: space-between;
   padding-left: 2rem;
@@ -12,14 +13,18 @@
 
 .navbar-brand {
   font-weight: bold;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
   font-size: 1.4em;
-  color: #cd3c3f;
+  /* color: #cd3c3f; */
+  /* color: #CD3C3F; */
+  /* color: yellow; */
+  color: rgba(238, 227, 69, 0.9);
   text-shadow: 0 0 0.15rem #80181a;
 }
 
 .navbar-brand:hover {
-  color: #cd3c3f;
+  /* color: #cd3c3f; */
+  color: #419641;
 }
 
 .nav-links {

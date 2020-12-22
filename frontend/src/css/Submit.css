@@ -54,10 +54,21 @@
     font-weight: 700;
 }
 
+
 .SubmitLanguageLanguage{
     width: 100%;
     border: 0.5px solid #bbb;
     border-radius: 5px;
     padding: 5px 0 5px 10px;
     margin-top: 0.5rem;
+}
+
+.SubmitEditor{
+    width: 100%;
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.SubmitEditorHeader{
+    margin-bottom: 0.7rem;
 }
