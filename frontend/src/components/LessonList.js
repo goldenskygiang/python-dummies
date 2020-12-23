@@ -8,6 +8,7 @@ export default class LessonList extends Component {
   }
 
   render() {
+    const {Lessons} = this.props;
     return (
       <div className="LessonList">
         <div className="LessonListHeader">
@@ -15,9 +16,12 @@ export default class LessonList extends Component {
         </div>
 
         <div className="LessonListBody">
-          <LessonItem name="Lesson 1"></LessonItem>
+        {
+          Lessons.map(lesson =><LessonItem name={lesson.title}></LessonItem>)
+        }
+          {/* <LessonItem name="Lesson 1"></LessonItem>
           <LessonItem name="Lesson 2"></LessonItem>
-          <LessonItem name="Lesson 3"></LessonItem>
+          <LessonItem name="Lesson 3"></LessonItem> */}
         </div>
       </div>
     );

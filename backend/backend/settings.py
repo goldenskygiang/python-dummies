@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '22e8bdb3c924.ngrok.io',
-    '127.0.0.1'
+    '127.0.0.1',
+    'http://localhost:3000'
 ]
 
 
@@ -127,5 +128,5 @@ STATIC_URL = '/static/'
 
 CORS_ORIGIN_WHITELIST = (
     'https://localhost:3000',
-    'https://localhost:3000'
+    'http://localhost:3000'
  )

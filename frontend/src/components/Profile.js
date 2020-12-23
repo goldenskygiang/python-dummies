@@ -34,11 +34,11 @@ export default class Profile extends Component {
                         <td>Score: 0</td>
                     </tr>
 
-                    <tr>
+                    <tr className = "UserOtherInfoHover">
                         <td>Edit</td>
                     </tr>
                     
-                    <tr>
+                    <tr className = "UserOtherInfoHover">
                         <td>Logout</td>
                     </tr>
                 </table>

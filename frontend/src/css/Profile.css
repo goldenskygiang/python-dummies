@@ -82,7 +82,7 @@
       border-bottom: none;
   }
 
-  .UserOtherInfo table tr:hover{
+  .UserOtherInfoHover:hover{
       border-bottom: 2px solid #C72127;
       cursor: pointer;
       /* opacity: 0.6; */
