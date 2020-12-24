@@ -20,6 +20,10 @@ from pydump import views
 
 router = routers.DefaultRouter()
 router.register(r'lessons', views.LessonView, 'lessons')
+router.register(r'quizzes', views.QuizView, 'quizzes')
+router.register(r'problems', views.ProblemsView, 'problems')
+router.register(r'discussions', views.DiscussionsView, 'discussions')
+#router.register(r'accounts/register', views.RegisterView, 'register_account')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
