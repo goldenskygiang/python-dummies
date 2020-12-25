@@ -12,7 +12,7 @@ export default class LessonList extends Component {
   }
 
   render() {
-    const {Lessons, setContent} = this.props;
+    const {Lessons, setContent, LessonId} = this.props;
     return (
       <div className="LessonList">
         <div className="LessonListHeader">
@@ -21,7 +21,7 @@ export default class LessonList extends Component {
 
         <div className="LessonListBody">
         {
-          Lessons.map(lesson =><LessonItem Lesson = {lesson} setContent = {setContent}></LessonItem>)
+          Lessons.map(lesson =><LessonItem Lesson = {lesson} setContent = {setContent} LessonId = {LessonId}></LessonItem>)
         }
           {/* <LessonItem name="Lesson 1"></LessonItem>
           <LessonItem name="Lesson 2"></LessonItem>

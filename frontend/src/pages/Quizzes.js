@@ -9,7 +9,7 @@ export default class Quizzes extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quizzes: [],
+      Quizzes: [],
     }
   }
 
@@ -20,10 +20,10 @@ export default class Quizzes extends Component {
     })
     axios.get(`http://127.0.0.1:8000/api/quizzes/`)
       .then(res => {
-        const quizzes = res.data;
-        console.log("debug", quizzes)
+        const Quizzes = res.data;
+        console.log("debug", Quizzes)
         this.setState({
-          quizzes: quizzes 
+          Quizzes: Quizzes 
           // isLoading: false
         });
       })
@@ -31,6 +31,7 @@ export default class Quizzes extends Component {
   }
 
   render() {
+    const {Quizzes} = this.state;
     return (
       <Layout>
         <div className="QuizzesBody">
@@ -38,9 +39,10 @@ export default class Quizzes extends Component {
             <span>This is quizzes header</span>
           </div>
 
-          <QuizItem></QuizItem>
-          <QuizItem></QuizItem>
-          <QuizItem></QuizItem>
+          {
+          Quizzes.map(quiz =><QuizItem Quiz = {quiz}></QuizItem>)
+          }
+          
         </div>
       </Layout>
     );
