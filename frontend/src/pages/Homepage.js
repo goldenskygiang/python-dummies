@@ -13,6 +13,7 @@ export default class Homepage extends Component {
       lessons: [],
       emb_url: "",
       LessonName:"",
+      LessonId:0,
       // isLoading: false,
     }
   }
@@ -29,22 +30,23 @@ export default class Homepage extends Component {
           lessons: lessons,
           emb_url: lessons[0].embed_url,
           LessonName: lessons[0].title,
-          // isLoading: false
+          LessonId: lessons[0].id
         });
       })
       .catch(error => console.log(error));
   }
 
 
-  setContent(url, lsname){
+  setContent(url, lsname, lsid){
     this.setState({
       emb_url: url,
       LessonName: lsname,
+      LessonId: lsid
     })
   }
 
   render() {
-    const {lessons, emb_url, LessonName} = this.state;
+    const {lessons, emb_url, LessonName, LessonId} = this.state;
     return (
       <Layout>
         {/* <News></News>
@@ -52,7 +54,7 @@ export default class Homepage extends Component {
           {localStorage.getItem('user') &&  <Profile></Profile>} */}
         {/* {this.state.isLoading && <Loading />} */}
 
-        <LessonList Lessons = {lessons} setContent = {this.setContent.bind(this)}></LessonList>
+        <LessonList Lessons = {lessons} setContent = {this.setContent.bind(this)} LessonId = {LessonId}></LessonList>
         {/* <LessonList Lessons = {lessons}></LessonList> */}
         <LessonContent LessonName = {LessonName} Emb_url = {emb_url}></LessonContent>
         {/* <LessonContent LessonName = {lessons.title}></LessonContent> */}

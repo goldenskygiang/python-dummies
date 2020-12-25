@@ -11,3 +11,11 @@
     border-left: 6px solid #C72127;
     color: #FFF
 }
+
+.LessonItemActive{
+    background-color: rgb(25,65,122);
+    /* opacity: 0.7; */
+    font-weight: bold;
+    border-left: 6px solid #C72127;
+    color: #FFF
+}

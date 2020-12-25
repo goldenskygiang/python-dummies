@@ -6,38 +6,25 @@ export default class LessonItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoading: false
+      isLoading: false,
+      // isActive: false
     }
   }
 
-  async updateContent(url, lsname){
-    await this.props.setContent(url, lsname)
-  }
+  // async updateContent(url, lsname){
+  //   await this.props.setContent(url, lsname)
+  // }
 
-  setContent(url, lsname){
-    this.setState({
-      isLoading:true
-    })
-
+  setContent(url, lsname, lsid){
     console.log("setting content...")
-    // this.props.setContent(url, lsname)
-    this.updateContent(url, lsname).then(
-      () => {
-        this.setState({
-          isLoading:false
-        })
-      }
-    )
-    // this.setState({
-    //   isLoading:false
-    // })
+    this.props.setContent(url, lsname, lsid)
   }
 
   render() {
-    const { Lesson, setContent } = this.props;
-    // let class = 
+    const { Lesson, setContent, LessonId } = this.props;
+    let Class = Lesson.id == LessonId ? "LessonItem LessonItemActive": "LessonItem"
     return (
-      <div className="LessonItem" onClick = {this.setContent.bind(this, Lesson.embed_url, Lesson.title)}>
+      <div className= {Class} onClick = {this.setContent.bind(this, Lesson.embed_url, Lesson.title, Lesson.id)}>
         {this.state.isLoading && <Loading />}
         <span>{Lesson.title}</span>
       </div>

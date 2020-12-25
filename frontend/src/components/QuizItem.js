@@ -11,21 +11,18 @@ export default class QuizItem extends Component {
   }
 
   render() {
-    // const {name} = this.props
+    const {Quiz} = this.props
     return (
-      <div className="QuizItem" onClick = {this.redirect.bind(this,'1')}>
+      <div className="QuizItem" onClick = {this.redirect.bind(this,Quiz.id)}>
         {/* <span>{name}</span> */}
         <div className="ItemLeft"></div>
         <div className="ItemRight">
           <div className="ItemRightName">
-            <span>Lesson 1 Quiz</span>
+            <span>{Quiz.title}</span>
           </div>
           <div className="QuizItemDescription">
             <span>
-              This will be the description. This will be the description.This
-              will be the description. This will be the description. This will
-              be the description. This will be the description.This will be the
-              description. This will be the description.
+              {Quiz.description}
             </span>
           </div>
         </div>

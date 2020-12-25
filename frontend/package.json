@@ -9,6 +9,7 @@
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
     "axios": "^0.21.1",
+    "lodash": "^4.17.20",
     "bootstrap": "^4.5.3",
     "highlight.js": "^10.4.1",
     "interweave": "^12.6.0",

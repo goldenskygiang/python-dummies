@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 import { render } from "react-dom";
 
 import Editor from "@monaco-editor/react";
-import { FillSpinner as Loader } from "react-spinners-kit";
+import { ClapSpinner as Loader } from "react-spinners-kit";
 
 /**
  *
@@ -36,7 +36,7 @@ const CodeEditor = (lessonName, code) => {
       height="90vh" // By default, it fully fits with its parent
       theme={theme}
       language={language}
-      loading={<Loader frontColor="#3dc9b0" backColor="#202124" />}
+      loading={<Loader frontColor="#4278c9" />}
       editorDidMount={handleEditorDidMount}
     />
   );
