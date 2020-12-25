@@ -63,6 +63,7 @@ export default class QuizContentStatus extends Component {
     // Check if we're at zero.
     if (seconds == 0) { 
       clearInterval(this.timer);
+      this.props.SubmitQuiz();
     }
   }
 

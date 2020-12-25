@@ -18,6 +18,10 @@ export default class QuizzesContent extends Component {
     })
   }
 
+  SubmitQuiz(){
+    console.log("Submitting...");
+  }
+
   render() {
     const {QuizStart}  = this.state;
     return (
@@ -41,12 +45,12 @@ export default class QuizzesContent extends Component {
             <QuizQuestion></QuizQuestion>
             <QuizQuestion></QuizQuestion>
 
-            <div className="QuizzesSummited">
+            <div className="QuizzesSummited" onClick = {this.SubmitQuiz.bind(this)}>
               <span>Submit</span>
             </div>
           </div>
 
-          <QuizContentStatus StartQuiz = {this.StartQuiz.bind(this)}/>
+          <QuizContentStatus StartQuiz = {this.StartQuiz.bind(this)} SubmitQuiz = {this.SubmitQuiz.bind(this)}/>
         </div>
       </Layout>
     );

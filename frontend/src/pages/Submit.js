@@ -28,6 +28,10 @@ const Submit = () => {
     let ID = generateRandomUniqeID();
   }
 
+  const ProblemSubmitCode = () => {
+    console.log("Submitting code...")
+  }
+
   return (
     <Layout>
       <div className="SubmitBody">
@@ -57,6 +61,11 @@ const Submit = () => {
             loading={<Loader frontColor="#3dc9b0" backColor="#202124" />}
             editorDidMount={handleEditorDidMount}
             />
+
+
+            <div className = "ProblemSubmitCode" onClick = {ProblemSubmitCode}>
+                <span>Submit</span>
+            </div>
         </div>
       </div>
     </Layout>

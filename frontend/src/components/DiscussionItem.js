@@ -1,14 +1,30 @@
 import React, { Component } from "react";
 import "../css/DiscussionItem.css";
+import Reply from "./Reply.js"
 
 export default class DiscussionItem extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isReply: false,
+      isShowComments: false
+    }
   }
 
+  showReply(){
+    this.setState({
+      isReply: true
+    })
+  }
+
+  changeStateComments(){
+    this.setState({
+      isShowComments: !this.state.isShowComments
+    })
+  }
 
   render() {
-    // const {name} = this.props
+    const {isReply, isShowComments} = this.state;
     return (
       <div className="DiscussionItem">
         {/* <span>{name}</span> */}
@@ -25,9 +41,32 @@ export default class DiscussionItem extends Component {
             </span>
           </div>
 
-          <div className = "DiscusstionItemReply">
-              <span>Reply</span>
+          <div className = "DiscussionItemReply" >
+              <div className = "DiscussionShowReply" 
+                   onClick = {this.showReply.bind(this)}>Reply</div>
+
+              <div className = "DiscussionShowComments" 
+                   onClick = {this.changeStateComments.bind(this)}>Comments (2)</div>
           </div>
+
+          {isReply && 
+            <div>
+              <div className = "DiscussionText">
+                <textarea placeholder = "Reply here"></textarea>
+              </div>
+
+              <div className = "DiscussionSubmit">
+                  <span>Post</span>
+              </div>
+            </div>
+          }
+
+          {isShowComments &&
+          <div>
+            <Reply></Reply>
+            <Reply></Reply> 
+          </div>
+          }
         </div>
       </div>
     );

@@ -1,4 +1,4 @@
-.DiscussionItem{
+.Reply{
     border-top:0.5px solid #999;
     padding: 1.2rem 0 0.8rem 0.8rem;
     /* background-color:red; */
@@ -9,7 +9,7 @@
     /* display: inline-block */
 }
 
-.DiscussionItemLeft{
+.ReplyLeft{
     border-radius: 50%;
     margin: 0 auto;
     /* margin-top: 0.5rem; */
@@ -20,7 +20,7 @@
 	position: relative;
 }
 
-.DiscussionItemRight{
+.ReplyRight{
     /* background-color: blue; */
     width: 90%;
     /* display: inline-block */
@@ -30,7 +30,7 @@
     padding-left: 1.5rem;
 }
 
-.DiscussionItemComment {
+.ReplyComment {
     font-size: 14px;
     margin-top: 0.2rem;
 }
@@ -40,33 +40,13 @@
     font-size: 13px;
 }
 
-.DiscussionItemReply{
+.ReplyReply{
     font-size: 12px;
     opacity: 0.8;
     margin-top: 3px;
-    display: flex;
-    flex-direction: row;
 }
 
-/* .DiscussionItemReply:hover {
-    text-decoration: underline;
-    cursor: pointer;
-} */
-
-.DiscussionItemReply .DiscussionShowComments{
-    margin-left: 1rem;
-}
-
-.DiscussionItemReply .DiscussionShowComments:hover{
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-/* .DiscussionItemReply .DiscussionShowReply{
-    margin-left: 1rem;
-} */
-
-.DiscussionItemReply .DiscussionShowReply:hover{
+.ReplyReply:hover {
     text-decoration: underline;
     cursor: pointer;
 }
