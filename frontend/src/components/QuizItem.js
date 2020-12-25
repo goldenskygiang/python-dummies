@@ -15,7 +15,9 @@ export default class QuizItem extends Component {
     return (
       <div className="QuizItem" onClick = {this.redirect.bind(this,Quiz.id)}>
         {/* <span>{name}</span> */}
-        <div className="ItemLeft"></div>
+        <div className="ItemLeft">
+          <img src = {Quiz.img}></img>
+        </div>
         <div className="ItemRight">
           <div className="ItemRightName">
             <span>{Quiz.title}</span>
