@@ -1,17 +1,13 @@
-import React, { Component } from "react";
-import "../css/Loading.css";
+import React from 'react';
+import { FillSpinner as Loader } from 'react-spinners-kit';
+import "../css/Loading.css"
 
-export default class Loading extends Component {
-  constructor(props) {
-    super(props);
-  }
+const Loading = ({ isLoading }) => {
+  return (
+    <div className={`loading-container ${isLoading ? "" : "finished-loading-container"}`}>
+      <Loader loading={isLoading} color="#2E5288" size={40} />
+    </div>
+  )
+};
 
-  render() {
-    return (
-      <div className="LoadingWrapper">
-        <div className="loadingCover"></div>
-        <div className="loader"></div>
-      </div>
-    );
-  }
-}
+export default Loading;
