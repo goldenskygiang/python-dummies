@@ -1,5 +1,5 @@
 import React from 'react';
-import { FillSpinner as Loader } from 'react-spinners-kit';
+import { ClapSpinner as Loader } from 'react-spinners-kit';
 import "../css/Loading.css"
 
 const Loading = ({ isLoading }) => {

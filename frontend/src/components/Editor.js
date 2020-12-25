@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 import { render } from "react-dom";
 
 import Editor from "@monaco-editor/react";
-import { FillSpinner as Loader } from "react-spinners-kit";
+import { ClapSpinner as Loader } from "react-spinners-kit";
 
 /**
  *
