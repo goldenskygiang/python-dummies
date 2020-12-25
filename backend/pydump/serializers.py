@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Lesson, Quiz, Problem, Discussion
+from .models import *
 
 class LessonSerializer(serializers.ModelSerializer):
   class Meta:
@@ -9,7 +9,17 @@ class LessonSerializer(serializers.ModelSerializer):
 class QuizSerializer(serializers.ModelSerializer):
   class Meta:
     model = Quiz
-    fields = ('id', 'lesson', 'img', 'title')
+    fields = ('id', 'lesson', 'img', 'title', 'question_set')
+
+class QuestionSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Question
+    fields = ('id', 'question_text', 'img', 'choice_set')
+
+class ChoiceSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Choice
+    fields = ('choice_text', 'choice_img')
 
 class ProblemSerializer(serializers.ModelSerializer):
   class Meta:
@@ -19,4 +29,9 @@ class ProblemSerializer(serializers.ModelSerializer):
 class DiscussionSerializer(serializers.ModelSerializer):
   class Meta:
     model = Discussion
-    fields = ('id', 'title', 'author')
+    fields = ('id', 'title', 'author', 'post_set')
+
+class ProblemSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Problem
+    fields = ('id', 'lesson', 'title', 'link', 'description', 'submission_set')
