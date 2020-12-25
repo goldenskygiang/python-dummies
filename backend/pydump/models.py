@@ -38,15 +38,21 @@ class Quiz(models.Model):
 
 class Question(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
-    img = models.ImageField()
+    img = models.ImageField(null=True, blank=True)
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published', auto_now_add=True)
 
+    def __str__(self):
+        return f"{self.quiz.title} - {self.question_text}"
+
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
-    choice_img = models.ImageField()
+    choice_text = models.CharField(max_length=200, null=True, blank=True)
+    choice_img = models.ImageField(null=True, blank=True)
     is_correct = models.BooleanField()
+
+    def __str__(self):
+        return f"{self.question.question_text} - {self.choice_text}"
 
 class Discussion(models.Model):
     title = models.CharField(max_length=200)
