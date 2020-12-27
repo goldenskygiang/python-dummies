@@ -44,7 +44,7 @@ class Question(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
     img = models.ImageField(null=True, blank=True)
     question_text = models.CharField(max_length=200)
-    code = models.TextField()
+    code = models.TextField(null=True, blank=True)
     pub_date = models.DateTimeField('date published', auto_now_add=True)
 
     def __str__(self):
