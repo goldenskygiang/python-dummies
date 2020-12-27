@@ -9,13 +9,13 @@ class LessonSerializer(serializers.ModelSerializer):
 class ChoiceSerializer(serializers.ModelSerializer):
   class Meta:
     model = Choice
-    fields = ('choice_text', 'choice_img')
+    fields = ('choice_text', 'choice_img', 'is_correct')
 
 class QuestionSerializer(serializers.ModelSerializer):
   choice_set = ChoiceSerializer(read_only=True, many=True)
   class Meta:
     model = Question
-    fields = ('id', 'question_text', 'img', 'choice_set')
+    fields = ('id', 'question_text', 'img', 'code', 'choice_set')
 
 class QuizListSerializer(serializers.ModelSerializer):
   class Meta:
