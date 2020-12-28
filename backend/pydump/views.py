@@ -7,17 +7,17 @@ from rest_framework.views import APIView, Response
 from .serializers import *
 from .models import *
 from django.forms import Form
+from rest_framework.parsers import JSONParser
 
 class RegisterView(mixins.CreateModelMixin, viewsets.GenericViewSet):
     serializer_class = UserSerializer
     queryset = User.objects.all()
 
     def post(self, request, *arg, **kwarg):
-        username = request.data["username"]
-        email = request.data["email"]
-        pwd = request.data["password"]
-        user = User.objects.create_user(username, email, pwd)
-        return Response(user)
+        data = JSONParser().parse(request)
+        serializer = UserSerializer(data=data)
+        serializer.save()
+        return Response(serializer.data)
 
 class LessonView(viewsets.ModelViewSet):
     serializer_class = LessonSerializer

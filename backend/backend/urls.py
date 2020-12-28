@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
+from rest_framework.authtoken import views as authviews
 from pydump import views
 
 router = routers.DefaultRouter()
@@ -27,5 +28,6 @@ router.register(r'register', views.RegisterView, 'register_account')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/login/', authviews.obtain_auth_token),
     path('api/', include(router.urls))
 ]
