@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import SingUp from "./SignUp"
-import LogIn from "./LogIn"
 
 // import "../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import "../css/Navbar.css";
@@ -8,8 +6,6 @@ import "../css/Navbar.css";
 const Navbar = ({ setLogInOpen, setSignUpOpen }) => {
   return (
     <nav className="navbar navbar-expand-lg">
-      <SignUp isOpen={isSignUpOpen} setIsOpen={setSignUpOpen} />
-      <LogIn isOpen={isLogInOpen} setIsOpen={setLogInOpen} />
       <div className="nav-links">
         <a className="navbar-brand" href="/">
           PYTHON DUMMIES
