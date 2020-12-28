@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+// import "../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import "../css/Navbar.css";
 
 const Navbar = ({ setSignUpOpen, setLogInOpen }) => {
@@ -36,7 +36,7 @@ const Navbar = ({ setSignUpOpen, setLogInOpen }) => {
         >
           Sign Up
         </button>
-        <button
+        {/* <button
           className="navbar-toggler"
           type="button"
           data-toggle="collapse"
@@ -50,7 +50,7 @@ const Navbar = ({ setSignUpOpen, setLogInOpen }) => {
             <div className="bar"></div>
             <div className="bar3"></div>
           </span>
-        </button>
+        </button> */}
       </div>
     </nav>
   )

@@ -1,14 +1,19 @@
 .navbar {
   /* background: #1f5b80; */
-  background: #346E9F;
+  background: #346e9f;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding-left: 2rem;
   padding-right: 2rem;
 }
 
 .navbar-text {
   margin-right: 3rem;
+}
+
+.navbar-nav {
+  list-style: none;
 }
 
 .navbar-brand {
@@ -29,6 +34,7 @@
 
 .nav-links {
   display: flex;
+  align-items: center;
   width: 40%;
 }
 
@@ -53,6 +59,20 @@
 }
 
 .nav-btns .btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 300;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
   margin-left: 1em;
   border-radius: 0%;
   min-width: 6em;
@@ -70,6 +90,7 @@
 }
 
 .nav-btns .btn--login {
+  background-color: transparent;
   color: #e5e9f0;
 }
 
