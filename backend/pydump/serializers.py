@@ -18,6 +18,11 @@ class UserSerializer(serializers.ModelSerializer):
     model = User
     fields = ('id', 'username', 'email', 'password')
 
+class QuizHighScoreSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = QuizHighScore
+    fields = ('id', 'user', 'quiz', 'score')
+
 class LessonSerializer(serializers.ModelSerializer):
   class Meta:
     model = Lesson

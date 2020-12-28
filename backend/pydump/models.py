@@ -40,6 +40,14 @@ class Quiz(models.Model):
         qs = Question.objects.filter(quiz=self)
         return qs
 
+class QuizHighScore(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
+    score = models.IntegerField()
+
+    class Meta:
+        unique_together = (('user', 'quiz'),)
+
 class Question(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
     img = models.ImageField(null=True, blank=True)

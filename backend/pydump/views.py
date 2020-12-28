@@ -3,6 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import render
 from rest_framework import viewsets, mixins, generics
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView, Response
 from .serializers import *
 from .models import *
@@ -18,6 +19,36 @@ class RegisterView(mixins.CreateModelMixin, viewsets.GenericViewSet):
         serializer = UserSerializer(data=data)
         serializer.save()
         return Response(serializer.data)
+
+class SubmitScoreView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        u = request.user.id
+        quiz = Quiz.objects.get(pk=int(request.data["quiz_id"]))
+        score = int(request.data["score"])
+
+        try:
+            hs = QuizHighScore.objects.get(user=u, quiz=quiz)
+            if (hs.score < score):
+                hs.score = score
+                hs.save()
+        except QuizHighScore.DoesNotExist:
+            hs = QuizHighScore()
+            hs.user = u
+            hs.quiz = quiz
+            hs.score = score
+            hs.save()
+        finally:
+            return Response(QuizHighScoreSerializer(hs).data)
+
+    def get(self, request):
+        u = User.objects.get(pk=int(request.user.id))
+        quiz = Quiz.objects.get(pk=int(request.data["quiz_id"]))
+
+        hs, created = QuizHighScore.objects.get_or_create(user=u, quiz=quiz, defaults = {'score': 0})
+
+        return Response(QuizHighScoreSerializer(hs).data)
 
 class LessonView(viewsets.ModelViewSet):
     serializer_class = LessonSerializer

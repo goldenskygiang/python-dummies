@@ -29,5 +29,6 @@ router.register(r'register', views.RegisterView, 'register_account')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/login/', authviews.obtain_auth_token),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
+    path('api/quiz_hs/', views.SubmitScoreView.as_view(), name='quiz_highscore')
 ]
