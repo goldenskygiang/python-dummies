@@ -72,7 +72,7 @@ const LogIn = ({ isOpen, setIsOpen }) => {
                   <div className="underline"></div>
                   <label htmlFor="password">Password</label>
                 </div>
-                <button type="submit">
+                <button type="submit" className="submit-btn">
                   Submit
                 </button>
               </div>
