@@ -5,14 +5,7 @@ import LogIn from "./LogIn"
 // import "../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import "../css/Navbar.css";
 
-<<<<<<< HEAD
-const Navbar = () => {
-  const [isSignUpOpen, setSignUpOpen] = useState(false);
-  const [isLoginOpen, setLogInOpen] = useState(false);
-
-=======
 const Navbar = ({ setLogInOpen, setSignUpOpen }) => {
->>>>>>> 2bb2e5022935340d3408c3ad7bf6907c788c37d7
   return (
     <nav className="navbar navbar-expand-lg">
       <SignUp isOpen={isSignUpOpen} setIsOpen={setSignUpOpen} />
