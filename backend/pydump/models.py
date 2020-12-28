@@ -36,14 +36,23 @@ class Quiz(models.Model):
     def __str__(self):
         return self.title
 
+    def get_questions(self):
+        qs = Question.objects.filter(quiz=self)
+        return qs
+
 class Question(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
     img = models.ImageField(null=True, blank=True)
     question_text = models.CharField(max_length=200)
+    code = models.TextField(null=True, blank=True)
     pub_date = models.DateTimeField('date published', auto_now_add=True)
 
     def __str__(self):
         return f"{self.quiz.title} - {self.question_text}"
+
+    def get_choices(self):
+        ch = Choice.objects.filter(question=self)
+        return ch
 
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)

@@ -5,21 +5,28 @@ class LessonSerializer(serializers.ModelSerializer):
   class Meta:
     model = Lesson
     fields = ('id', 'title', 'embed_url', 'description')
-    
-class QuizSerializer(serializers.ModelSerializer):
-  class Meta:
-    model = Quiz
-    fields = ('id', 'lesson', 'img', 'title', 'description', 'question_set')
-
-class QuestionSerializer(serializers.ModelSerializer):
-  class Meta:
-    model = Question
-    fields = ('id', 'question_text', 'img', 'choice_set')
 
 class ChoiceSerializer(serializers.ModelSerializer):
   class Meta:
     model = Choice
-    fields = ('choice_text', 'choice_img')
+    fields = ('choice_text', 'choice_img', 'is_correct')
+
+class QuestionSerializer(serializers.ModelSerializer):
+  choice_set = ChoiceSerializer(read_only=True, many=True)
+  class Meta:
+    model = Question
+    fields = ('id', 'question_text', 'img', 'code', 'choice_set')
+
+class QuizListSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Quiz
+    fields = ('id', 'lesson', 'img', 'title', 'description')
+
+class QuizDetailSerializer(serializers.ModelSerializer):
+  question_set = QuestionSerializer(source='get_questions', read_only=True, many=True)
+  class Meta:
+    model = Quiz
+    fields = ('id', 'lesson', 'img', 'title', 'description', 'question_set')
 
 class ProblemSerializer(serializers.ModelSerializer):
   class Meta:

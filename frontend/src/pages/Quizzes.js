@@ -36,7 +36,7 @@ export default class Quizzes extends Component {
       <Layout>
         <div className="QuizzesBody">
           <div className="QuizzesBodyHeader">
-            <span>This is quizzes header</span>
+            <span>Practice with Quizzes</span>
           </div>
 
           {
