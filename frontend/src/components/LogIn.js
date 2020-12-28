@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import "./css/SignUp.css";
+import "../css/SignUp.css";
 
 const LogIn = ({ isOpen, setIsOpen }) => {
   const handleClose = () => {
