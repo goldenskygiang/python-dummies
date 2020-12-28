@@ -35,8 +35,8 @@ const SignUp = ({ isOpen, setIsOpen }) => {
       >
         {({ errors, status, touched }) => (
           <Form className="form">
+            <button className="cancel-btn" onClick={handleClose}>X</button>
             <div className="form-container">
-              <button className="cancel-btn" onClick={handleClose}>X</button>
               <div className="form-container-inside">
                 <div className="form-group">
                   <Field

@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import "../css/SignUp.css";
+import "./css/SignUp.css";
 
 const LogIn = ({ isOpen, setIsOpen }) => {
   const handleClose = () => {
@@ -9,7 +9,7 @@ const LogIn = ({ isOpen, setIsOpen }) => {
   }
 
   return (
-    <div className={`formik-container ${isOpen ? "" : "closed"}`}>
+    <div className={`formik-container ${isOpen ? "" : "closed"}`}
       <Formik
         initialValues={{
           email: "",
@@ -29,8 +29,8 @@ const LogIn = ({ isOpen, setIsOpen }) => {
       >
         {({ errors, status, touched }) => (
           <Form className="form">
+            <button className="cancel-btn" onClick={handleClose}>X</button>
             <div className="form-container">
-              <button className="cancel-btn" onClick={handleClose}>X</button>
               <div className="form-container-inside">
                 <div className="form-group">
                   <Field
