@@ -3,7 +3,7 @@ import React, { useState } from "react";
 // import "../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import "../css/Navbar.css";
 
-const Navbar = ({ setSignUpOpen, setLogInOpen }) => {
+const Navbar = ({ setLogInOpen, setSignUpOpen }) => {
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="nav-links">
@@ -29,7 +29,9 @@ const Navbar = ({ setSignUpOpen, setLogInOpen }) => {
         </div>
       </div>
       <div className="nav-btns">
-        <button className="btn btn--login" onClick={() => setLogInOpen(true)}>Login</button>
+        <button className="btn btn--login" onClick={() => setLogInOpen(true)}>
+          Login
+        </button>
         <button
           className="btn btn--signup action-button"
           onClick={() => setSignUpOpen(true)}
@@ -53,7 +55,7 @@ const Navbar = ({ setSignUpOpen, setLogInOpen }) => {
         </button> */}
       </div>
     </nav>
-  )
-}
+  );
+};
 
 export default Navbar;

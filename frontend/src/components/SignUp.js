@@ -6,7 +6,7 @@ import "../css/SignUp.css";
 const SignUp = ({ isOpen, setIsOpen }) => {
   const handleClose = () => {
     setIsOpen(false);
-  }
+  };
 
   return (
     <div className={`formik-container ${isOpen ? "" : "closed"}`}>
@@ -36,7 +36,9 @@ const SignUp = ({ isOpen, setIsOpen }) => {
         {({ errors, status, touched }) => (
           <Form className="form">
             <div className="form-container">
-              <button className="cancel-btn" onClick={handleClose}>X</button>
+              <button className="cancel-btn" onClick={handleClose}>
+                X
+              </button>
               <div className="form-container-inside">
                 <div className="form-group">
                   <Field

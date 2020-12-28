@@ -2,6 +2,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python,django,react,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,django,react,node
 
+package-lock.json
+
 ### Django ###
 *.log
 *.pot

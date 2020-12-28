@@ -73,6 +73,8 @@
   -ms-user-select: none;
   user-select: none;
 
+  outline: none;
+
   margin-left: 1em;
   border-radius: 0%;
   min-width: 6em;

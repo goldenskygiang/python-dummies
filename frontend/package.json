@@ -9,13 +9,11 @@
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
     "axios": "^0.21.1",
-    "bootstrap": "^4.5.3",
     "formik": "^2.2.6",
-    "highlight.js": "^10.5.0",
-    "interweave": "^12.6.0",
     "lodash": "^4.17.20",
-    "monaco-editor": "^0.21.2",
-    "prop-types": "^15.7.2",
+    "bootstrap": "^4.5.3",
+    "highlight.js": "^10.4.1",
+    "interweave": "^12.6.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-pptx": "^2.6.0",
@@ -48,8 +46,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "react-refresh": "^0.9.0"
   }
 }
