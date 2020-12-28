@@ -4,13 +4,51 @@ import Layout from "../components/Layout";
 import QuizQuestion from "../components/QuizQuestion.js";
 import QuizContentStatus from "../components/QuizContentStatus.js";
 
+import axios from 'axios';
+
 export default class QuizzesContent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      QuizStart: false
+      QuizStart: false,
+      QuestionSet: [],
+      Points: []
     }
   }
+
+
+  componentDidMount() {
+    // console.log("url id",this.props.match.params)
+
+    // this.setState({
+    //   // isLoading: true,
+    // })
+    const url = "http://127.0.0.1:8000/api/quizzes/" + String(this.props.match.params.id)
+    axios.get(url)
+      .then(res => {
+        const QuizItem = res.data;
+        console.log("debug", QuizItem)
+
+        let QS = QuizItem.question_set 
+
+        var i
+        let tmp = []
+
+        for (i=0; i < QS.length; i++){
+          tmp[i] = 0
+        }
+        
+        // console.log("test point", tmp)
+        this.setState({
+          QuestionSet: QS,
+          Points: tmp
+          // isLoading: false
+        });
+      })
+      .catch(error => console.log(error));
+  }
+
+
 
   StartQuiz(){
     this.setState({
@@ -18,12 +56,39 @@ export default class QuizzesContent extends Component {
     })
   }
 
-  SubmitQuiz(){
-    console.log("Submitting...");
+
+  UpdateScore(index, score){
+    let tmp = this.state.Points
+    tmp[index] = score
+
+    console.log("debug score process", tmp)
+    
+    this.setState({
+      Points: tmp
+    })
   }
 
+
+  SubmitQuiz(){
+    console.log("Submitting...");
+    
+    var sum = 0
+    var i
+
+    let Res = this.state.Points
+
+    for(i = 0; i<Res.length; i++){
+      sum = sum + Res[i]
+    }
+
+    console.log("check sum", sum)
+  }
+
+
+
+
   render() {
-    const {QuizStart}  = this.state;
+    const {QuizStart, QuestionSet}  = this.state;
     return (
       <Layout>
         <div className="QuizzesContent">
@@ -41,9 +106,10 @@ export default class QuizzesContent extends Component {
               </span>
             </div>
 
-            <QuizQuestion></QuizQuestion>
-            <QuizQuestion></QuizQuestion>
-            <QuizQuestion></QuizQuestion>
+            {QuestionSet.map((question, index) => <QuizQuestion Question = {question} 
+                                                                QuestionOrd = {index+1}
+                                                                UpdateScore = {this.UpdateScore.bind(this)}>
+                                                  </QuizQuestion>)}
 
             <div className="QuizzesSummited" onClick = {this.SubmitQuiz.bind(this)}>
               <span>Submit</span>

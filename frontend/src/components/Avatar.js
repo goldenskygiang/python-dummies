@@ -9,7 +9,7 @@ const Avatar = ({ Ava, id }) => {
       <Link to={`/Profile/${id}`}>
         <img className="Picture" src={Ava}></img>
         <div className="ProfileLayer">
-            <span>Profile</span>
+            <div className = "ProfileLayerText">Profile</div>
         </div>
       </Link>
     </div>

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "../css/QuizContentStatus.css";
 
+import axios from 'axios';
+
 export default class QuizContentStatus extends Component {
   constructor(props) {
     super(props);
@@ -43,8 +45,30 @@ export default class QuizContentStatus extends Component {
 
   componentDidMount() {
     let timeLeftVar = this.secondsToTime(this.state.seconds);
+    
+    axios.get('http://127.0.0.1:8000/api/quiz_hs/', {
+      headers: {
+        'Authorization': `Token_896fa8b8fe999c94053318a889b21390a6ee4d80`
+      }
+    })
+    .then((res) => {
+      console.log("get high score", res.data)
+      this.setState({
+        time: timeLeftVar
+      });
+    })
+    .catch((error) => {
+      console.error(error)
+    })
+
+
     this.setState({ time: timeLeftVar });
   }
+
+
+
+
+
 
   startTimer() {
     if (this.timer == 0 && this.state.seconds > 0) {

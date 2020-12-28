@@ -19,10 +19,11 @@ export default class LessonContent extends Component {
     return (
       <div className="LessonContent">
         <div className="LessonName">
-          <span> {LessonName} </span>
+          {/* <span> {LessonName} </span> */}
           <div className="Logo">
             <img src={start_logo_fix} />
           </div>
+          <span> {LessonName} </span>
         </div>
 
         <div className="PPTViewer">

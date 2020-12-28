@@ -24,7 +24,7 @@
 	color: #ECEFF4;
 	font-size: 1.7rem;
     /* border-radius: 50%; */
-    padding-top: 35%;
+    /* padding-top: 35%; */
 
     position: absolute;
 	top: 0;
@@ -36,6 +36,14 @@
     transition: .3s all ease;
     /* padding-bottom: 20%; */
 }
+
+.ProfileLayerText{
+	margin-top: 3rem;
+}
+
+/* .ProfileLayer span{
+	margin-top: 3rem;
+} */
 
 
 .ProfileLayer:hover{
