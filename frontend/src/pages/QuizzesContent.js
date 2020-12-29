@@ -23,7 +23,7 @@ export default class QuizzesContent extends Component {
     // this.setState({
     //   // isLoading: true,
     // })
-    const url = "http://127.0.0.1:8000/api/quizzes/" + String(this.props.match.params.id)
+    const url = "/api/quizzes/" + String(this.props.match.params.id)
     axios.get(url)
       .then(res => {
         const QuizItem = res.data;

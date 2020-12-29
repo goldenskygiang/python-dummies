@@ -47,7 +47,7 @@ export default class QuizContentStatus extends Component {
     let timeLeftVar = this.secondsToTime(this.state.seconds);
     console.log("check Id", this.props.QuizId)
 
-    axios.get('http://127.0.0.1:8000/api/quiz_hs', {
+    axios.get('/api/quiz_hs', {
       headers: {
         'Authorization': `Token 896fa8b8fe999c94053318a889b21390a6ee4d80`,
         'Content-Type': `multipart/form-data`

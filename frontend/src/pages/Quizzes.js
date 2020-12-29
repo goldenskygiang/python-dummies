@@ -18,7 +18,7 @@ export default class Quizzes extends Component {
     this.setState({
       // isLoading: true,
     })
-    axios.get(`http://127.0.0.1:8000/api/quizzes/`)
+    axios.get(`/api/quizzes/`)
       .then(res => {
         const Quizzes = res.data;
         console.log("debug", Quizzes)

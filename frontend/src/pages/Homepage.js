@@ -22,7 +22,7 @@ export default class Homepage extends Component {
     this.setState({
       // isLoading: true,
     })
-    axios.get(`http://127.0.0.1:8000/api/lessons/`)
+    axios.get(`/api/lessons/`)
       .then(res => {
         const lessons = res.data;
         // console.log("debug", lessons)
