@@ -3,7 +3,7 @@ import MyForm from "./MyForm";
 import * as Yup from "yup";
 
 const LogIn = ({ isOpen, setOpen }) => {
-  const initialValue = {
+  const initialValues = {
     email: "",
     password: "",
   };
@@ -15,7 +15,7 @@ const LogIn = ({ isOpen, setOpen }) => {
 
   return (
     <MyForm
-      initialValue={initialValue}
+      initialValues={initialValues}
       validationSchema={validationSchema}
       isOpen={isOpen}
       setOpen={setOpen}
