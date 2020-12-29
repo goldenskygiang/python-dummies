@@ -116,7 +116,9 @@ export default class QuizzesContent extends Component {
             </div>
           </div>
 
-          <QuizContentStatus StartQuiz = {this.StartQuiz.bind(this)} SubmitQuiz = {this.SubmitQuiz.bind(this)}/>
+          <QuizContentStatus StartQuiz = {this.StartQuiz.bind(this)}
+                             SubmitQuiz = {this.SubmitQuiz.bind(this)}
+                             QuizId = {this.props.match.params.id}/>
         </div>
       </Layout>
     );
