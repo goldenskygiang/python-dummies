@@ -12,8 +12,8 @@ const Layout = ({ children }) => {
 
   return (
     <div className="layout">
-      <SignUp isOpen={isSignUpOpen} setIsOpen={setSignUpOpen}/>
-      <LogIn  isOpen={isLogInOpen} setIsOpen={setLogInOpen}/>
+      <SignUp isOpen={isSignUpOpen} setOpen={setSignUpOpen}/>
+      <LogIn  isOpen={isLogInOpen} setOpen={setLogInOpen}/>
       <Navbar setLogInOpen={setLogInOpen} setSignUpOpen={setSignUpOpen} />
       <main className="layout--body">{children}</main>
       <Footer />
