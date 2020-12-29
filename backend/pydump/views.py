@@ -44,7 +44,7 @@ class SubmitScoreView(APIView):
 
     def get(self, request):
         u = User.objects.get(pk=int(request.user.id))
-        quiz = Quiz.objects.get(pk=int(request.data["quiz_id"]))
+        quiz = Quiz.objects.get(pk=int(request.GET.get("quiz_id")))
 
         hs, created = QuizHighScore.objects.get_or_create(user=u, quiz=quiz, defaults = {'score': 0})
 
