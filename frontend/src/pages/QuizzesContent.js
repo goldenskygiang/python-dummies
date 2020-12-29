@@ -12,7 +12,8 @@ export default class QuizzesContent extends Component {
     this.state = {
       QuizStart: false,
       QuestionSet: [],
-      Points: []
+      Points: [],
+      HighestScore: -1
     }
   }
 
@@ -50,6 +51,13 @@ export default class QuizzesContent extends Component {
 
 
 
+  getHighScore(Score){
+    this.setState({
+      HighestScore: Score
+    })
+  }
+
+
   StartQuiz(){
     this.setState({
       QuizStart: true
@@ -77,11 +85,31 @@ export default class QuizzesContent extends Component {
 
     let Res = this.state.Points
 
+    let Mul = 100 / Res.length
+
     for(i = 0; i<Res.length; i++){
-      sum = sum + Res[i]
+      sum = sum + Res[i]*Mul
     }
 
-    console.log("check sum", sum)
+    // console.log("check sum", sum)
+
+    const Result = sum > this.state.HighestScore ? sum : this.state.HighestScore
+
+    console.log("Debug Result", Result)
+
+    axios.post('http://127.0.0.1:8000/api/quiz_hs/', {
+      data: {
+        score: Result,
+        quiz_id: this.props.match.params.id
+      }
+    }, {
+      headers: {
+        'Authorization': `Token 896fa8b8fe999c94053318a889b21390a6ee4d80`,
+        'Content-Type': `multipart/form-data`
+      }
+    })
+
+    // window.location.href = '/Quizzes/' + this.props.match.params.id;
   }
 
 
@@ -118,6 +146,7 @@ export default class QuizzesContent extends Component {
 
           <QuizContentStatus StartQuiz = {this.StartQuiz.bind(this)}
                              SubmitQuiz = {this.SubmitQuiz.bind(this)}
+                             getHighScore = {this.getHighScore.bind(this)}
                              QuizId = {this.props.match.params.id}/>
         </div>
       </Layout>

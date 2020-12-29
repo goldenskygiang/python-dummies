@@ -9,7 +9,8 @@ export default class QuizContentStatus extends Component {
     this.state = {
         QuizStart:false,
         time: {}, 
-        seconds: 600 
+        seconds: 600,
+        HighScore: -1 
     }
     this.timer = 0;
     this.startTimer = this.startTimer.bind(this);
@@ -47,19 +48,25 @@ export default class QuizContentStatus extends Component {
     let timeLeftVar = this.secondsToTime(this.state.seconds);
     console.log("check Id", this.props.QuizId)
 
-    axios.get('/api/quiz_hs', {
+    axios.get('http://127.0.0.1:8000/api/quiz_hs/', {
       headers: {
         'Authorization': `Token 896fa8b8fe999c94053318a889b21390a6ee4d80`,
         'Content-Type': `multipart/form-data`
       },
-      data: {
+      params: {
         quiz_id: this.props.QuizId
       }
     })
     .then((res) => {
-      console.log("get high score", res.data)
+      // console.log("get high score", res.data.score)
+
+      let HighestScore = res.data.score
+
       this.setState({
-        time: timeLeftVar
+        time: timeLeftVar,
+        HighScore: HighestScore
+      }, () => {
+        this.props.getHighScore(HighestScore)
       });
     })
     .catch((error) => {
@@ -97,17 +104,17 @@ export default class QuizContentStatus extends Component {
   }
 
   render() {
-    const {QuizStart, time} = this.state;
+    const {QuizStart, time, HighScore} = this.state;
     let min = time.m < 10 ? "0"+ String(time.m) : String(time.m);
     let sec = time.s < 10? "0"+ String(time.s) : String(time.s);
-
+    let ScoreDisplay = HighScore >= 0 ? String(HighScore) + " / 100" : "No Scores";
     return (
         <div className="QuizContentStatus">
             <div className = "QuizContentStatusHeader">
                 <span>Quiz Information</span>
             </div>
             <div className = "QuizScore">
-                <span>No Scores</span>
+                <span>{ScoreDisplay}</span>
             </div>
             <div className = "QuizInfo">
                 <table>
