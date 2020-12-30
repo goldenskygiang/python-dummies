@@ -7,12 +7,12 @@ export default class LessonList extends Component {
     super(props);
   }
 
-  setContent(){
-    console.log("setting content...")
+  setContent() {
+    console.log("setting content...");
   }
 
   render() {
-    const {Lessons, setContent, LessonId} = this.props;
+    const { Lessons, setContent, LessonId } = this.props;
     return (
       <div className="LessonList">
         <div className="LessonListHeader">
@@ -20,9 +20,13 @@ export default class LessonList extends Component {
         </div>
 
         <div className="LessonListBody">
-        {
-          Lessons.map(lesson =><LessonItem Lesson = {lesson} setContent = {setContent} LessonId = {LessonId}></LessonItem>)
-        }
+          {Lessons.map((lesson) => (
+            <LessonItem
+              Lesson={lesson}
+              setContent={setContent}
+              LessonId={LessonId}
+            ></LessonItem>
+          ))}
           {/* <LessonItem name="Lesson 1"></LessonItem>
           <LessonItem name="Lesson 2"></LessonItem>
           <LessonItem name="Lesson 3"></LessonItem> */}
