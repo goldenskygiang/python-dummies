@@ -97,15 +97,14 @@ export default class QuizzesContent extends Component {
 
     console.log("Debug Result", Result)
 
-    axios.post('http://127.0.0.1:8000/api/quiz_hs/', {
-      data: {
+    axios.post('http://127.0.0.1:8000/api/quiz_hs/',
+      JSON.stringify({
         score: Result,
         quiz_id: this.props.match.params.id
-      }
-    }, {
+      }), {
       headers: {
         'Authorization': `Token 896fa8b8fe999c94053318a889b21390a6ee4d80`,
-        'Content-Type': `multipart/form-data`
+        'Content-Type': `application/json`
       }
     })
 
