@@ -13,6 +13,8 @@
   transition: 1s ease-in-out opacity;
 
   pointer-events: none;
+
+  z-index: 10000;
 }
 
 .finished-loading-container {

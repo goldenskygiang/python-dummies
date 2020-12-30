@@ -5,7 +5,7 @@ import "../css/Loading.css"
 const Loading = ({ isLoading }) => {
   return (
     <div className={`loading-container ${isLoading ? "" : "finished-loading-container"}`}>
-      <Loader loading={isLoading} color="#4278c9" size={40} />
+      <Loader loading={isLoading} frontColor="#346e9f" size={40} />
     </div>
   )
 };
