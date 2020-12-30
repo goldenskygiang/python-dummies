@@ -24,12 +24,14 @@ export default class Homepage extends Component {
       .then((res) => {
         const lessons = res.data;
         // console.log("debug", lessons)
-        this.setState({
-          lessons: lessons,
-          emb_url: lessons[0].embed_url,
-          LessonName: lessons[0].title,
-          LessonId: lessons[0].id,
-        });
+        setTimeout(() => {
+          this.setState({
+            lessons: lessons,
+            emb_url: lessons[0].embed_url,
+            LessonName: lessons[0].title,
+            LessonId: lessons[0].id,
+          });
+        }, 2000);
       })
       .catch((error) => console.log(error));
   }
@@ -51,16 +53,7 @@ export default class Homepage extends Component {
           {localStorage.getItem('user') &&  <Profile></Profile>} */}
         {/* {this.state.isLoading && <Loading />} */}
 
-        <Loading
-          isLoading={
-            isEmpty(lessons) ||
-            isEmpty(emb_url) ||
-            isEmpty(LessonName) ||
-            isEmpty(LessonId)
-              ? true
-              : false
-          }
-        />
+        <Loading isLoading={isEmpty(lessons) ? true : false} />
         <LessonList
           Lessons={lessons}
           setContent={this.setContent.bind(this)}

@@ -342,3 +342,4 @@ sketch
 
 frontend/pnpm-lock.yaml
 frontend/package-lock.json
+frontend/yarn.lock
