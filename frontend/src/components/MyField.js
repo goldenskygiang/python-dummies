@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Field, ErrorMessage } from "formik";
 import { words, capitalize } from "lodash";
 
-const MyField = ({ fieldName, error, touched }) => {
+const MyField = ({ fieldName, error, touched, isSubmited }) => {
   const parseFieldName = (fieldName) =>
     words(fieldName).reduce(
       (label, namePart) => `${label} ${capitalize(namePart)}`,
@@ -19,7 +19,7 @@ const MyField = ({ fieldName, error, touched }) => {
             : "text"
         }
         placeholder=" "
-        className={"form-control" + (error && touched ? " is-invalid" : "")}
+        className={"form-control" + ((error && error !== "Wrong Passoword" && touched) ? " is-invalid" : "")}
       />
       <div className="invalid-feedback-container">
         <ErrorMessage
