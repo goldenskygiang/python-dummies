@@ -172,7 +172,9 @@ export default class InsideProfileDetail extends Component {
                                 )} */}
 
                                 <div className="StudentProfileLayer" onClick = {this.ChangingAva.bind(this)}>
-                                    Change Avatar
+                                    <div className="StudentProfileLayerText">
+										Change Avatar
+									</div>
                                 </div>
 
                             </div>

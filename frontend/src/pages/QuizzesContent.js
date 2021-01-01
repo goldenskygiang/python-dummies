@@ -108,7 +108,7 @@ export default class QuizzesContent extends Component {
       }
     })
 
-    // window.location.href = '/Quizzes/' + this.props.match.params.id;
+    window.location.href = '/Quizzes/' + this.props.match.params.id;
   }
 
 

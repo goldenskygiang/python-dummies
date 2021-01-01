@@ -30,6 +30,7 @@ const Submit = () => {
 
   const ProblemSubmitCode = () => {
     console.log("Submitting code...")
+    window.location.href = '/SubmissionDetail';
   }
 
   return (

@@ -1,0 +1,15 @@
+.SubmitResultBody{
+	/* display: flex;
+    flex-direction: row; */
+    margin: auto;
+    width: 60%;
+
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    /* height: 50vh; */
+}
+
+.SubmitResultBodyHeader{
+    font-size: 30px;
+}
