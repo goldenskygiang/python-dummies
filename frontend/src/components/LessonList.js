@@ -31,6 +31,7 @@ export default class LessonList extends Component {
                 Lesson={lesson}
                 setContent={setContent}
                 LessonId={LessonId}
+                key={LessonId}
               ></LessonItem>
             ))
           )}
