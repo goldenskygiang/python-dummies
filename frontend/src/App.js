@@ -13,6 +13,7 @@ import QuizzesContent from "./pages/QuizzesContent.js";
 import ProblemContent from "./pages/ProblemContent.js";
 import Submit from "./pages/Submit.js";
 import ProfileDetail from "./pages/ProfileDetail.js"
+import SubmissionDetail from "./pages/SubmissionDetail.js";
 
 class App extends Component {
   constructor() {
@@ -33,6 +34,7 @@ class App extends Component {
             <Route path="/Problemset/:id" exact component={ProblemContent} />
             <Route path="/Submit/:id" exact component={Submit} />
             <Route path="/Profile/:id" exact component={ProfileDetail} />
+            <Route path="/SubmissionDetail" exact component={SubmissionDetail} />
           </Switch>
         </div>
       </Router>

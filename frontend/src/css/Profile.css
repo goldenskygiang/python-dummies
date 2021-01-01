@@ -5,7 +5,7 @@
     border-radius: 5px !important;
     width: 22%;
     height: 75vh;
-    /* padding: 1rem 0; */
+    padding-bottom: 1rem;
   }
 
   .ProfileHeader{

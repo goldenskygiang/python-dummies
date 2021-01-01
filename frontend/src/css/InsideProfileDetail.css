@@ -97,7 +97,7 @@
 	color: #ECEFF4;
 	font-size: 1rem;
     /* border-radius: 50%; */
-    padding-top: 35%;
+    /* padding-top: 35%; */
 
     position: absolute;
 	top: 0;
@@ -115,6 +115,13 @@
 	opacity: 1;
 	transition: .3s all ease;
 }
+
+
+.StudentProfileLayerText{
+	margin-top: 4rem;
+}
+
+
 
 .DeleteCss {
 	border-radius: 10px;
