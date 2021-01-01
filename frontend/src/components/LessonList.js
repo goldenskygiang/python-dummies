@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "../css/LessonList.css";
 import LessonItem from "../components/LessonItem.js";
 
+import { isEmpty } from "lodash";
+
 export default class LessonList extends Component {
   constructor(props) {
     super(props);
@@ -12,7 +14,8 @@ export default class LessonList extends Component {
   }
 
   render() {
-    const { Lessons, setContent, LessonId } = this.props;
+    const { Lessons = [], setContent, LessonId } = this.props;
+    console.log(Lessons);
     return (
       <div className="LessonList">
         <div className="LessonListHeader">
@@ -20,16 +23,17 @@ export default class LessonList extends Component {
         </div>
 
         <div className="LessonListBody">
-          {Lessons.map((lesson) => (
-            <LessonItem
-              Lesson={lesson}
-              setContent={setContent}
-              LessonId={LessonId}
-            ></LessonItem>
-          ))}
-          {/* <LessonItem name="Lesson 1"></LessonItem>
-          <LessonItem name="Lesson 2"></LessonItem>
-          <LessonItem name="Lesson 3"></LessonItem> */}
+          {isEmpty(Lessons) ? (
+            <></>
+          ) : (
+            Lessons.map((lesson) => (
+              <LessonItem
+                Lesson={lesson}
+                setContent={setContent}
+                LessonId={LessonId}
+              ></LessonItem>
+            ))
+          )}
         </div>
       </div>
     );

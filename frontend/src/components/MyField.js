@@ -13,7 +13,11 @@ const MyField = ({ fieldName, error, touched }) => {
     <div className="form-group">
       <Field
         name={fieldName}
-        type="text"
+        type={
+          fieldName === "password" || fieldName === "confirmPassword"
+            ? "password"
+            : "text"
+        }
         placeholder=" "
         className={"form-control" + (error && touched ? " is-invalid" : "")}
       />
