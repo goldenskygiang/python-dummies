@@ -6,7 +6,7 @@ import LogIn from "./LogIn";
 
 import "../css/Layout.css";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, loading }) => {
   const [isSignUpOpen, setSignUpOpen] = useState(false);
   const [isLogInOpen, setLogInOpen] = useState(false);
 

@@ -13,7 +13,7 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(32, 38, 48, 0.7);
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 

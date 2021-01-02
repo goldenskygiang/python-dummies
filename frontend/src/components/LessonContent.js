@@ -1,14 +1,13 @@
-import React, { Component, PropTypes } from "react";
-import ReactDOM from "react-dom";
+import React, { Component } from "react";
 
 import "../css/LessonContent.css";
 
 import start_logo_fix from "../imgs/start_logo_fix.png";
 
 export default class LessonContent extends Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   componentDidMount() {
     console.log("debug",this.props.Emb_url)
@@ -21,7 +20,7 @@ export default class LessonContent extends Component {
         <div className="LessonName">
           {/* <span> {LessonName} </span> */}
           <div className="Logo">
-            <img src={start_logo_fix} />
+            <img src={start_logo_fix} alt="start_logo" />
           </div>
           <span> {LessonName} </span>
         </div>

@@ -6,10 +6,12 @@ import MyField from "./MyField";
 import "../css/MyForm.css";
 
 import axios from "axios";
+import { registerAliases } from "highlight.js";
 
 const MyForm = ({ validationSchema, initialValues, isOpen, setOpen }) => {
   const [isSumitted, setSumitted] = useState(false);
-  const [registerData, setRegisterData] = useState(true);
+  const [registerData, setRegisterData] = useState({});
+  const [isFailedRegister, setFailedRegister] = useState(false);
 
   const handleClose = () => {
     setOpen(false);
@@ -34,6 +36,7 @@ const MyForm = ({ validationSchema, initialValues, isOpen, setOpen }) => {
       setOpen(false);
       setRegisterData(res.data);
     } catch (err) {
+      setFailedRegister(true);
       setStatus({ success: false });
       setSubmitting(false);
       setErrors({ submit: err.message });

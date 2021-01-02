@@ -5,9 +5,9 @@ import LessonItem from "../components/LessonItem.js";
 import { isEmpty } from "lodash";
 
 export default class LessonList extends Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   setContent() {
     console.log("setting content...");
