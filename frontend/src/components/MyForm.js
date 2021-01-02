@@ -6,14 +6,13 @@ import MyField from "./MyField";
 import "../css/MyForm.css";
 
 import axios from "axios";
-import { registerAliases } from "highlight.js";
 
 const MyForm = ({ validationSchema, initialValues, isOpen, setOpen }) => {
   const [isSumitted, setSumitted] = useState(false);
   const [registerData, setRegisterData] = useState({});
-  const [isFailedRegister, setFailedRegister] = useState(false);
 
-  const handleClose = () => {
+  const handleClose = (resetForm) => {
+    resetForm({ values: initialValues });
     setOpen(false);
   };
 
@@ -36,7 +35,15 @@ const MyForm = ({ validationSchema, initialValues, isOpen, setOpen }) => {
       setOpen(false);
       setRegisterData(res.data);
     } catch (err) {
-      setFailedRegister(true);
+      let newForm = {};
+      for (let key in fields) {
+        if (key === "username" || key === "email") {
+          newForm[`${key}`] = fields[`${key}`];
+        } else {
+          newForm[`${key}`] = "";
+        }
+      }
+      resetForm({ values: newForm });
       setStatus({ success: false });
       setSubmitting(false);
       setErrors({ submit: err.message });
@@ -51,10 +58,14 @@ const MyForm = ({ validationSchema, initialValues, isOpen, setOpen }) => {
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
-        {({ errors, touched, isSubmitting }) => (
+        {({ errors, touched, isSubmitting, resetForm }) => (
           <Form className="form">
             <div className="form-container">
-              <button type="reset" className="cancel-btn" onClick={handleClose}>
+              <button
+                type="reset"
+                className="cancel-btn"
+                onClick={handleClose.bind(null, resetForm)}
+              >
                 X
               </button>
               <div className="form-container-inside">
@@ -65,7 +76,11 @@ const MyForm = ({ validationSchema, initialValues, isOpen, setOpen }) => {
                     fieldName={fieldName}
                   />
                 ))}
-                <button type="submit" className="submit-btn" disabled={isSubmitting}>
+                <button
+                  type="submit"
+                  className="submit-btn"
+                  disabled={isSubmitting}
+                >
                   <div className="submit-btn-loader">
                     <ButtonLoader />
                   </div>

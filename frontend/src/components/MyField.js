@@ -19,7 +19,7 @@ const MyField = ({ fieldName, error, touched, isSubmited }) => {
             : "text"
         }
         placeholder=" "
-        className={"form-control" + ((error && error !== "Wrong Passoword" && touched) ? " is-invalid" : "")}
+        className={"form-control" + ((error && (touched || isSubmited)) ? " is-invalid" : "")}
       />
       <div className="invalid-feedback-container">
         <ErrorMessage
