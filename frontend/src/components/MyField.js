@@ -2,7 +2,7 @@ import React from "react";
 import { Field, ErrorMessage } from "formik";
 import { words, capitalize } from "lodash";
 
-const MyField = ({ fieldName, error, touched, isSubmited }) => {
+const MyField = ({ fieldName, error, touched, isSubmited, extraError, type }) => {
   const parseFieldName = (fieldName) =>
     words(fieldName).reduce(
       (label, namePart) => `${label} ${capitalize(namePart)}`,
@@ -19,7 +19,7 @@ const MyField = ({ fieldName, error, touched, isSubmited }) => {
             : "text"
         }
         placeholder=" "
-        className={"form-control" + ((error && (touched || isSubmited)) ? " is-invalid" : "")}
+        className={"form-control" + (error && touched ? " is-invalid" : "")}
       />
       <div className="invalid-feedback-container">
         <ErrorMessage

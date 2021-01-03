@@ -37,8 +37,8 @@
   background-color: #fff;
   font-size: 16px;
   border-radius: 5px;
-  overflow: hidden; 
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  overflow: hidden;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   z-index: 200;
 }
 
@@ -77,7 +77,9 @@
   pointer-events: none;
 }
 
-.form-control:placeholder-shown ~ label {
+.form-control:placeholder-shown ~ label,
+.form-control:-ms-input-placeholder ~ label,
+.form-control:-moz-placeholder ~ label {
   transform: translateY(calc(-125% - 5px));
   font-size: 1em;
 }
@@ -85,8 +87,32 @@
 .form-control:focus ~ label,
 .form-control:not(:placeholder-shown) ~ label {
   transform: translateY(calc(-250% - 5px));
-  color: #2E5288;
+  color: #2e5288;
   font-size: 0.75em;
+}
+
+/* Add support for old firefox browser and kaiOS browser */
+.form-control:not(:-moz-placeholder) ~ label {
+  transform: translateY(calc(-250% - 5px));
+  color: #2e5288;
+  font-size: 0.75em;
+}
+
+.form-control:not(:-moz-placeholder):focus ~ .underline {
+  left: 0%;
+  width: 100%;
+}
+
+/* Add support for IE */
+.form-control:not(:-ms-input-placeholder) ~ label {
+  transform: translateY(calc(-250% - 5px));
+  color: #2e5288;
+  font-size: 0.75em;
+}
+
+.form-control:not(:-ms-input-placeholder):focus ~ .underline {
+  left: 0%;
+  width: 100%;
 }
 
 .is-invalid ~ label {
@@ -95,7 +121,7 @@
 
 .underline {
   top: -0.1em;
-  background-color: #2E5288;
+  background-color: #2e5288;
   height: 0.2rem;
   left: 50%;
   position: relative;
@@ -107,7 +133,7 @@
 .form-control:focus ~ .underline,
 .form-control:not(:placeholder-shown):focus ~ .underline {
   left: 0%;
-  width: 100%; 
+  width: 100%;
 }
 
 .is-invalid ~ .underline {
@@ -124,7 +150,7 @@
 }
 
 .is-invalid:not(:focus) + .invalid-feedback-container {
-  transform: translate(0, 3px); 
+  transform: translate(0, 3px);
 }
 
 .invalid-feedback {
@@ -140,9 +166,9 @@
   padding: 0.5rem 0;
   border-radius: 5px;
   outline: none;
-  border: 1px solid #2E5288;
-  background-color: #2E5288;
-  color: #e5e9f0; 
+  border: 1px solid #2e5288;
+  background-color: #2e5288;
+  color: #e5e9f0;
   font-size: 1.2em;
   letter-spacing: 2px;
   font-weight: 600;
@@ -150,13 +176,13 @@
 }
 
 .form .submit-btn:hover {
-  box-shadow: 0 0 0.3em 0.05em #2E5288;
+  box-shadow: 0 0 0.3em 0.05em #2e5288;
   cursor: pointer;
 }
 
 .form .submit-btn:focus,
 .form .submit-btn:active {
-  box-shadow: 0 0 0.3em 0.1em #2E5288;
+  box-shadow: 0 0 0.3em 0.1em #2e5288;
 }
 
 .form .submit-btn:disabled {
@@ -178,7 +204,7 @@
   border-radius: 50%;
   width: 1.5rem;
   height: 1.5rem;
-  
+
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 600;

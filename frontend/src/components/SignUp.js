@@ -3,8 +3,6 @@ import MyForm from "./MyForm";
 import * as Yup from "yup";
 
 const SignUp = ({ isOpen, setOpen }) => {
-  const [usedEmail, setUsedEmail] = useState(false);
-
   const initialValues = {
     username: "",
     email: "",
@@ -14,10 +12,7 @@ const SignUp = ({ isOpen, setOpen }) => {
 
   const validationSchema = Yup.object().shape({
     username: Yup.string()
-      .required("User Name is required")
-      .test("used-email", "This email account has been used!", () => {
-        return !usedEmail;
-      }),
+      .required("User Name is required"),
     email: Yup.string().email("Email is invalid").required("Email is required"),
     password: Yup.string()
       .min(6, "Password must be at least 6 characters")
@@ -33,7 +28,7 @@ const SignUp = ({ isOpen, setOpen }) => {
       validationSchema={validationSchema}
       isOpen={isOpen}
       setOpen={setOpen}
-      setExtraError={setUsedEmail}
+      type="signup"
     />
   );
 };

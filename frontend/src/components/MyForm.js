@@ -7,7 +7,7 @@ import "../css/MyForm.css";
 
 import axios from "axios";
 
-const MyForm = ({ validationSchema, initialValues, isOpen, setOpen }) => {
+const MyForm = ({ validationSchema, initialValues, isOpen, setOpen, type }) => {
   const [isSumitted, setSumitted] = useState(false);
   const [registerData, setRegisterData] = useState({});
 
@@ -17,12 +17,14 @@ const MyForm = ({ validationSchema, initialValues, isOpen, setOpen }) => {
   };
 
   const onSubmit = async (fields, actions) => {
-    const { setSubmitting, setStatus, setErrors, resetForm } = actions;
+    const {
+      setSubmitting,
+      setStatus,
+      setErrors,
+      resetForm,
+      setFieldError,
+    } = actions;
     try {
-      resetForm({});
-      setStatus({ success: true });
-      setSubmitting(true);
-      // alert("SUCCESS!! :-)\n\n" + JSON.stringify(fields, null, 4));
       const res = await axios({
         method: "post",
         url: "/api/register/",
@@ -32,21 +34,31 @@ const MyForm = ({ validationSchema, initialValues, isOpen, setOpen }) => {
           "Content-Type": "application/json",
         },
       });
+      resetForm({});
+      setStatus({ success: true });
+      setSubmitting(true);
       setOpen(false);
       setRegisterData(res.data);
     } catch (err) {
-      let newForm = {};
+      let newFormValues = {};
+      let newFormErrors = err.response.data;
+      let newFormTouched = {};
       for (let key in fields) {
         if (key === "username" || key === "email") {
-          newForm[`${key}`] = fields[`${key}`];
+          newFormValues[`${key}`] = fields[`${key}`];
+          newFormTouched[`${key}`] = true;
         } else {
-          newForm[`${key}`] = "";
+          newFormValues[`${key}`] = "";
+          newFormTouched[`${key}`] = false;
         }
       }
-      resetForm({ values: newForm });
+      resetForm({
+        values: newFormValues,
+        errors: newFormErrors,
+        touched: newFormTouched,
+      });
       setStatus({ success: false });
       setSubmitting(false);
-      setErrors({ submit: err.message });
     }
     setSumitted(true);
   };
