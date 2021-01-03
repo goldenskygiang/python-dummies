@@ -50,10 +50,15 @@ class QuizDetailSerializer(serializers.ModelSerializer):
     model = Quiz
     fields = ('id', 'lesson', 'img', 'title', 'description', 'question_set')
 
-class ProblemSerializer(serializers.ModelSerializer):
+class ProblemListSerializer(serializers.ModelSerializer):
   class Meta:
     model = Problem
-    fields = ('id', 'lesson', 'title', 'link', 'description')
+    fields = ('id', 'lesson', 'title', 'description')
+
+class ProblemDetailSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Problem
+    fields = ('id', 'lesson', 'title', 'description', 'input_guide', 'output_guide', 'sample_input', 'sample_output')
 
 class DiscussionSerializer(serializers.ModelSerializer):
   class Meta:

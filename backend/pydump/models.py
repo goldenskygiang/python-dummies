@@ -17,8 +17,11 @@ class Lesson(models.Model):
 class Problem(models.Model):
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
-    link = models.CharField(max_length=100)
-    description = models.CharField(max_length=500)
+    description = models.TextField()
+    input_guide = models.TextField()
+    output_guide = models.TextField()
+    sample_input = models.TextField()
+    sample_output = models.TextField()
 
 class Submission(models.Model):
     problem = models.ForeignKey(Problem, on_delete=models.CASCADE)
