@@ -4,12 +4,12 @@ import * as Yup from "yup";
 
 const LogIn = ({ isOpen, setOpen }) => {
   const initialValues = {
-    email: "",
+    username: "",
     password: "",
   };
 
   const validationSchema = Yup.object().shape({
-    email: Yup.string().email("Email is invalid").required("Email is required"),
+    username: Yup.string().required("Username is required"),
     password: Yup.string().required("Password is required"),
   });
 
@@ -19,6 +19,7 @@ const LogIn = ({ isOpen, setOpen }) => {
       validationSchema={validationSchema}
       isOpen={isOpen}
       setOpen={setOpen}
+      type="login"
     />
   );
 };

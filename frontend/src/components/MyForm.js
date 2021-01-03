@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Formik, Form } from "formik";
 import { ClapSpinner as ButtonLoader } from "react-spinners-kit";
+import { size } from "lodash";
 import MyField from "./MyField";
 
 import "../css/MyForm.css";
@@ -9,7 +10,7 @@ import axios from "axios";
 
 const MyForm = ({ validationSchema, initialValues, isOpen, setOpen, type }) => {
   const [isSumitted, setSumitted] = useState(false);
-  const [registerData, setRegisterData] = useState({});
+  const [data, setData] = useState({});
 
   const handleClose = (resetForm) => {
     resetForm({ values: initialValues });
@@ -17,29 +18,40 @@ const MyForm = ({ validationSchema, initialValues, isOpen, setOpen, type }) => {
   };
 
   const onSubmit = async (fields, actions) => {
-    const {
-      setSubmitting,
-      setStatus,
-      setErrors,
-      resetForm,
-      setFieldError,
-    } = actions;
+    const { setSubmitting, setStatus, resetForm } = actions;
     try {
-      const res = await axios({
-        method: "post",
-        url: "/api/register/",
-        data: JSON.stringify(fields, null, 4),
-        headers: {
-          Authorization: "Token 896fa8b8fe999c94053318a889b21390a6ee4d80",
-          "Content-Type": "application/json",
-        },
-      });
+      let res;
+      if (type === "signup") {
+        res = await axios({
+          method: "post",
+          url: "/api/register/",
+          data: JSON.stringify(fields, null, size(fields)),
+          headers: {
+            Authorization: "Token 896fa8b8fe999c94053318a889b21390a6ee4d80",
+            "Content-Type": "application/json",
+          },
+        });
+      } else if (type === "login") {
+        res = await axios({
+          method: "post",
+          url: "/api/login/",
+          data: JSON.stringify(fields, null, size(fields)),
+          headers: {
+            Authorization: "Token 896fa8b8fe999c94053318a889b21390a6ee4d80",
+            "Content-Type": "application/json",
+          },
+        });
+      }
       resetForm({});
       setStatus({ success: true });
       setSubmitting(true);
       setOpen(false);
-      setRegisterData(res.data);
+      setData(res.data);
+      if (type === "login") {
+        localStorage.setItem("token", data.token);
+      }
     } catch (err) {
+      console.log(err.response.data);
       let newFormValues = {};
       let newFormErrors = err.response.data;
       let newFormTouched = {};
