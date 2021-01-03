@@ -65,8 +65,14 @@ class QuizView(viewsets.ModelViewSet):
         return QuizListSerializer
 
 class ProblemsView(viewsets.ModelViewSet):
-    serializer_class = ProblemSerializer
     queryset = Problem.objects.all()
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return ProblemListSerializer
+        if self.action == 'retrieve':
+            return ProblemDetailSerializer
+        return ProblemListSerializer
 
 class DiscussionsView(viewsets.ModelViewSet):
     serializer_class = DiscussionSerializer
