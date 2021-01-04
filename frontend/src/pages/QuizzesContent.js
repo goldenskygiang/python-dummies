@@ -92,6 +92,7 @@ export default class QuizzesContent extends Component {
       sum > this.state.HighestScore ? sum : this.state.HighestScore;
 
     console.log("Debug Result", Result);
+    const header = 'Token ' + String(localStorage.token)
 
     axios.post(
       "/api/quiz_hs/",
@@ -101,7 +102,7 @@ export default class QuizzesContent extends Component {
       }),
       {
         headers: {
-          Authorization: "Token 896fa8b8fe999c94053318a889b21390a6ee4d80",
+          Authorization: header,
           "Content-Type": "application/json",
         },
       }
@@ -130,7 +131,7 @@ export default class QuizzesContent extends Component {
               </span>
             </div>
 
-            {QuestionSet.map((question, index) => (
+            {QuizStart && QuestionSet.map((question, index) => (
               <QuizQuestion
                 Question={question}
                 QuestionOrd={index + 1}

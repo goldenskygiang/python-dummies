@@ -7,6 +7,11 @@ export default class Profile extends Component {
     super(props);
   }
 
+  Logout(){
+    localStorage.clear()
+    window.location.href = "/";
+  }
+
   render() {
     return (
       <div className="Profile">
@@ -38,7 +43,7 @@ export default class Profile extends Component {
                         <td>Edit</td>
                     </tr>
                     
-                    <tr className = "UserOtherInfoHover">
+                    <tr className = "UserOtherInfoHover" onClick = {this.Logout.bind(this)}>
                         <td>Logout</td>
                     </tr>
                 </table>

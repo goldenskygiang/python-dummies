@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../css/QuizContentStatus.css";
 
 import axios from 'axios';
+import { string } from "prop-types";
 
 export default class QuizContentStatus extends Component {
   constructor(props) {
@@ -48,9 +49,13 @@ export default class QuizContentStatus extends Component {
     let timeLeftVar = this.secondsToTime(this.state.seconds);
     console.log("check Id", this.props.QuizId)
 
+    console.log("check local storage", localStorage)
+
+
+    const header = 'Token ' + String(localStorage.token)
     axios.get('http://127.0.0.1:8000/api/quiz_hs/', {
       headers: {
-        'Authorization': `Token 896fa8b8fe999c94053318a889b21390a6ee4d80`,
+        'Authorization': header,
         'Content-Type': `multipart/form-data`
       },
       params: {

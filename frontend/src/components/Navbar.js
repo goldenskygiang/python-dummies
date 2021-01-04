@@ -28,32 +28,34 @@ const Navbar = ({ setLogInOpen, setSignUpOpen }) => {
           </ul>
         </div>
       </div>
-      <div className="nav-btns">
-        <button className="btn btn--login" onClick={() => setLogInOpen(true)}>
-          Login
-        </button>
-        <button
-          className="btn btn--signup action-button"
-          onClick={() => setSignUpOpen(true)}
-        >
-          Sign Up
-        </button>
-        {/* <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarToggler"
-          aria-controls="navbarToggler"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon">
-            <div className="bar"></div>
-            <div className="bar"></div>
-            <div className="bar3"></div>
-          </span>
-        </button> */}
-      </div>
+      {!localStorage.token &&
+        <div className="nav-btns">
+          <button className="btn btn--login" onClick={() => setLogInOpen(true)}>
+            Login
+          </button>
+          <button
+            className="btn btn--signup action-button"
+            onClick={() => setSignUpOpen(true)}
+          >
+            Sign Up
+          </button>
+          {/* <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarToggler"
+            aria-controls="navbarToggler"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon">
+              <div className="bar"></div>
+              <div className="bar"></div>
+              <div className="bar3"></div>
+            </span>
+          </button> */}
+        </div>
+      }
     </nav>
   );
 };
