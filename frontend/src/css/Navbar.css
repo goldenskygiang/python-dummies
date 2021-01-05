@@ -21,6 +21,24 @@
   list-style: none;
 }
 
+.Nav-UserName{
+  display: flex;
+  flex-direction: row;
+}
+
+
+.UserName{
+  margin-right: 1.5rem;
+  padding-top: 0.2rem;
+  color:  rgba(238, 227, 69, 0.9);;
+  font-size: 1.2rem;
+}
+
+.UserName:hover{
+  color: #419641;
+  cursor: pointer;
+}
+
 .navbar-brand {
   font-weight: bold;
   letter-spacing: 0.1em;
@@ -35,6 +53,7 @@
 .navbar-brand:hover {
   /* color: #cd3c3f; */
   color: #419641;
+  cursor: pointer;
 }
 
 .nav-links {
@@ -89,6 +108,7 @@
 
 .nav-btns .btn:hover {
   box-shadow: 0 0 0.3em 0.05em #cd3c3f;
+  cursor: pointer;
 }
 
 .nav-btns .btn:active,

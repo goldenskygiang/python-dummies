@@ -48,7 +48,8 @@ const MyForm = ({ validationSchema, initialValues, isOpen, setOpen, type }) => {
       setOpen(false);
       setData(res.data);
       if (type === "login") {
-        localStorage.setItem("token", data.token);
+        // console.log("get token done", res.data.token)
+        localStorage.setItem("token", res.data.token);
         window.location.href = "/"
       }
     } catch (err) {

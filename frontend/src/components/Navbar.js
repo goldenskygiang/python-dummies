@@ -3,6 +3,15 @@ import React, { useState } from "react";
 // import "../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import "../css/Navbar.css";
 
+const LogOut = () => {
+  localStorage.clear();
+  window.location.href = "/"
+}
+
+const MoveToProfile = (id) => {
+  window.location.href = `/Profile/${id}`
+}
+ 
 const Navbar = ({ setLogInOpen, setSignUpOpen }) => {
   return (
     <nav className="navbar navbar-expand-lg">
@@ -28,6 +37,18 @@ const Navbar = ({ setLogInOpen, setSignUpOpen }) => {
           </ul>
         </div>
       </div>
+
+      {localStorage.token && 
+        <div className = "Nav-UserName nav-btns">
+          <div className = "UserName" onClick={() => MoveToProfile()}>
+            Tomnth
+          </div>
+          <button className="btn btn--login" onClick={() => LogOut()}>
+            Log Out
+          </button>
+        </div>
+      }
+
       {!localStorage.token &&
         <div className="nav-btns">
           <button className="btn btn--login" onClick={() => setLogInOpen(true)}>

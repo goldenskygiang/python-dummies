@@ -1,14 +1,37 @@
 import React, { Component } from 'react';
 import '../css/Problemlist.css';
 
+import axios from 'axios';
 
 export default class Problemlist extends Component {
 	constructor(props) {
-		super(props);
+        super(props);
+        this.state = {
+            Problems: []
+        }
 	}
 
 
+    componentDidMount() {
+        axios.get(`/api/problems/`)
+          .then(res => {
+            const Problems = res.data;
+            console.log("show problems", Problems)
+            this.setState({
+              Problems: Problems
+              // isLoading: false
+            });
+          })
+          .catch(error => console.log(error));
+    }
+
+    MoveToProblem(id){
+        // console.log("moving to problem...", problem)
+        window.location.href = '/Problemset/' + id
+    }
+
 	render() {
+        const {Problems} = this.state;
 		return (
 			<div className="Problemlist">
 				<div className="ProblemHeader">
@@ -22,41 +45,17 @@ export default class Problemlist extends Component {
 							<th>Category</th>
 							<th>Solved</th>
 						</tr>
-
-                        <tr>
-                            <td><a href = "/Problemset/P001">P001</a></td>
-                            <td><a href = "/Problemset/P001">Problem Practice 1</a></td>
-                            <td>While loop</td>
-                            <td>2/5</td>
-                        </tr>
-
-                        <tr>
-                            <td><a href = "/Problemset/P002">P002</a></td>
-                            <td><a href = "/Problemset/P002">Problem Practice 2</a></td>
-                            <td>While loop</td>
-                            <td>2/5</td>
-                        </tr>
-
-                        <tr>
-                            <td><a href = "#">P001</a></td>
-                            <td><a href = "#">Problem Practice 1</a></td>
-                            <td>While loop</td>
-                            <td>2/5</td>
-                        </tr>
-
-                        <tr>
-                            <td><a href = "#">P001</a></td>
-                            <td><a href = "#">Problem Practice 1</a></td>
-                            <td>While loop</td>
-                            <td>2/5</td>
-                        </tr>
-
-                        <tr>
-                            <td><a href = "#">P001</a></td>
-                            <td><a href = "#">Problem Practice 1</a></td>
-                            <td>While loop</td>
-                            <td>2/5</td>
-                        </tr>
+                        
+                        {
+                        Problems.map(problem => 
+                                <tr>
+                                    <td className = "a_tag" onClick = {this.MoveToProblem.bind(this,problem.id)}>{problem.id}</td>
+                                    <td className = "a_tag" onClick = {this.MoveToProblem.bind(this,problem.id)}>{problem.title}</td>
+                                    <td>While loop</td>
+                                    <td>2/5</td>
+                                </tr>    
+                            )
+                        }
 
 					</table>
 				</div>
