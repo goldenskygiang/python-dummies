@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.conf import settings
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -23,12 +24,18 @@ class Problem(models.Model):
     sample_input = models.TextField()
     sample_output = models.TextField()
 
+    def __str__(self):
+        return self.title
+
 class Submission(models.Model):
     problem = models.ForeignKey(Problem, on_delete=models.CASCADE)
     score = models.FloatField()
     maxscore = models.FloatField()
     author = models.ForeignKey(Profile, on_delete=models.CASCADE)
     date = models.DateTimeField('date submitted', auto_now_add=True)
+
+    def __str__(self):
+        return self.id
 
 class Quiz(models.Model):
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
@@ -44,7 +51,7 @@ class Quiz(models.Model):
         return qs
 
 class QuizHighScore(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
     score = models.IntegerField()
 
@@ -76,10 +83,10 @@ class Choice(models.Model):
 
 class Discussion(models.Model):
     title = models.CharField(max_length=200)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
 class Post(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     discussion = models.ForeignKey(Discussion, on_delete=models.CASCADE)
     content = models.TextField()
     date = models.DateTimeField('date posted', auto_now_add=True)

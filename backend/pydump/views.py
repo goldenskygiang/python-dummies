@@ -9,6 +9,7 @@ from .serializers import *
 from .models import *
 from django.forms import Form
 from rest_framework.parsers import JSONParser
+from rest_framework.renderers import JSONRenderer
 
 class RegisterView(mixins.CreateModelMixin, viewsets.GenericViewSet):
     serializer_class = UserSerializer
@@ -49,6 +50,24 @@ class SubmitScoreView(APIView):
         hs, created = QuizHighScore.objects.get_or_create(user=u, quiz=quiz, defaults = {'score': 0})
 
         return Response(QuizHighScoreSerializer(hs).data)
+
+class UserView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        u = User.objects.get(pk=int(request.user.id))
+        username = u.username
+        score = 0
+
+        for q in u.quizhighscore_set.all():
+            score += q.score
+
+        data = {
+            "username": username,
+            "score": score
+        }
+
+        return Response(data)
 
 class LessonView(viewsets.ModelViewSet):
     serializer_class = LessonSerializer

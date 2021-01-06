@@ -30,5 +30,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/login/', authviews.obtain_auth_token),
     path('api/', include(router.urls)),
-    path('api/quiz_hs/', views.SubmitScoreView.as_view(), name='quiz_highscore')
+    path('api/quiz_hs/', views.SubmitScoreView.as_view(), name='quiz_highscore'),
+    path('api/users/', views.UserView.as_view(), name='userdetail')
 ]
