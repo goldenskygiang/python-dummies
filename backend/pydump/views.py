@@ -56,14 +56,14 @@ class UserView(APIView):
 
     def get(self, request):
         u = User.objects.get(pk=int(request.user.id))
-        username = u.username
         score = 0
 
         for q in u.quizhighscore_set.all():
             score += q.score
 
         data = {
-            "username": username,
+            "username": u.username,
+            "email": u.email,
             "score": score
         }
 

@@ -52,11 +52,13 @@ class QuizDetailSerializer(serializers.ModelSerializer):
     fields = ('id', 'lesson', 'img', 'title', 'description', 'question_set', 'lesson')
 
 class ProblemListSerializer(serializers.ModelSerializer):
+  lesson = LessonSerializer(read_only=True)
   class Meta:
     model = Problem
     fields = ('id', 'lesson', 'title', 'description')
 
 class ProblemDetailSerializer(serializers.ModelSerializer):
+  lesson = LessonSerializer(read_only=True)
   class Meta:
     model = Problem
     fields = ('id', 'lesson', 'title', 'description', 'input_guide', 'output_guide', 'sample_input', 'sample_output')
