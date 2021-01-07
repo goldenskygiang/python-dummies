@@ -18,12 +18,14 @@ export default class ProblemDescription extends Component {
 
 
   render() {
-    const {ProblemItem} = this.props;
+    const {ProblemItem, ProblemCategory} = this.props;
+    // const ProblemCategory = ProblemItem.lesson;
+    // console.log("debug ProbItem", ProblemCategory);
     return (
       <div className="ProblemDescription">
             <div className = "ProblemName">
               <span>{ProblemItem.title}</span>
-              <span className = 'ProblemCate'># {ProblemItem.lesson}</span>
+              <span className = 'ProblemCate'># {ProblemCategory} </span>
             </div>
 
             <div className = "Problem-words">

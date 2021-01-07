@@ -16,7 +16,7 @@ export default class ProfileDetail extends Component {
         <div className="ProfileDetailBody">
           <InsideProfileDetail match={this.props.match}></InsideProfileDetail>
           {/* {localStorage.getItem('user') &&  <Profile></Profile>} */}
-          <Profile></Profile>
+          {/* <Profile></Profile> */}
         </div>
       </Layout>
     );

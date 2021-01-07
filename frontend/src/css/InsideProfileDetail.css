@@ -80,10 +80,10 @@
 .StudentAvatar {
 	border-radius: 50%;
 	/* margin: 10px auto; */
-	margin: 2.4rem 0px 0px 1.5rem;
+	margin: 3rem 0px 0px 2.7rem;
 	display: block;
-	width: 160px;
-	height: 160px;
+	width: 8rem;
+	height: 8rem;
 	border: 5px solid #ddd;
 	position: relative;
 }
@@ -163,7 +163,7 @@
 .ProfileFooter {
 	height: 7vh;
 	line-height: 7vh;
-	width: 100.5%;
+	width: 100%;
     text-align: center;
     border: 2px solid #5e81ac;
 	background: transparent;
@@ -171,8 +171,8 @@
 	color: #eceff4;
 	border-radius: 0 0 10px 10px;
     position: absolute;
-    top: 14.5rem;
-    left: -2px;
+    bottom: -1rem;
+    left: -0.12rem;
 }
 
 .ProfileFooter:hover {

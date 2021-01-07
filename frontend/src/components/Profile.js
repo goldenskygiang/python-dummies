@@ -12,6 +12,10 @@ export default class Profile extends Component {
     window.location.href = "/";
   }
 
+  moveToProfile(){
+    window.location.href = "/Profile";
+  }
+
   render() {
     return (
       <div className="Profile">
@@ -25,7 +29,7 @@ export default class Profile extends Component {
 
         <div className="Information">
           <div className="UserInfo">
-            <div className = "UserInfoName">Random user</div>
+            <div className = "UserInfoName">{localStorage.username}</div>
             <span style={{ fontWeight: "300", fontSize: "0.9rem" }}>
               Newbie
             </span>
@@ -36,10 +40,10 @@ export default class Profile extends Component {
                     </tr>
 
                     <tr>
-                        <td>Score: 0</td>
+                        <td>Score: {localStorage.TotalScore}</td>
                     </tr>
 
-                    <tr className = "UserOtherInfoHover">
+                    <tr className = "UserOtherInfoHover" onClick={this.moveToProfile.bind(this)}>
                         <td>Edit</td>
                     </tr>
                     

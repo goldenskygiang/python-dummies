@@ -33,7 +33,7 @@ class App extends Component {
             <Route path="/Quizzes/:id" exact component={QuizzesContent} />
             <Route path="/Problemset/:id" exact component={ProblemContent} />
             <Route path="/Submit/:id" exact component={Submit} />
-            <Route path="/Profile/:id" exact component={ProfileDetail} />
+            <Route path="/Profile" exact component={ProfileDetail} />
             <Route path="/SubmissionDetail" exact component={SubmissionDetail} />
           </Switch>
         </div>
