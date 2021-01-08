@@ -47,7 +47,7 @@ class SubmitScoreView(APIView):
         u = User.objects.get(pk=int(request.user.id))
         quiz = Quiz.objects.get(pk=int(request.GET.get("quiz_id")))
 
-        hs, created = QuizHighScore.objects.get_or_create(user=u, quiz=quiz, defaults = {'score': 0})
+        hs, created = QuizHighScore.objects.get_or_create(user=u, quiz=quiz, defaults = {'score': -1})
 
         return Response(QuizHighScoreSerializer(hs).data)
 
@@ -59,6 +59,8 @@ class UserView(APIView):
         score = 0
 
         for q in u.quizhighscore_set.all():
+            if (q.score == -1):
+                continue
             score += q.score
 
         data = {
