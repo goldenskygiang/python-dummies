@@ -11,33 +11,38 @@ export default class ProblemContent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ProblemItem: {}
+      ProblemItem: {},
+      ProblemCategory: ""
     }
   }
 
   componentDidMount() {
-    // console.log("debug Id", this.props.match.params.id)
+    console.log("check here")
+    console.log("debug Id", this.props.match.params.id)
     const url = "/api/problems/" + String(this.props.match.params.id);
     axios
       .get(url)
       .then((res) => {
         const ProblemItem = res.data;
-        console.log("debug", ProblemItem);
+        // console.log("debug", ProblemItem);
+
+        const ProblemCategory = ProblemItem.lesson.title;
 
 
         this.setState({
           ProblemItem: ProblemItem,
+          ProblemCategory: ProblemCategory
         });
       })
       .catch((error) => console.log(error));
   }
 
   render() {
-    const {ProblemItem} = this.state;
+    const {ProblemItem, ProblemCategory} = this.state;
     return (
       <Layout>
         <div className="ProblemContentBody">
-          <ProblemDescription ProblemItem = {ProblemItem}></ProblemDescription>
+          <ProblemDescription ProblemItem = {ProblemItem} ProblemCategory = {ProblemCategory}></ProblemDescription>
           {/* <Login></Login> */}
           <ProblemCondition></ProblemCondition>
           {/* {!localStorage.getItem('user') && <Login></Login>}

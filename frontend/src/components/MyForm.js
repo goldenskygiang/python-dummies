@@ -17,6 +17,34 @@ const MyForm = ({ validationSchema, initialValues, isOpen, setOpen, type }) => {
     setOpen(false);
   };
 
+  const InitiateData = (token) =>{
+    const header = 'Token ' + String(token)
+    axios.get('http://127.0.0.1:8000/api/users', {
+      headers: {
+        'Authorization': header,
+        'Content-Type': `multipart/form-data`
+      }
+    })
+    .then((res) => {
+      // console.log("get high score", res.data.score)
+      const username = res.data.username;
+      const email = res.data.email;
+      const TotalScore = res.data.score;
+
+      localStorage.setItem("token", token);
+      localStorage.setItem("username", username);
+      localStorage.setItem("email", email);
+      localStorage.setItem("TotalScore", TotalScore);
+
+      window.location.href = "/"
+
+
+    })
+    .catch((error) => {
+      console.error(error)
+    })
+  }
+
   const onSubmit = async (fields, actions) => {
     const { setSubmitting, setStatus, resetForm } = actions;
     try {
@@ -49,8 +77,7 @@ const MyForm = ({ validationSchema, initialValues, isOpen, setOpen, type }) => {
       setData(res.data);
       if (type === "login") {
         // console.log("get token done", res.data.token)
-        localStorage.setItem("token", res.data.token);
-        window.location.href = "/"
+        InitiateData(res.data.token);
       }
     } catch (err) {
       console.log(err.response.data);

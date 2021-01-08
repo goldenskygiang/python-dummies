@@ -26,8 +26,9 @@
 
 .Problem-words{
     margin-top: 1.5rem;
-    text-align:justify;
+    text-align:left;
     /* font-size: 15px; */
+    margin-bottom: 1.5rem;
 }
 
 .ProblemInput-Output{

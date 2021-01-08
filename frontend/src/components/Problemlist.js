@@ -51,7 +51,7 @@ export default class Problemlist extends Component {
                                 <tr>
                                     <td className = "a_tag" onClick = {this.MoveToProblem.bind(this,problem.id)}>{problem.id}</td>
                                     <td className = "a_tag" onClick = {this.MoveToProblem.bind(this,problem.id)}>{problem.title}</td>
-                                    <td>While loop</td>
+                                    <td>{problem.lesson.title}</td>
                                     <td>2/5</td>
                                 </tr>    
                             )

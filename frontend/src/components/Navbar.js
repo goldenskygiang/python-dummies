@@ -8,8 +8,8 @@ const LogOut = () => {
   window.location.href = "/"
 }
 
-const MoveToProfile = (id) => {
-  window.location.href = `/Profile/${id}`
+const MoveToProfile = () => {
+  window.location.href = `/Profile`
 }
  
 const Navbar = ({ setLogInOpen, setSignUpOpen }) => {
@@ -41,7 +41,7 @@ const Navbar = ({ setLogInOpen, setSignUpOpen }) => {
       {localStorage.token && 
         <div className = "Nav-UserName nav-btns">
           <div className = "UserName" onClick={() => MoveToProfile()}>
-            Tomnth
+            {localStorage.username}
           </div>
           <button className="btn btn--login" onClick={() => LogOut()}>
             Log Out

@@ -1,7 +1,6 @@
-from django.shortcuts import render
-
 # Create your views here.
 from django.shortcuts import render
+from django.utils.text import slugify
 from rest_framework import viewsets, mixins, generics
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView, Response
@@ -10,6 +9,9 @@ from .models import *
 from django.forms import Form
 from rest_framework.parsers import JSONParser
 from rest_framework.renderers import JSONRenderer
+
+import sys
+import subprocess
 
 class RegisterView(mixins.CreateModelMixin, viewsets.GenericViewSet):
     serializer_class = UserSerializer
@@ -98,3 +100,19 @@ class ProblemsView(viewsets.ModelViewSet):
 class DiscussionsView(viewsets.ModelViewSet):
     serializer_class = DiscussionSerializer
     queryset = Discussion.objects.all()
+
+def run_code(code, inp, time):
+    try:
+        byteOutput = subprocess.check_output(['python', '-c', code], input=bytes(inp, "UTF8"), timeout=time)
+        return byteOutput.decode('UTF-8').rstrip()
+    except subprocess.TimeoutExpired:
+        return 'TLE'
+    except subprocess.CalledProcessError:
+        return 'ERR' 
+    
+
+class CheckProblemset(APIView):
+    # permission_classes = [IsAuthenticated]
+    def get(self, request, problemset_id):
+        queryset = Problem.objects.all()
+        return Response({"problems": queryset[0]})
