@@ -19,7 +19,7 @@ const MyForm = ({ validationSchema, initialValues, isOpen, setOpen, type }) => {
 
   const InitiateData = (token) =>{
     const header = 'Token ' + String(token)
-    axios.get('http://127.0.0.1:8000/api/users', {
+    axios.get('http://127.0.0.1:8000/api/users/', {
       headers: {
         'Authorization': header,
         'Content-Type': `multipart/form-data`

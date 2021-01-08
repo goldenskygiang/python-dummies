@@ -10,6 +10,7 @@ export default class QuizzesContent extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      QuizItem: {},
       QuizStart: false,
       QuestionSet: [],
       Points: [],
@@ -41,6 +42,7 @@ export default class QuizzesContent extends Component {
 
         // console.log("test point", tmp)
         this.setState({
+          QuizItem: QuizItem,
           QuestionSet: QS,
           Points: tmp,
           // isLoading: false
@@ -72,6 +74,30 @@ export default class QuizzesContent extends Component {
     });
   }
 
+
+  updateTotalScore(header){
+    axios.get('http://127.0.0.1:8000/api/users', {
+      headers: {
+        'Authorization': header,
+        'Content-Type': `multipart/form-data`
+      }
+    })
+    .then((res) => {
+      // console.log("get high score", res.data.score)
+      const TotalScore = res.data.score;
+
+      localStorage.setItem("TotalScore", TotalScore);
+
+      window.location.href = '/Quizzes/' + this.props.match.params.id;
+
+
+    })
+    .catch((error) => {
+      console.error(error)
+    })
+  }
+
+
   SubmitQuiz() {
     console.log("Submitting...");
 
@@ -88,11 +114,22 @@ export default class QuizzesContent extends Component {
 
     // console.log("check sum", sum)
 
-    const Result =
-      sum > this.state.HighestScore ? sum : this.state.HighestScore;
+    // const Result =
+    //   sum > this.state.HighestScore ? sum : this.state.HighestScore;
+    let Result = 0;
+    let Gain = 0;
+
+    if(sum > this.state.HighestScore){
+      Result = sum;
+      Gain = sum - this.state.HighestScore;
+    }
+    else{
+      Result = this.state.HighestScore;
+    }
 
     console.log("Debug Result", Result);
     const header = 'Token ' + String(localStorage.token)
+
 
     axios.post(
       "/api/quiz_hs/",
@@ -106,13 +143,13 @@ export default class QuizzesContent extends Component {
           "Content-Type": "application/json",
         },
       }
-    );
-
-    window.location.href = '/Quizzes/' + this.props.match.params.id;
+    ).then(() =>{
+        this.updateTotalScore(header)
+      })
   }
 
   render() {
-    const { QuizStart, QuestionSet } = this.state;
+    const {QuizItem, QuizStart, QuestionSet } = this.state;
     return (
       <Layout>
         <div className="QuizzesContent">
@@ -120,9 +157,9 @@ export default class QuizzesContent extends Component {
             {!QuizStart && <div className="QuizzesMask"></div>}
 
             <div className="QuizzesContentBodyHeader">
-              <span id="QCHeader">Python Functions Quiz</span>
+              <span id="QCHeader">{QuizItem.title}</span>
               <span>
-                The quiz contains 13 Questions. Solve 8 correct to pass the
+                The quiz contains {QuestionSet.length} Questions. Solve {parseInt(0.8 * QuestionSet.length) } correct to pass the
                 test.
               </span>
               <span>
