@@ -119,18 +119,48 @@ class ProblemsView(viewsets.ModelViewSet):
             return ProblemDetailSerializer
         return ProblemListSerializer
 
-def run_code(code, inp, time):
+# class DiscussionsView(viewsets.ModelViewSet):
+#     serializer_class = DiscussionSerializer
+#     queryset = Discussion.objects.all()
+
+def run_code(code, inp, ans, time):
     try:
         byteOutput = subprocess.check_output(['python', '-c', code], input=bytes(inp, "UTF8"), timeout=time)
-        return byteOutput.decode('UTF-8').rstrip()
+        res = byteOutput.decode('UTF-8').rstrip()
+        if ans == res:
+            return 'CR'
+        else:
+            return 'WA'
     except subprocess.TimeoutExpired:
         return 'TLE'
     except subprocess.CalledProcessError:
-        return 'ERR' 
+        return 'RTE' 
     
 
 class CheckProblemset(APIView):
     # permission_classes = [IsAuthenticated]
-    def get(self, request, problemset_id):
+    def post(self, request, problemset_id):
         queryset = Problem.objects.all()
-        return Response({"problems": queryset[0]})
+
+        test = ["5", "1", "2", "3", "4", "6", "10", "7", "8", "9"]
+        answer = ["8", "1", "2", "3", "5", "13", "89", "21", "34", "55"]
+        res = []
+        duration = 1000
+        code = request.data.get('code')
+        amount_of_test = len(test)
+
+        score = 0
+
+        for i in range(amount_of_test):
+            result = run_code(code, test[i], answer[i], duration)
+            if result == 'CR':
+                score += 10
+            res.append(result)
+        
+        data: dict = {
+            "score": score,
+            "res": res,
+            "amountOfTest": amount_of_test
+        },
+
+        return Response(data)

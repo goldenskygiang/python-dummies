@@ -3,10 +3,7 @@ import "../css/Submit.css";
 import Layout from "../components/Layout";
 import Editor from "@monaco-editor/react";
 import { FillSpinner as Loader } from "react-spinners-kit";
-
-const generateRandomUniqeID = () => {
-  return (Math.random().toString(36).substring(2) + (new Date().getTime().toString(36)));
-}
+import axios from "axios";
 
 const Submit = () => {
   // Will add change theme system
@@ -21,17 +18,25 @@ const Submit = () => {
   };
 
   const getValue = () => {
-    return valueGetter.current;
-  }
+    return valueGetter.current();
+  };
 
-  const submit = () => {
-    let ID = generateRandomUniqeID();
-  }
-
-  const ProblemSubmitCode = () => {
-    console.log("Submitting code...")
+  const submitCode = async () => {
+    console.log("Submitting code...");
+    const res = await axios({
+      method: "post",
+      url: "/api/check_problemset/1/",
+      data: JSON.stringify({ code: getValue() }, null, 1),
+      headers: {
+        // Authorization: "Token 896fa8b8fe999c94053318a889b21390a6ee4d80",
+        "Content-Type": "application/json",
+      },
+    });
+    const resData = res.data[0];
+    localStorage.setItem("score", resData.score);
+    localStorage.setItem("res", resData.res);
     window.location.href = '/SubmissionDetail';
-  }
+  };
 
   return (
     <Layout>
@@ -49,24 +54,23 @@ const Submit = () => {
           <span className="SubmitLanguageTitle">Language</span>
           <span className="SubmitLanguageLanguage">Python</span>
         </div>
-        
-        <div className = "SubmitEditor">
-            <div className = "SubmitEditorHeader">
-                <span>Insert your source code</span>
-            </div>
 
-            <Editor
+        <div className="SubmitEditor">
+          <div className="SubmitEditorHeader">
+            <span>Insert your source code</span>
+          </div>
+
+          <Editor
             height="80vh" // By default, it fully fits with its parent
             theme={theme}
             language={language}
             loading={<Loader frontColor="#3dc9b0" backColor="#202124" />}
             editorDidMount={handleEditorDidMount}
-            />
+          />
 
-
-            <div className = "ProblemSubmitCode" onClick = {ProblemSubmitCode}>
-                <span>Submit</span>
-            </div>
+          <div className="ProblemSubmitCode" onClick={submitCode}>
+            <span>Submit</span>
+          </div>
         </div>
       </div>
     </Layout>
