@@ -63,12 +63,20 @@ class ProblemDetailSerializer(serializers.ModelSerializer):
     model = Problem
     fields = ('id', 'lesson', 'title', 'description', 'input_guide', 'output_guide', 'sample_input', 'sample_output')
 
-class DiscussionSerializer(serializers.ModelSerializer):
-  class Meta:
-    model = Discussion
-    fields = ('id', 'title', 'author', 'post_set')
-
 class ProblemSerializer(serializers.ModelSerializer):
   class Meta:
     model = Problem
     fields = ('id', 'lesson', 'title', 'link', 'description', 'submission_set')
+
+class ReplySerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Comment
+    fields = ('id', 'author', 'date', 'content', 'reply_to')
+
+class CommentSerializer(serializers.ModelSerializer):
+  author = UserSerializer(read_only=True)
+  problem = ProblemDetailSerializer(read_only=True)
+  comment_set = ReplySerializer(read_only=True, many=True)
+  class Meta:
+    model = Comment
+    fields = ('id', 'problem', 'author', 'date', 'content', 'comment_set')

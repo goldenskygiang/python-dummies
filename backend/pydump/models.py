@@ -81,12 +81,9 @@ class Choice(models.Model):
     def __str__(self):
         return f"{self.question.question_text} - {self.choice_text}"
 
-class Discussion(models.Model):
-    title = models.CharField(max_length=200)
+class Comment(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-
-class Post(models.Model):
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    discussion = models.ForeignKey(Discussion, on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now_add=True)
     content = models.TextField()
-    date = models.DateTimeField('date posted', auto_now_add=True)
+    reply_to = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
+    problem = models.ForeignKey(Problem, on_delete=models.CASCADE, null=True, blank=True)

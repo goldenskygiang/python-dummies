@@ -53,6 +53,28 @@ class SubmitScoreView(APIView):
 
         return Response(QuizHighScoreSerializer(hs).data)
 
+class CommentView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        problem = Problem.objects.get(pk=int(request.GET.get("problem_id")))
+        return Response(CommentSerializer(problem.comment_set.all(), many=True).data)
+
+    def post(self, request):
+        u = User.objects.get(pk=int(request.user.id))
+        prob = Problem.objects.get(pk=int(request.data["problem_id"]))
+        content = int(request.data["content"])
+
+        if ("reply_to" in request.data):
+            reply_to = Comment.objects.get(pk=int(request.data["reply_to"]))
+            c = Comment(author=u, content=content, reply_to=reply_to)
+            c.save()
+        else:
+            c = Comment(author=u, content=content, problem=prob)
+            c.save()
+
+        return Response(CommentSerializer(c).data)
+
 class UserView(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -96,10 +118,6 @@ class ProblemsView(viewsets.ModelViewSet):
         if self.action == 'retrieve':
             return ProblemDetailSerializer
         return ProblemListSerializer
-
-class DiscussionsView(viewsets.ModelViewSet):
-    serializer_class = DiscussionSerializer
-    queryset = Discussion.objects.all()
 
 def run_code(code, inp, time):
     try:
