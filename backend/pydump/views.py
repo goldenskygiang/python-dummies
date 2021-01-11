@@ -160,7 +160,7 @@ class CheckProblemset(APIView):
 
         for i in range(amount_of_test):
             result = run_code(code, test[i], answer[i], duration)
-            if result["val"] == 'CR':
+            if result["val"] == 'AC':
                 score += 10
             res.append(result["val"])
             time.append(str(result["time"]))
