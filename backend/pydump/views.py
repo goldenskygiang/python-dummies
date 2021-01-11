@@ -12,6 +12,7 @@ from rest_framework.renderers import JSONRenderer
 
 import sys
 import subprocess
+import time
 
 class RegisterView(mixins.CreateModelMixin, viewsets.GenericViewSet):
     serializer_class = UserSerializer
@@ -123,18 +124,21 @@ class ProblemsView(viewsets.ModelViewSet):
 #     serializer_class = DiscussionSerializer
 #     queryset = Discussion.objects.all()
 
-def run_code(code, inp, ans, time):
+def run_code(code, inp, ans, duration):
     try:
-        byteOutput = subprocess.check_output(['python', '-c', code], input=bytes(inp, "UTF8"), timeout=time)
+        time_started = time.time()
+        byteOutput = subprocess.check_output(['python', '-c', code], input=bytes(inp, "UTF8"), timeout=duration)
+        time_delta = time.time() - time_started
+        print(time_delta)
         res = byteOutput.decode('UTF-8').rstrip()
         if ans == res:
-            return 'AC'
+            return {"val": "AC", "time": float(time_delta)}
         else:
-            return 'WA'
+            return {"val": "WA", "time": float(time_delta)}
     except subprocess.TimeoutExpired:
-        return 'TLE'
+        return {"val": "TLE", "time": duration}
     except subprocess.CalledProcessError:
-        return 'RTE' 
+        return {"val": "RTE", "time": 0}
     
 
 class CheckProblemset(APIView):
@@ -145,6 +149,7 @@ class CheckProblemset(APIView):
         test = [problem.input_0, problem.input_1, problem.input_2, problem.input_3, problem.input_4, problem.input_5, problem.input_6, problem.input_7, problem.input_8, problem.input_9]
         answer = [problem.output_0, problem.output_1, problem.output_2, problem.output_3, problem.output_4, problem.output_5, problem.output_6, problem.output_7, problem.output_8, problem.output_9]
         res = []
+        time = []
         duration = problem.duration
         code = request.data.get('code')
         amount_of_test = len(test)
@@ -153,13 +158,15 @@ class CheckProblemset(APIView):
 
         for i in range(amount_of_test):
             result = run_code(code, test[i], answer[i], duration)
-            if result == 'CR':
+            if result["val"] == 'CR':
                 score += 10
-            res.append(result)
+            res.append(result["val"])
+            time.append(result["time"])
         
         data: dict = {
             "score": score,
             "res": res,
+            "time": time,
             "amountOfTest": amount_of_test
         },
 

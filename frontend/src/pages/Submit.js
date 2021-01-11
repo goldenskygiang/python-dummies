@@ -35,6 +35,7 @@ const Submit = () => {
     const resData = res.data[0];
     localStorage.setItem("score", resData.score);
     localStorage.setItem("res", resData.res);
+    localStorage.setItem("time", resData.time);
     window.location.href = '/SubmissionDetail';
   };
 
