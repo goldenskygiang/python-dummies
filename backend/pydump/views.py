@@ -63,7 +63,7 @@ class CommentView(APIView):
     def post(self, request):
         u = User.objects.get(pk=int(request.user.id))
         prob = Problem.objects.get(pk=int(request.data["problem_id"]))
-        content = int(request.data["content"])
+        content = request.data["content"]
 
         if ("reply_to" in request.data):
             reply_to = Comment.objects.get(pk=int(request.data["reply_to"]))
