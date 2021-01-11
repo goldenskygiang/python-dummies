@@ -71,12 +71,12 @@ class ProblemSerializer(serializers.ModelSerializer):
 class ReplySerializer(serializers.ModelSerializer):
   class Meta:
     model = Comment
+    author = UserSerializer(read_only=True)
     fields = ('id', 'author', 'date', 'content', 'reply_to')
 
 class CommentSerializer(serializers.ModelSerializer):
   author = UserSerializer(read_only=True)
-  problem = ProblemDetailSerializer(read_only=True)
   comment_set = ReplySerializer(read_only=True, many=True)
   class Meta:
     model = Comment
-    fields = ('id', 'problem', 'author', 'date', 'content', 'comment_set')
+    fields = ('id', 'author', 'date', 'content', 'comment_set')
