@@ -169,7 +169,7 @@ class CheckProblemset(APIView):
             problem = problem,
             score = score,
             maxscore = maxscore,
-            author = User.objects.find(pk = int(request.user.id)),
+            author = User.objects.get(pk = int(request.user.id)),
             code = code,
             test_result = ",".join(res),
             runtime_result = ",".join(time)
