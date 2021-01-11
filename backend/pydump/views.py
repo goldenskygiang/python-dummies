@@ -124,6 +124,10 @@ class ProblemsView(viewsets.ModelViewSet):
 #     serializer_class = DiscussionSerializer
 #     queryset = Discussion.objects.all()
 
+### Take code as string then run it with subprocess
+### Check TLE with timeout --> set by value duration from db
+### DB will contain test cases and answer for each cases
+### FIXME: Will limit the packages user can import --> NOT DONE YET
 def run_code(code, inp, ans, duration):
     try:
         time_started = time.time()
