@@ -120,10 +120,6 @@ class ProblemsView(viewsets.ModelViewSet):
             return ProblemDetailSerializer
         return ProblemListSerializer
 
-# class DiscussionsView(viewsets.ModelViewSet):
-#     serializer_class = DiscussionSerializer
-#     queryset = Discussion.objects.all()
-
 ### Take code as string then run it with subprocess
 ### Check TLE with timeout --> set by value duration from db
 ### DB will contain test cases and answer for each cases
@@ -146,7 +142,8 @@ def run_code(code, inp, ans, duration):
     
 
 class CheckProblemset(APIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
+
     def post(self, request, problemset_id):
         problem = Problem.objects.get(pk=problemset_id)
 
@@ -159,19 +156,25 @@ class CheckProblemset(APIView):
         amount_of_test = len(test)
 
         score = 0
+        maxscore = amount_of_test * 10
 
         for i in range(amount_of_test):
             result = run_code(code, test[i], answer[i], duration)
             if result["val"] == 'CR':
                 score += 10
             res.append(result["val"])
-            time.append(result["time"])
-        
-        data: dict = {
-            "score": score,
-            "res": res,
-            "time": time,
-            "amountOfTest": amount_of_test
-        },
+            time.append(str(result["time"]))
 
-        return Response(data)
+        sub = Submission(
+            problem = problem,
+            score = score,
+            maxscore = maxscore,
+            author = User.objects.find(pk = int(request.user.id)),
+            code = code,
+            test_result = ",".join(res),
+            runtime_result = ",".join(time)
+        )
+        
+        sub.save()
+
+        return Response(SubmissionSerializer(sub).data)

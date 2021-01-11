@@ -23,6 +23,11 @@ class QuizHighScoreSerializer(serializers.ModelSerializer):
     model = QuizHighScore
     fields = ('id', 'user', 'quiz', 'score')
 
+class SubmissionSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Submission
+    fields = ('id', 'problem', 'score', 'maxscore', 'author', 'date', 'code', 'test_result', 'runtime_result', 'test_count')
+
 class LessonSerializer(serializers.ModelSerializer):
   class Meta:
     model = Lesson

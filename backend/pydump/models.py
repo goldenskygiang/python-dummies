@@ -52,8 +52,12 @@ class Submission(models.Model):
     problem = models.ForeignKey(Problem, on_delete=models.CASCADE)
     score = models.FloatField()
     maxscore = models.FloatField()
-    author = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     date = models.DateTimeField('date submitted', auto_now_add=True)
+    code = models.TextField()
+    test_result = models.TextField()
+    runtime_result = models.TextField()
+    test_count = models.IntegerField()
 
     def __str__(self):
         return self.id
