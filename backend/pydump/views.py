@@ -128,7 +128,7 @@ def run_code(code, inp, ans, time):
         byteOutput = subprocess.check_output(['python', '-c', code], input=bytes(inp, "UTF8"), timeout=time)
         res = byteOutput.decode('UTF-8').rstrip()
         if ans == res:
-            return 'CR'
+            return 'AC'
         else:
             return 'WA'
     except subprocess.TimeoutExpired:
@@ -145,7 +145,7 @@ class CheckProblemset(APIView):
         test = [problem.input_0, problem.input_1, problem.input_2, problem.input_3, problem.input_4, problem.input_5, problem.input_6, problem.input_7, problem.input_8, problem.input_9]
         answer = [problem.output_0, problem.output_1, problem.output_2, problem.output_3, problem.output_4, problem.output_5, problem.output_6, problem.output_7, problem.output_8, problem.output_9]
         res = []
-        duration = 1000
+        duration = problem.duration
         code = request.data.get('code')
         amount_of_test = len(test)
 

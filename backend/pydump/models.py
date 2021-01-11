@@ -43,6 +43,7 @@ class Problem(models.Model):
     output_7 = models.TextField(default="")
     output_8 = models.TextField(default="")
     output_9 = models.TextField(default="")
+    duration = models.IntegerField(default=1)
 
     def __str__(self):
         return self.title
