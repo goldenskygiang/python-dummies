@@ -172,7 +172,8 @@ class CheckProblemset(APIView):
             author = User.objects.get(pk = int(request.user.id)),
             code = code,
             test_result = ",".join(res),
-            runtime_result = ",".join(time)
+            runtime_result = ",".join(time),
+            test_count = amount_of_test
         )
         
         sub.save()
