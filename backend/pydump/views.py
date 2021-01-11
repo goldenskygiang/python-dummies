@@ -140,10 +140,10 @@ def run_code(code, inp, ans, time):
 class CheckProblemset(APIView):
     # permission_classes = [IsAuthenticated]
     def post(self, request, problemset_id):
-        queryset = Problem.objects.all()
+        problem = Problem.objects.get(pk=problemset_id)
 
-        test = ["5", "1", "2", "3", "4", "6", "10", "7", "8", "9"]
-        answer = ["8", "1", "2", "3", "5", "13", "89", "21", "34", "55"]
+        test = [problem.input_0, problem.input_1, problem.input_2, problem.input_3, problem.input_4, problem.input_5, problem.input_6, problem.input_7, problem.input_8, problem.input_9]
+        answer = [problem.output_0, problem.output_1, problem.output_2, problem.output_3, problem.output_4, problem.output_5, problem.output_6, problem.output_7, problem.output_8, problem.output_9]
         res = []
         duration = 1000
         code = request.data.get('code')
