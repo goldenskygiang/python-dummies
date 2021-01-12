@@ -143,16 +143,23 @@ def run_code(code, inp, ans, duration):
     except subprocess.CalledProcessError:
         return {"val": "RTE", "time": 0}
     
-
-class CheckProblemset(APIView):
+class SubmissionView(viewsets.ReadOnlyModelViewSet):
     permission_classes = [IsAuthenticated]
+    serializer_class = SubmissionSerializer
+    queryset = Submission.objects.all()
 
-    def get(self, request):
+    def list(self, request):
         uid = int(request.user.id)
-        problem_id = pk=int(request.GET.get("problem_id"))
+        problem_id = int(request.GET.get("problem_id"))
         submissions = Submission.objects.filter(problem__id__exact=problem_id, author__id__exact=uid).order_by('date')
         return Response(SubmissionSerializer(submissions, many=True).data)
 
+    def retrieve(self, request):
+        sid = int(request.GET.get("submission_id"))
+        sub = Submission.objects.get(pk=sid)
+        return Response(SubmissionSerializer(sub).data)
+
+class CheckProblemset(APIView):
     def post(self, request, problemset_id):
         problem = Problem.objects.get(pk=problemset_id)
 

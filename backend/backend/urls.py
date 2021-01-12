@@ -24,6 +24,7 @@ router.register(r'lessons', views.LessonView, 'lessons')
 router.register(r'quizzes', views.QuizView, 'quizzes')
 router.register(r'problems', views.ProblemsView, 'problems')
 router.register(r'register', views.RegisterView, 'register_account')
+router.register(r'submissions', views.SubmissionView, 'submissions')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,6 +33,5 @@ urlpatterns = [
     path('api/quiz_hs/', views.SubmitScoreView.as_view(), name='quiz_highscore'),
     path('api/users/', views.UserView.as_view(), name='userdetail'),
     path('api/comments/', views.CommentView.as_view(), name='commentview'),
-    path('api/check_problemset/', views.CheckProblemset.as_view()),
     path('api/check_problemset/<int:problemset_id>/', views.CheckProblemset.as_view())
 ]
