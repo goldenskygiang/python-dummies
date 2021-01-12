@@ -88,6 +88,9 @@ class UserView(APIView):
                 continue
             score += q.score
 
+        for c in u.codehighscore_set.all():
+            score += c.score
+
         data = {
             "username": u.username,
             "email": u.email,
@@ -144,6 +147,12 @@ def run_code(code, inp, ans, duration):
 class CheckProblemset(APIView):
     permission_classes = [IsAuthenticated]
 
+    def get(self, request):
+        uid = int(request.user.id)
+        problem_id = pk=int(request.GET.get("problem_id"))
+        submissions = Submission.objects.filter(problem__id__exact=problem_id, author__id__exact=uid).order_by('date')
+        return Response(SubmissionSerializer(submissions, many=True).data)
+
     def post(self, request, problemset_id):
         problem = Problem.objects.get(pk=problemset_id)
 
@@ -165,11 +174,13 @@ class CheckProblemset(APIView):
             res.append(result["val"])
             time.append(str(result["time"]))
 
+        author = User.objects.get(pk = int(request.user.id))
+
         sub = Submission(
             problem = problem,
             score = score,
             maxscore = maxscore,
-            author = User.objects.get(pk = int(request.user.id)),
+            author = author,
             code = code,
             test_result = ",".join(res),
             runtime_result = ",".join(time),
@@ -178,4 +189,16 @@ class CheckProblemset(APIView):
         
         sub.save()
 
-        return Response(SubmissionSerializer(sub).data)
+        try:
+            hs = CodeHighScore.objects.get(user=author, problem=problem)
+            if (hs.score < score):
+                hs.score = score
+                hs.save()
+        except CodeHighScore.DoesNotExist:
+            hs = CodeHighScore()
+            hs.user = author
+            hs.problem = problem
+            hs.score = score
+            hs.save()
+        finally:
+            return Response(SubmissionSerializer(sub).data)

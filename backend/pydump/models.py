@@ -62,6 +62,14 @@ class Submission(models.Model):
     def __str__(self):
         return self.id
 
+class CodeHighScore(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    problem = models.ForeignKey(Problem, on_delete=models.CASCADE)
+    score = models.FloatField()
+
+    class Meta:
+        unique_together = (('user', 'problem'),)
+
 class Quiz(models.Model):
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
     img = models.ImageField()
