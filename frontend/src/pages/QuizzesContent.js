@@ -101,12 +101,13 @@ export default class QuizzesContent extends Component {
   SubmitQuiz() {
     console.log("Submitting...");
 
-    var sum = 0;
+    let sum = 0;
     var i;
 
     let Res = this.state.Points;
 
     let Mul = 100 / Res.length;
+    // console.log("check Mul", Mul)
 
     for (i = 0; i < Res.length; i++) {
       sum = sum + Res[i] * Mul;
@@ -117,17 +118,15 @@ export default class QuizzesContent extends Component {
     // const Result =
     //   sum > this.state.HighestScore ? sum : this.state.HighestScore;
     let Result = 0;
-    let Gain = 0;
 
     if(sum > this.state.HighestScore){
       Result = sum;
-      Gain = sum - this.state.HighestScore;
     }
     else{
       Result = this.state.HighestScore;
     }
 
-    console.log("Debug Result", Result);
+    // console.log("Debug Result", Result);
     const header = 'Token ' + String(localStorage.token)
 
 
@@ -189,6 +188,7 @@ export default class QuizzesContent extends Component {
             SubmitQuiz={this.SubmitQuiz.bind(this)}
             getHighScore={this.getHighScore.bind(this)}
             QuizId={this.props.match.params.id}
+            QuestionLength = {QuestionSet.length}
           />
         </div>
       </Layout>

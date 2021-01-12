@@ -1,0 +1,72 @@
+.TestResultItemRight{
+    width: 90%;
+}
+
+.TestResultItem{
+    border:1px solid #DDD;
+    padding: 0.8rem;
+    /* background-color:red; */
+    margin-top: 1.5rem;
+    height: 5rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    /* display: inline-block */
+}
+
+.Correct{
+    border-left: 5px solid  #06A10B;
+}
+
+.Incorrect{
+    border-left: 5px solid red;
+}
+
+.TimeLimit{
+    border-left: 5px solid #FFE338;
+}
+
+.Runtime{
+    border-left: 5px solid #A929EE;
+}
+
+.AC{
+    color:#06A10B;
+}
+
+.WA{
+    color: red;
+}
+
+.TLE{
+    color: #d1b40e;
+}
+
+.RTE{
+    color: #A929EE;
+}
+
+
+.TestResultItemUp{
+    /* background-color: blue; */
+    width: 100%;
+    /* display: inline-block */
+    text-align: left;
+    font-size: 17px;
+    padding-left: 1.5rem;
+    font-family: Monaco,Consolas,Courier New,monospace;
+}
+
+.TestResultItemDown{
+    width: 100%;
+    height: 2rem;
+    font-size: 13px;
+    text-align: left;
+    margin: 0.5rem 0 0 1.5rem;
+    padding: 0.8rem 0 0 0.5rem;
+    border: 1px solid  #aaaaaa;
+    border-radius: 3px;
+    background-color: #eeeeee;
+    font-family: Monaco,Consolas,Courier New,monospace;
+}

@@ -13,6 +13,10 @@
   text-decoration: none;
 }
 
+.a_hover:hover{
+  cursor: pointer;
+} 
+
 .navbar-text {
   margin-right: 3rem;
 }

@@ -19,17 +19,17 @@ export default class SubmitResult extends Component {
 //   }
 
   render() {
-    // const {SubmitResult} = this.state;
+    const Res = localStorage.res.split(",");
+    console.log(Res)
     return (
         <div className="SubmitResultBody">
           <div className="SubmitResultBodyHeader">
             <span>Submission Detail</span>
           </div>
 
-          {/* {
-          SubmitResult.map(quiz =><QuizItem Quiz = {quiz}></QuizItem>)
-          } */}
-          {/* <TestResult></TestResult> */}
+          {
+            Res.map((result, index) =><TestResult idx = {index} Result = {result}></TestResult>)
+          } 
           
         </div>
     );

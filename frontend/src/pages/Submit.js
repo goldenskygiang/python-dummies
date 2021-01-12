@@ -21,22 +21,52 @@ const Submit = () => {
     return valueGetter.current();
   };
 
+
+  const updateTotalScore = (header) => {
+
+    axios.get('http://127.0.0.1:8000/api/users', {
+      headers: {
+        'Authorization': header,
+        'Content-Type': `multipart/form-data`
+      }
+    })
+    .then((res) => {
+      // console.log("get high score", res.data.score)
+      const TotalScore = res.data.score;
+
+      localStorage.setItem("TotalScore", TotalScore);
+
+      window.location.href = '/SubmissionDetail';
+
+
+    })
+    .catch((error) => {
+      console.error(error)
+    })
+  }
+
+
   const submitCode = async () => {
     console.log("Submitting code...");
+    const header = 'Token ' + String(localStorage.token)
+
     const res = await axios({
       method: "post",
       url: "/api/check_problemset/1/",
       data: JSON.stringify({ code: getValue() }, null, 1),
       headers: {
-        // Authorization: "Token 896fa8b8fe999c94053318a889b21390a6ee4d80",
+        Authorization: header,
         "Content-Type": "application/json",
       },
     });
-    const resData = res.data[0];
-    localStorage.setItem("score", resData.score);
-    localStorage.setItem("res", resData.res);
-    localStorage.setItem("time", resData.time);
-    window.location.href = '/SubmissionDetail';
+    // console.log("check submit", res);
+    const resData = res.data;
+    // console.log("check submit_2", resData);
+    localStorage.setItem("Problemscore", resData.score);
+    localStorage.setItem("res", resData.test_result);
+    localStorage.setItem("time", resData.runtime_result);
+
+    updateTotalScore(header);
   };
 
   return (

@@ -113,13 +113,29 @@ export default class QuizContentStatus extends Component {
     let min = time.m < 10 ? "0"+ String(time.m) : String(time.m);
     let sec = time.s < 10? "0"+ String(time.s) : String(time.s);
     let ScoreDisplay = HighScore >= 0 ? String(HighScore) + " / 100" : "No Scores";
+
+    let content = HighScore >= parseInt(80) 
+                                ? String(ScoreDisplay)+" (Passed)"
+                                : String(ScoreDisplay)+" (Failed)"
+    if(HighScore < 0){
+      content = String(ScoreDisplay)
+    }
+
+    let color = HighScore >= parseInt(80) 
+                              ? "QuizScore Green"
+                              : "QuizScore Red"
+
+    if(HighScore < 0){
+      color = "QuizScore"
+    }
+
     return (
         <div className="QuizContentStatus">
             <div className = "QuizContentStatusHeader">
                 <span>Quiz Information</span>
             </div>
-            <div className = "QuizScore">
-                <span>{ScoreDisplay}</span>
+            <div className = {color}>
+                <span>{content}</span>
             </div>
             <div className = "QuizInfo">
                 <table>

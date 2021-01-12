@@ -1,6 +1,6 @@
 .SubmissionDetailBody {
 	width: 100%;
-	height: 109vh;
+	/* height: 109vh; */
 	/* background-color: red; */
 	display: flex;
 	flex-direction: row;

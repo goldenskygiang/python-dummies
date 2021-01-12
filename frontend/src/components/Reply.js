@@ -16,20 +16,31 @@ export default class Reply extends Component {
   }
 
   render() {
-    // const {name} = this.props
+    const {Comment_set} = this.props;
+    let Date = Comment_set.date;
+    Date = Date.split("T");
+    // console.log("check date", Date);
+    let y = Date[0].split("-")[0];
+    let m = Date[0].split("-")[1];
+    let d = Date[0].split("-")[2];
+
+    let h = Date[1].split(":")[0];
+    let min = Date[1].split(":")[1];
+    let s = parseInt(Date[1].split(":")[2]);
+
     return (
       <div className="Reply">
         {/* <span>{name}</span> */}
         <div className="ReplyLeft"></div>
         <div className="ReplyRight">
           <div className="ReplyRightName">
-            <span>Name</span>
-            <span className = "CommentDate">10:26 19/12/2020</span>
+            <span>{Comment_set.author}</span>
+            <span className = "CommentDate">{h}:{min} {d}/{m}/{y}</span>
           </div>
 
           <div className="ReplyComment">
             <span className = "CommentContent">
-              What is the complexity dude?
+              {Comment_set.content}
             </span>
           </div>
         </div>

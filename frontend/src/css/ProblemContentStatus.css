@@ -1,15 +1,15 @@
-.QuizContentStatus {
-    margin: 0 0 0 4.5rem;
+.ProblemContentStatus {
+    margin: 76px 2rem 0 1.5rem;
     border: 1px solid rgba(0,0,0,0.2);
     /* background: #f3f5f8 !important; */
     background: #fff !important;
     border-radius: 5px !important;
-    width: 24%;
+    width: 22%;
     height: 60vh;
     /* padding: 0.5rem 0; */
   }
 
-.QuizContentStatusHeader{
+.ProblemContentStatusHeader{
     border-bottom: 1px solid #ccc;
     text-align:left;
     padding: 0.3rem 0 0.4rem 0.5rem;
@@ -19,7 +19,7 @@
     font-size:15px;
 }
 
-.QuizScore{
+.ProblemScore{
     font-size: 24px;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
@@ -28,14 +28,14 @@
 }
 
 .Red{
-    color: #CC373C;
+    color: red;
 }
 
 .Green{
     color: #06A10B;
 }
 
-.QuizInfo{
+.ProblemInfo{
     width: 100%;
     padding-left: 2rem;
     padding-top: 1rem;
@@ -43,17 +43,17 @@
     border-bottom: 0.5px solid #ccc; */
 }
 
-.QuizInfo table{
+.ProblemInfo table{
     width: 100%;
     padding-top: 5px;
     opacity: 0.7;
 }
 
-.QuizInfo table td{
+.ProblemInfo table td{
     text-align: left;
 }
 
-.QuizSubmit{
+.ProblemSubmit{
     margin-left: 2rem;
     margin-right: 2rem;
     background: #419641;
@@ -67,13 +67,13 @@
     margin-bottom: 1rem;
 }
 
-.QuizSubmit:hover{
+.ProblemSubmit:hover{
     cursor: pointer;
     /* background-color: #CCC; */
     opacity: 0.7;
 }
 
-.QuizTimer{
+.ProblemTimer{
     margin-left: 2rem;
     margin-right: 2rem;
     background: #419641;

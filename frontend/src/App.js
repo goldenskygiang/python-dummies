@@ -23,6 +23,17 @@ class App extends Component {
   }
 
   render() {
+    if (!localStorage.getItem('username')) {
+			// console.log('case 1');
+			if (
+				window.location.pathname !== '/'
+			){
+				window.location.href = '/';
+				return null;
+			}
+		}
+
+
     return (
       <Router>
         <div className="App">

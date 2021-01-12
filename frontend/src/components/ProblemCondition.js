@@ -1,16 +1,20 @@
 import React, { Component } from "react";
 import "../css/ProblemCondition.css";
 
+import axios from 'axios';
+
 export default class ProblemCondition extends Component {
   constructor(props) {
     super(props);
   }
+  
 
   moveToSubmit(problemId){
     window.location.href = '/Submit/'+problemId
   }
 
   render() {
+    const {ProblemItem} = this.props
     return (
         <div className="ProblemCondition">
             <div className = "ProblemConditionHeader">
@@ -43,7 +47,7 @@ export default class ProblemCondition extends Component {
                 </table>
             </div>
 
-            <div className = "ProblemSubmit" onClick = {this.moveToSubmit.bind(this,'P001')}>
+            <div className = "ProblemSubmit" onClick = {this.moveToSubmit.bind(this,ProblemItem.id)}>
                 <span>Submit</span>
             </div>
         </div>

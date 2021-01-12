@@ -11,6 +11,16 @@ const LogOut = () => {
 const MoveToProfile = () => {
   window.location.href = `/Profile`
 }
+
+const Validate = (link)=>{
+  if(!localStorage.getItem('username')){
+    alert("Please login first");
+  }
+  else{
+    // console.log("check link", link)
+    window.location.href = link;
+  }
+}
  
 const Navbar = ({ setLogInOpen, setSignUpOpen }) => {
   return (
@@ -24,13 +34,13 @@ const Navbar = ({ setLogInOpen, setSignUpOpen }) => {
         <div className="collapse navbar-collapse" id="navbarToggler">
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0 nav-link-container">
             <li className="nav-item active">
-              <a className="nav-link" href="/Problemset">
+              <a className="nav-link a_hover" onClick = {() => Validate("/Problemset")}>
                 Problemset<span className="sr-only"></span>
               </a>
             </li>
 
             <li className="nav-item active">
-              <a className="nav-link" href="/Quizzes">
+              <a className="nav-link a_hover" onClick = {() => Validate("/Quizzes")}>
                 Quizzes<span className="sr-only"></span>
               </a>
             </li>

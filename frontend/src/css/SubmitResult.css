@@ -2,12 +2,13 @@
 	/* display: flex;
     flex-direction: row; */
     margin: auto;
-    width: 60%;
+    width: 45%;
 
     margin-top: 2rem;
     margin-bottom: 2rem;
 
-    /* height: 50vh; */
+    /* overflow-y: auto;
+    height: 20vh; */
 }
 
 .SubmitResultBodyHeader{

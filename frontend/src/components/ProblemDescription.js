@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import "../css/ProblemDescription.css";
-import Discussion from "./Discussion.js"
+import Discussion from "./Discussion.js";
 
+import axios from 'axios';
 
 export default class ProblemDescription extends Component {
   constructor(props) {
     super(props);
   }
-
-
 
 
   moveToSubmit(problemId){
@@ -18,9 +17,8 @@ export default class ProblemDescription extends Component {
 
 
   render() {
-    const {ProblemItem, ProblemCategory} = this.props;
-    // const ProblemCategory = ProblemItem.lesson;
-    // console.log("debug ProbItem", ProblemCategory);
+    const {ProblemItem, ProblemCategory, ProblemId} = this.props;
+
     return (
       <div className="ProblemDescription">
             <div className = "ProblemName">
@@ -59,11 +57,11 @@ Output:
 </pre>
             </div>
 
-            <div className = "ProblemDescriptionSubmit" onClick = {this.moveToSubmit.bind(this,'P001')}>
+            <div className = "ProblemDescriptionSubmit" onClick = {this.moveToSubmit.bind(this, ProblemId)}>
                 <span>Submit</span>
             </div>
 
-            <Discussion></Discussion>
+            <Discussion ProblemId = {ProblemId}></Discussion>
 
       </div>
     );

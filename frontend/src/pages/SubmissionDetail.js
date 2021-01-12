@@ -3,6 +3,7 @@ import "../css/SubmissionDetail.css";
 import Layout from "../components/Layout";
 import SubmitResult from '../components/SubmitResult.js';
 import Profile from '../components/Profile.js';
+import ProblemContentStatus from "../components/ProblemContentStatus";
 
 export default class SubmissionDetail extends Component {
   constructor(props) {
@@ -18,11 +19,9 @@ export default class SubmissionDetail extends Component {
       <Layout>
 
         <div className="SubmissionDetailBody">
-          <SubmitResult></SubmitResult>
-          {/* <Login></Login> */}
           <Profile></Profile>
-          {/* {!localStorage.getItem('user') && <Login></Login>}
-          {localStorage.getItem('user') &&  <Profile></Profile>} */}
+          <SubmitResult></SubmitResult>
+          <ProblemContentStatus></ProblemContentStatus>
         </div>
 
       </Layout>

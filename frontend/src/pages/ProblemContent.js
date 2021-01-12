@@ -12,13 +12,14 @@ export default class ProblemContent extends Component {
     super(props);
     this.state = {
       ProblemItem: {},
-      ProblemCategory: ""
+      ProblemCategory: "",
+      ProblemId: this.props.match.params.id
     }
   }
 
   componentDidMount() {
     console.log("check here")
-    console.log("debug Id", this.props.match.params.id)
+    console.log("debug Id from Problem Content", this.props.match.params.id)
     const url = "/api/problems/" + String(this.props.match.params.id);
     axios
       .get(url)
@@ -27,24 +28,29 @@ export default class ProblemContent extends Component {
         // console.log("debug", ProblemItem);
 
         const ProblemCategory = ProblemItem.lesson.title;
+        const ProblemId = ProblemItem.id;
 
 
         this.setState({
           ProblemItem: ProblemItem,
-          ProblemCategory: ProblemCategory
+          ProblemCategory: ProblemCategory,
+          ProblemId: ProblemId
         });
       })
       .catch((error) => console.log(error));
   }
 
   render() {
-    const {ProblemItem, ProblemCategory} = this.state;
+    const {ProblemItem, ProblemCategory, ProblemId} = this.state;
+
     return (
       <Layout>
         <div className="ProblemContentBody">
-          <ProblemDescription ProblemItem = {ProblemItem} ProblemCategory = {ProblemCategory}></ProblemDescription>
+          <ProblemDescription ProblemItem = {ProblemItem} 
+                              ProblemCategory = {ProblemCategory}
+                              ProblemId = {ProblemId}></ProblemDescription>
           {/* <Login></Login> */}
-          <ProblemCondition></ProblemCondition>
+          <ProblemCondition ProblemItem = {ProblemItem}></ProblemCondition>
           {/* {!localStorage.getItem('user') && <Login></Login>}
           {localStorage.getItem('user') &&  <Profile></Profile>} */}
         </div>
