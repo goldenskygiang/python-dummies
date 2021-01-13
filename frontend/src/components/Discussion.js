@@ -60,7 +60,8 @@ export default class Discussion extends Component {
       let CommentsList = res.data
       // console.log(CommentsList)
       this.setState({
-        CommentsList: CommentsList
+        CommentsList: CommentsList,
+        value:""
       })
     })
     .catch((error) => {

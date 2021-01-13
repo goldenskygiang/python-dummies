@@ -63,7 +63,8 @@ export default class DiscussionItem extends Component {
     this.props.UpdateComment()
     this.setState({
       isReply: false,
-      isShowComments: true
+      isShowComments: true,
+      value:""
     })
   }
 
