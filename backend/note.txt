@@ -1,5 +1,0 @@
-python manage.py makemigrations pydump
-python manage.py sqlmigrate pydump 000x
-python manage.py migrate
-python manage.py createsuperuser
-http://127.0.0.1/admin
