@@ -16,7 +16,7 @@ export default class Problemlist extends Component {
         axios.get(`/api/problems/`)
           .then(res => {
             const Problems = res.data;
-            console.log("show problems", Problems)
+            // console.log("show problems", Problems)
             this.setState({
               Problems: Problems
               // isLoading: false

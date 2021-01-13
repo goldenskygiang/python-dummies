@@ -11,7 +11,7 @@ export default class SubmissionDetail extends Component {
   }
 
   componentDidMount(){
-      console.log("Accessed")
+      // console.log("Accessed")
   }
 
   render(){

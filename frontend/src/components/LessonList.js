@@ -10,12 +10,12 @@ export default class LessonList extends Component {
   // }
 
   setContent() {
-    console.log("setting content...");
+    // console.log("setting content...");
   }
 
   render() {
     const { Lessons = [], setContent, LessonId } = this.props;
-    console.log(Lessons);
+    // console.log(Lessons);
     return (
       <div className="LessonList">
         <div className="LessonListHeader">

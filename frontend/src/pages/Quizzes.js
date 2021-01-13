@@ -21,7 +21,7 @@ export default class Quizzes extends Component {
     axios.get(`/api/quizzes/`)
       .then(res => {
         const Quizzes = res.data;
-        console.log("debug", Quizzes)
+        // console.log("debug", Quizzes)
         this.setState({
           Quizzes: Quizzes 
           // isLoading: false

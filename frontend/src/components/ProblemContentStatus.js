@@ -14,6 +14,7 @@ export default class ProblemContentStatus extends Component {
 
 
   componentDidMount() {
+
     this.setState({
         ProblemScore: localStorage.Problemscore
     })
@@ -25,7 +26,7 @@ export default class ProblemContentStatus extends Component {
 
   render() {
     let {ProblemScore} = this.state;
-    console.log()
+    // console.log()
     let ScoreDisplay = ProblemScore >= 0 ? String(ProblemScore) + " / 100" : "No Scores";
     let color = parseInt(ProblemScore) === 100? "QuizScore Green": "QuizScore"
 

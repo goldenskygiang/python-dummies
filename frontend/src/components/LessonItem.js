@@ -16,7 +16,7 @@ export default class LessonItem extends Component {
   // }
 
   setContent(url, lsname, lsid) {
-    console.log("setting content...");
+    // console.log("setting content...");
     this.props.setContent(url, lsname, lsid);
   }
 

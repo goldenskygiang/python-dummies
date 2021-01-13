@@ -15,7 +15,7 @@ export default class Discussion extends Component {
 
 
   componentDidMount() {
-    console.log("check id in discussion", this.props.ProblemId)
+    // console.log("check id in discussion", this.props.ProblemId)
     const header = 'Token ' + String(localStorage.token)
 
     axios.get('http://127.0.0.1:8000/api/comments/', {
@@ -31,7 +31,7 @@ export default class Discussion extends Component {
       // console.log("get high score", res.data.score)
 
       let CommentsList = res.data
-      console.log(CommentsList)
+      // console.log(CommentsList)
       this.setState({
         CommentsList: CommentsList
       })
@@ -58,7 +58,7 @@ export default class Discussion extends Component {
       // console.log("get high score", res.data.score)
 
       let CommentsList = res.data
-      console.log(CommentsList)
+      // console.log(CommentsList)
       this.setState({
         CommentsList: CommentsList
       })
@@ -75,7 +75,7 @@ export default class Discussion extends Component {
 
 
   PostComment(){
-    console.log("Posting comment");
+    // console.log("Posting comment");
 
     let content = this.state.value;
     const header = 'Token ' + String(localStorage.token);

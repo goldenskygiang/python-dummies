@@ -43,7 +43,7 @@ export default class DiscussionItem extends Component {
       // console.log("get high score", res.data.score)
 
       let CommentsList = res.data
-      console.log(CommentsList)
+      // console.log(CommentsList)
       this.setState({
         CommentsList: CommentsList
       })
@@ -69,7 +69,7 @@ export default class DiscussionItem extends Component {
 
 
   PostReply(){
-    console.log("Posting Reply");
+    // console.log("Posting Reply");
 
     let content = this.state.value;
     const header = 'Token ' + String(localStorage.token);

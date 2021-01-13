@@ -47,7 +47,7 @@ const Submit = () => {
 
 
   const submitCode = async () => {
-    console.log("Submitting code...");
+    // console.log("Submitting code...");
     const header = 'Token ' + String(localStorage.token)
 
     const res = await axios({

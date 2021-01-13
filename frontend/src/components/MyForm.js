@@ -80,7 +80,7 @@ const MyForm = ({ validationSchema, initialValues, isOpen, setOpen, type }) => {
         InitiateData(res.data.token);
       }
     } catch (err) {
-      console.log(err.response.data);
+      // console.log(err.response.data);
       let newFormValues = {};
       let newFormErrors = err.response.data;
       let newFormTouched = {};

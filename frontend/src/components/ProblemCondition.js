@@ -2,26 +2,74 @@ import React, { Component } from "react";
 import "../css/ProblemCondition.css";
 
 import axios from 'axios';
+import SubmissionDetail from "../pages/SubmissionDetail";
 
 export default class ProblemCondition extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+        Submission: []
+    }
   }
+
+
+  componentDidMount(){
+    const header = 'Token ' + String(localStorage.token)
+    axios.get('http://127.0.0.1:8000/api/submissions/', {
+      headers: {
+        'Authorization': header,
+        'Content-Type': `multipart/form-data`
+      },
+      params: {
+        problem_id: this.props.ProblemId
+      }
+    })
+    .then((res) => {
+      // console.log("get high score", res.data.score)
+
+      let Submission = res.data;
+      console.log("check submission", Submission);
+
+      if(Submission.length === 0){
+          Submission = [{maxscore:-1}]
+      }
+
+      this.setState({
+          Submission: Submission.reverse()[0]
+      })
+
+    })
+    .catch((error) => {
+      console.error(error)
+    })
+  }
+
   
 
   moveToSubmit(problemId){
     window.location.href = '/Submit/'+problemId
   }
 
+
   render() {
-    const {ProblemItem} = this.props
+    const {ProblemItem, ProblemId} = this.props;
+    let {Submission} = this.state;
+    // console.log("check this sub",Submission);
+    let content;
+    if(parseInt(Submission.maxscore) < 0 ){
+        content = "No Scores";
+    }
+    else content = parseInt(Submission.maxscore) === 100? "Accepted":
+                                                          String(Submission.maxscore) + "/ 100";
+    let color = parseInt(Submission.maxscore) === 100? "ProblemScore Green": "ProblemScore";
+    
     return (
         <div className="ProblemCondition">
             <div className = "ProblemConditionHeader">
                 <span>Problem Information</span>
             </div>
-            <div className = "ProblemScore">
-                <span>No Scores</span>
+            <div className = {color}>
+                <span>{content}</span>
             </div>
             <div className = "ProblemInfo">
                 <table>

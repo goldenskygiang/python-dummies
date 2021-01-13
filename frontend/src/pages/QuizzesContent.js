@@ -29,7 +29,7 @@ export default class QuizzesContent extends Component {
       .get(url)
       .then((res) => {
         const QuizItem = res.data;
-        console.log("debug", QuizItem);
+        // console.log("debug", QuizItem);
 
         let QS = QuizItem.question_set;
 
@@ -67,7 +67,7 @@ export default class QuizzesContent extends Component {
     let tmp = this.state.Points;
     tmp[index] = score;
 
-    console.log("debug score process", tmp);
+    // console.log("debug score process", tmp);
 
     this.setState({
       Points: tmp,
@@ -99,7 +99,7 @@ export default class QuizzesContent extends Component {
 
 
   SubmitQuiz() {
-    console.log("Submitting...");
+    // console.log("Submitting...");
 
     let sum = 0;
     var i;

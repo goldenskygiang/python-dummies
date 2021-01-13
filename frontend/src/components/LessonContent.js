@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import "../css/LessonContent.css";
 
 import start_logo_fix from "../imgs/start_logo_fix.png";
+import Iframe from 'react-iframe'
 
 export default class LessonContent extends Component {
   // constructor(props) {
@@ -10,11 +11,13 @@ export default class LessonContent extends Component {
   // }
 
   componentDidMount() {
-    console.log("debug",this.props.Emb_url)
+    // console.log("debug",this.props.Emb_url)
   }
 
   render() {
     const{LessonName, Emb_url} = this.props
+    console.log(Emb_url);
+
     return (
       <div className="LessonContent">
         <div className="LessonName">
@@ -25,26 +28,17 @@ export default class LessonContent extends Component {
           <span> {LessonName} </span>
         </div>
 
-        <div className="PPTViewer">
-          {Emb_url !== "" &&
-            <iframe
-              src= {this.props.Emb_url}
-              // src = "https://onedrive.live.com/embed?resid=5D9E5867640F822D%21228458&amp;authkey=%21APtyxMbOlbc7idM&amp;em=2&amp;wdAr=1.7777777777777777"
-              width={"100%"}
-              height={"100%"}
-              frameBorder={"0"}
-            >
-              This is an embedded{" "}
-              <a target="_blank" href="https://office.com">
-                Microsoft Office
-              </a>{" "}
-              presentation, powered by{" "}
-              <a target="_blank" href="https://office.com/webapps">
-                Office
-              </a>
-              .
-            </iframe>
-          }
+        <div className="PPTViewer" dangerouslySetInnerHTML={{__html: String(this.props.Emb_url)}}>
+          {/* {Emb_url !== "" &&
+            // <Iframe url={String(this.props.Emb_url)}
+            //         width="450px"
+            //         height="450px"
+            //         id="myId"
+            //         className="myClassname"
+            //         display="initial"
+            //         position="relative"/>
+            // <iframe src= {String(this.props.Emb_url)} width={"100%"} height={"100%"} frameBorder={"0"}>This is an embedded<a target="_blank" href="https://office.com">Microsoft Office</a>presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+          } */}
         </div>
       </div>
     );

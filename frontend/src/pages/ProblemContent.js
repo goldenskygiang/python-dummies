@@ -18,8 +18,8 @@ export default class ProblemContent extends Component {
   }
 
   componentDidMount() {
-    console.log("check here")
-    console.log("debug Id from Problem Content", this.props.match.params.id)
+    // console.log("check here")
+    // console.log("debug Id from Problem Content", this.props.match.params.id)
     const url = "/api/problems/" + String(this.props.match.params.id);
     axios
       .get(url)
@@ -50,7 +50,8 @@ export default class ProblemContent extends Component {
                               ProblemCategory = {ProblemCategory}
                               ProblemId = {ProblemId}></ProblemDescription>
           {/* <Login></Login> */}
-          <ProblemCondition ProblemItem = {ProblemItem}></ProblemCondition>
+          <ProblemCondition ProblemItem = {ProblemItem}
+                            ProblemId = {ProblemId}></ProblemCondition>
           {/* {!localStorage.getItem('user') && <Login></Login>}
           {localStorage.getItem('user') &&  <Profile></Profile>} */}
         </div>
