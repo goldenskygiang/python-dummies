@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../css/QuizContentStatus.css";
+import BASE_URL from "../global.js";
 
 import axios from 'axios';
 import { string } from "prop-types";
@@ -53,7 +54,9 @@ export default class QuizContentStatus extends Component {
 
 
     const header = 'Token ' + String(localStorage.token)
-    axios.get('http://127.0.0.1:8000/api/quiz_hs/', {
+    const url = BASE_URL + "/api/quiz_hs/";
+
+    axios.get(url, {
       headers: {
         'Authorization': header,
         'Content-Type': `multipart/form-data`

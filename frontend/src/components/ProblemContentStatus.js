@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../css/ProblemContentStatus.css";
+import BASE_URL from "../global.js";
 
 import axios from 'axios';
 import { string } from "prop-types";

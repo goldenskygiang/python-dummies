@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../css/ProblemCondition.css";
+import BASE_URL from "../global.js";
 
 import axios from 'axios';
 import SubmissionDetail from "../pages/SubmissionDetail";
@@ -15,7 +16,9 @@ export default class ProblemCondition extends Component {
 
   componentDidMount(){
     const header = 'Token ' + String(localStorage.token)
-    axios.get('http://127.0.0.1:8000/api/submissions/', {
+    const url = BASE_URL + "/api/submissions/";
+    
+    axios.get(url, {
       headers: {
         'Authorization': header,
         'Content-Type': `multipart/form-data`

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import BASE_URL from "../global.js";
+
 import "../css/Quizzes.css";
 import Layout from "../components/Layout";
 import QuizItem from "../components/QuizItem.js";
@@ -15,10 +17,8 @@ export default class Quizzes extends Component {
 
 
   componentDidMount() {
-    this.setState({
-      // isLoading: true,
-    })
-    axios.get(`/api/quizzes/`)
+    const url = BASE_URL + "/api/quizzes/";
+    axios.get(url)
       .then(res => {
         const Quizzes = res.data;
         // console.log("debug", Quizzes)

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import BASE_URL from "../global.js";
 import "../css/DiscussionItem.css";
 import Reply from "./Reply.js";
 
@@ -29,8 +30,9 @@ export default class DiscussionItem extends Component {
 
   UpdateComment(){
     const header = 'Token ' + String(localStorage.token)
+    const url = BASE_URL + "/api/comments/";
 
-    axios.get('http://127.0.0.1:8000/api/comments/', {
+    axios.get(url, {
       headers: {
         'Authorization': header,
         'Content-Type': `multipart/form-data`
@@ -74,9 +76,9 @@ export default class DiscussionItem extends Component {
 
     let content = this.state.value;
     const header = 'Token ' + String(localStorage.token);
-
+    const url = BASE_URL + "/api/comments/";
     axios.post(
-      "/api/comments/",
+      url,
       JSON.stringify({
         content: content,
         reply_to: this.props.Comment.id,

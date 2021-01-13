@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import BASE_URL from "../global.js";
+
 import "../css/ProblemContent.css";
 import Layout from "../components/Layout";
 import ProblemDescription from "../components/ProblemDescription.js";
@@ -20,7 +22,7 @@ export default class ProblemContent extends Component {
   componentDidMount() {
     // console.log("check here")
     // console.log("debug Id from Problem Content", this.props.match.params.id)
-    const url = "/api/problems/" + String(this.props.match.params.id);
+    const url = BASE_URL + "/api/problems/" + String(this.props.match.params.id);
     axios
       .get(url)
       .then((res) => {

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import BASE_URL from "../global.js";
 import "../css/QuizzesContent.css";
 import Layout from "../components/Layout";
 import QuizQuestion from "../components/QuizQuestion.js";
@@ -24,7 +25,7 @@ export default class QuizzesContent extends Component {
     // this.setState({
     //   // isLoading: true,
     // })
-    const url = "/api/quizzes/" + String(this.props.match.params.id);
+    const url = BASE_URL + "/api/quizzes/" + String(this.props.match.params.id);
     axios
       .get(url)
       .then((res) => {
@@ -74,9 +75,9 @@ export default class QuizzesContent extends Component {
     });
   }
 
-
   updateTotalScore(header){
-    axios.get('http://127.0.0.1:8000/api/users', {
+    const url = BASE_URL + "/api/users";
+    axios.get(url, {
       headers: {
         'Authorization': header,
         'Content-Type': `multipart/form-data`
@@ -128,10 +129,11 @@ export default class QuizzesContent extends Component {
 
     // console.log("Debug Result", Result);
     const header = 'Token ' + String(localStorage.token)
+    const url = BASE_URL + "/api/quiz_hs/";
 
 
     axios.post(
-      "/api/quiz_hs/",
+      url,
       JSON.stringify({
         score: Result,
         quiz_id: this.props.match.params.id,

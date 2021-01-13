@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import BASE_URL from "../global.js";
 import { Formik, Form } from "formik";
 import { ClapSpinner as ButtonLoader } from "react-spinners-kit";
 import { size } from "lodash";
@@ -19,7 +20,9 @@ const MyForm = ({ validationSchema, initialValues, isOpen, setOpen, type }) => {
 
   const InitiateData = (token) =>{
     const header = 'Token ' + String(token)
-    axios.get('http://127.0.0.1:8000/api/users/', {
+    const url = BASE_URL + "/api/users/";
+
+    axios.get(url, {
       headers: {
         'Authorization': header,
         'Content-Type': `multipart/form-data`
@@ -50,20 +53,21 @@ const MyForm = ({ validationSchema, initialValues, isOpen, setOpen, type }) => {
     try {
       let res;
       const header = 'Token ' + String(localStorage.token)
-
+      const url = BASE_URL + "/api/register/";
       if (type === "signup") {
         res = await axios({
           method: "post",
-          url: "/api/register/",
+          url: url,
           data: JSON.stringify(fields, null, size(fields)),
           headers: {
             "Content-Type": "application/json",
           },
         });
       } else if (type === "login") {
+        const url = BASE_URL + "/api/login/";
         res = await axios({
           method: "post",
-          url: "/api/login/",
+          url: url,
           data: JSON.stringify(fields, null, size(fields)),
           headers: {
             "Content-Type": "application/json",

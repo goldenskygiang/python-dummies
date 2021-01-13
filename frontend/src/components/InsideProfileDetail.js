@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
 import '../css/InsideProfileDetail.css';
-// import firebase from '../firebase.js';
-// import Loading from './Loading.js';
-// import Ava from '../img/stitch.jpg';
-// import 'font-awesome/css/font-awesome.min.css';
-// import {useParams} from 'react-router-dom';
-// import ProfileDeleteConfirm from './ProfileDeleteConfirm';
 
 export default class InsideProfileDetail extends Component {
 	constructor(props) {

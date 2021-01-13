@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../css/Discussion.css";
 import DiscussionItem from "./DiscussionItem.js";
+import BASE_URL from "../global.js";
 
 import axios from 'axios';
 
@@ -18,7 +19,8 @@ export default class Discussion extends Component {
     // console.log("check id in discussion", this.props.ProblemId)
     const header = 'Token ' + String(localStorage.token)
 
-    axios.get('http://127.0.0.1:8000/api/comments/', {
+    const url = BASE_URL + "/api/comments/";
+    axios.get(url, {
       headers: {
         'Authorization': header,
         'Content-Type': `multipart/form-data`
@@ -45,7 +47,8 @@ export default class Discussion extends Component {
   UpdateComment(){
     const header = 'Token ' + String(localStorage.token)
 
-    axios.get('http://127.0.0.1:8000/api/comments/', {
+    const url = BASE_URL + "/api/comments/";
+    axios.get(url, {
       headers: {
         'Authorization': header,
         'Content-Type': `multipart/form-data`
@@ -80,9 +83,9 @@ export default class Discussion extends Component {
 
     let content = this.state.value;
     const header = 'Token ' + String(localStorage.token);
-
+    const url = BASE_URL + "/api/comments/";
     axios.post(
-      "/api/comments/",
+      url,
       JSON.stringify({
         content: content,
         problem_id: this.props.ProblemId,

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import BASE_URL from "../global.js";
 import Layout from "../components/Layout";
 import LessonList from "../components/LessonList.js";
 import LessonContent from "../components/LessonContent.js";
@@ -19,8 +20,10 @@ export default class Homepage extends Component {
   }
 
   componentDidMount() {
+    const url = BASE_URL + "/api/lessons/";
+    console.log("check url", url)
     axios
-      .get(`/api/lessons/`)
+      .get(url)
       .then((res) => {
         const lessons = res.data;
         // console.log("debug", lessons)

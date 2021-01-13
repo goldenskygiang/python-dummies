@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../css/Problemlist.css';
+import BASE_URL from "../global.js";
 
 import axios from 'axios';
 
@@ -13,7 +14,9 @@ export default class Problemlist extends Component {
 
 
     componentDidMount() {
-        axios.get(`/api/problems/`)
+        const url = BASE_URL + "/api/problems/";
+        console.log("check url", url);
+        axios.get(url)
           .then(res => {
             const Problems = res.data;
             // console.log("show problems", Problems)
