@@ -74,9 +74,9 @@ class ProblemSerializer(serializers.ModelSerializer):
     fields = ('id', 'lesson', 'title', 'link', 'description', 'submission_set')
 
 class ReplySerializer(serializers.ModelSerializer):
+  model = Comment
+  author = UserSerializer(read_only=True)
   class Meta:
-    model = Comment
-    author = UserSerializer(read_only=True)
     fields = ('id', 'author', 'date', 'content', 'reply_to')
 
 class CommentSerializer(serializers.ModelSerializer):

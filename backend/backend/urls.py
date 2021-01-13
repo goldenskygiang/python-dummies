@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
 from rest_framework import routers
 from rest_framework.authtoken import views as authviews
 from pydump import views
+from backend import settings
 
 router = routers.DefaultRouter()
 router.register(r'lessons', views.LessonView, 'lessons')
@@ -34,4 +36,4 @@ urlpatterns = [
     path('api/users/', views.UserView.as_view(), name='userdetail'),
     path('api/comments/', views.CommentView.as_view(), name='commentview'),
     path('api/check_problemset/<int:problemset_id>/', views.CheckProblemset.as_view())
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
