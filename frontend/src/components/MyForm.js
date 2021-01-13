@@ -57,7 +57,6 @@ const MyForm = ({ validationSchema, initialValues, isOpen, setOpen, type }) => {
           url: "/api/register/",
           data: JSON.stringify(fields, null, size(fields)),
           headers: {
-            Authorization: header,
             "Content-Type": "application/json",
           },
         });
@@ -67,7 +66,6 @@ const MyForm = ({ validationSchema, initialValues, isOpen, setOpen, type }) => {
           url: "/api/login/",
           data: JSON.stringify(fields, null, size(fields)),
           headers: {
-            Authorization: header,
             "Content-Type": "application/json",
           },
         });
