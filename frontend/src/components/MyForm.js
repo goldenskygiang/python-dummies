@@ -49,13 +49,15 @@ const MyForm = ({ validationSchema, initialValues, isOpen, setOpen, type }) => {
     const { setSubmitting, setStatus, resetForm } = actions;
     try {
       let res;
+      const header = 'Token ' + String(localStorage.token)
+
       if (type === "signup") {
         res = await axios({
           method: "post",
           url: "/api/register/",
           data: JSON.stringify(fields, null, size(fields)),
           headers: {
-            Authorization: "Token 896fa8b8fe999c94053318a889b21390a6ee4d80",
+            Authorization: header,
             "Content-Type": "application/json",
           },
         });
@@ -65,7 +67,7 @@ const MyForm = ({ validationSchema, initialValues, isOpen, setOpen, type }) => {
           url: "/api/login/",
           data: JSON.stringify(fields, null, size(fields)),
           headers: {
-            Authorization: "Token 896fa8b8fe999c94053318a889b21390a6ee4d80",
+            Authorization: header,
             "Content-Type": "application/json",
           },
         });
