@@ -43,9 +43,11 @@ export default class QuizQuestion extends Component {
             <img className = 'CodeStyle' src = {Code}></img>
         </div> */}
 
-        <Highlight language="python">
+        {Code !== "" &&
+          <Highlight language="python">
           {Code}
-        </Highlight>
+          </Highlight>
+        }
 
         <div className = "Options">
           {Question.choice_set.map((ans,index) =>

@@ -114,14 +114,17 @@ export default class QuizContentStatus extends Component {
     let sec = time.s < 10? "0"+ String(time.s) : String(time.s);
     let ScoreDisplay = HighScore >= 0 ? String(HighScore) + " / 100" : "No Scores";
 
-    let content = HighScore >= parseInt(80) 
+    let th = parseInt(0.8*this.props.QuestionLength)  * (100 / this.props.QuestionLength);
+    th = parseInt(th);
+    // console.log("check th", th)
+    let content = HighScore >= th
                                 ? String(ScoreDisplay)+" (Passed)"
                                 : String(ScoreDisplay)+" (Failed)"
     if(HighScore < 0){
       content = String(ScoreDisplay)
     }
 
-    let color = HighScore >= parseInt(80) 
+    let color = HighScore >= th
                               ? "QuizScore Green"
                               : "QuizScore Red"
 
