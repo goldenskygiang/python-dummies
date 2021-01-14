@@ -59,6 +59,7 @@ export default class ProblemCondition extends Component {
     let {Submission} = this.state;
     // console.log("check this sub",Submission);
     let content;
+    console.log("maxscore", Submission.maxscore)
     if(parseInt(Submission.maxscore) < 0 ){
         content = "No Scores";
     }

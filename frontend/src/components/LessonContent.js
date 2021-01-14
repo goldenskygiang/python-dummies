@@ -16,7 +16,7 @@ export default class LessonContent extends Component {
 
   render() {
     const{LessonName, Emb_url} = this.props
-    console.log(Emb_url);
+    // console.log(Emb_url);
 
     return (
       <div className="LessonContent">

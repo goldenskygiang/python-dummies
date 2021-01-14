@@ -51,11 +51,13 @@ const Submit = (props) => {
   const submitCode = async () => {
     // console.log("Submitting code...");
     const header = 'Token ' + String(localStorage.token)
-    let url =  "/api/check_problemset/"+props.match.params.id+"/";
+    let url =  "/api/check_problemset/"+String(props.match.params.id)+"/";
+    // console.log("check url", props.match.params.id)
+
     const res = await axios({
       method: "post",
       url: url,
-      data: JSON.stringify({ code: getValue() }, null, props.match.params.id),
+      data: JSON.stringify({ code: getValue() }, null, parseInt(props.match.params.id)),
       headers: {
         Authorization: header,
         "Content-Type": "application/json",
