@@ -132,11 +132,11 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = '/uploads/'
 MEDIA_URL = '/uploads/'
 
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ORIGIN_WHITELIST = [
+    'http://localhost',
     'http://localhost:3000',
-    'http://localhost:5000',
 ]
 
 CORS_ALLOW_CREDENTIALS = True
