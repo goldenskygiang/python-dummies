@@ -21,7 +21,8 @@ export default class DiscussionItem extends Component {
     })
   }
 
-  changeStateComments(){
+  changeStateComments(Comment){
+    // console.log("debug comment", Comment)
     this.setState({
       isShowComments: !this.state.isShowComments
     })
@@ -132,7 +133,7 @@ export default class DiscussionItem extends Component {
                    onClick = {this.showReply.bind(this)}>Reply</div>
 
               <div className = "DiscussionShowComments" 
-                   onClick = {this.changeStateComments.bind(this)}>Comments ({Comment.comment_set.length})</div>
+                   onClick = {this.changeStateComments.bind(this, Comment)}>Comments ({Comment.comment_set.length})</div>
           </div>
 
           {isReply && 

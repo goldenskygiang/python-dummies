@@ -17,6 +17,8 @@ export default class Reply extends Component {
 
   render() {
     const {Comment_set} = this.props;
+    console.log("check comment_set", Comment_set)
+
     let Date = Comment_set.date;
     Date = Date.split("T");
     // console.log("check date", Date);
@@ -34,7 +36,7 @@ export default class Reply extends Component {
         <div className="ReplyLeft"></div>
         <div className="ReplyRight">
           <div className="ReplyRightName">
-            <span>{Comment_set.author}</span>
+            <span>{Comment_set.author.username}</span>
             <span className = "CommentDate">{h}:{min} {d}/{m}/{y}</span>
           </div>
 

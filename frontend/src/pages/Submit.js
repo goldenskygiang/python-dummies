@@ -51,7 +51,7 @@ const Submit = (props) => {
   const submitCode = async () => {
     // console.log("Submitting code...");
     const header = 'Token ' + String(localStorage.token)
-    let url =  "/api/check_problemset/"+String(props.match.params.id)+"/";
+    let url =  BASE_URL + "/api/check_problemset/"+String(props.match.params.id)+"/";
     // console.log("check url", props.match.params.id)
 
     const res = await axios({

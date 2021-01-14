@@ -9,7 +9,7 @@ export default class ProblemCondition extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        Submission: []
+        MaxScore: -1
     }
   }
 
@@ -37,8 +37,17 @@ export default class ProblemCondition extends Component {
           Submission = [{maxscore:-1}]
       }
 
+      let MaxScore = this.state.MaxScore;
+
+
+      for(let sub in Submission){
+        if(sub.maxscore > MaxScore){
+          MaxScore = sub.maxscore;
+        } 
+      }
+
       this.setState({
-          Submission: Submission.reverse()[0]
+          MaxScore: MaxScore
       })
 
     })
@@ -56,16 +65,16 @@ export default class ProblemCondition extends Component {
 
   render() {
     const {ProblemItem, ProblemId} = this.props;
-    let {Submission} = this.state;
+    let {MaxScore} = this.state;
     // console.log("check this sub",Submission);
     let content;
-    console.log("maxscore", Submission.maxscore)
-    if(parseInt(Submission.maxscore) < 0 ){
+    // console.log("maxscore", Submission.maxscore)
+    if(parseInt(MaxScore) < 0 ){
         content = "No Scores";
     }
-    else content = parseInt(Submission.maxscore) === 100? "Accepted":
-                                                          String(Submission.maxscore) + "/ 100";
-    let color = parseInt(Submission.maxscore) === 100? "ProblemScore Green": "ProblemScore";
+    else content = parseInt(MaxScore) === 100? "Accepted":
+                                                          String(MaxScore) + "/ 100";
+    let color = parseInt(MaxScore) === 100? "ProblemScore Green": "ProblemScore";
     
     return (
         <div className="ProblemCondition">
