@@ -34,12 +34,12 @@ const Navbar = ({ setLogInOpen, setSignUpOpen }) => {
         <div className="collapse navbar-collapse" id="navbarToggler">
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0 nav-link-container">
             <li className="nav-item active">
-              <a className="nav-link a_hover" onClick = {() => Validate("/Problemset")}>
+              <a className="nav-link a_hover first-nav-item" onClick = {() => Validate("/Problemset")}>
                 Problemset<span className="sr-only"></span>
               </a>
             </li>
 
-            <li className="nav-item active">
+            <li className="nav-item active last-nav-item">
               <a className="nav-link a_hover" onClick = {() => Validate("/Quizzes")}>
                 Quizzes<span className="sr-only"></span>
               </a>
@@ -54,7 +54,7 @@ const Navbar = ({ setLogInOpen, setSignUpOpen }) => {
             {localStorage.username}
           </div>
           <button className="btn btn--login" onClick={() => LogOut()}>
-            Log Out
+            Logout
           </button>
         </div>
       }

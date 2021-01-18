@@ -9,6 +9,14 @@
   padding-bottom: 0.2rem;
 }
 
+.first-nav-item{
+  margin-left: 0.5rem;
+}
+
+.last-nav-item{
+  margin-left: 1.5rem;
+}
+
 .navbar a{
   text-decoration: none;
 }

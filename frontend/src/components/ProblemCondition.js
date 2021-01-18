@@ -33,16 +33,17 @@ export default class ProblemCondition extends Component {
       let Submission = res.data;
       console.log("check submission", Submission);
 
-      if(Submission.length === 0){
-          Submission = [{maxscore:-1}]
-      }
+      // if(Submission.length === 0){
+      //     Submission = [{score:-1}]
+      // }
 
-      let MaxScore = this.state.MaxScore;
+      let MaxScore = -1;
 
 
-      for(let sub in Submission){
-        if(sub.maxscore > MaxScore){
-          MaxScore = sub.maxscore;
+      for(let sub of Submission){
+        // console.log("process here", sub)
+        if(sub.score > MaxScore){
+          MaxScore = sub.score;
         } 
       }
 
@@ -65,6 +66,7 @@ export default class ProblemCondition extends Component {
 
   render() {
     const {ProblemItem, ProblemId} = this.props;
+    // console.log("view problem", ProblemItem)
     let {MaxScore} = this.state;
     // console.log("check this sub",Submission);
     let content;
@@ -72,8 +74,9 @@ export default class ProblemCondition extends Component {
     if(parseInt(MaxScore) < 0 ){
         content = "No Scores";
     }
-    else content = parseInt(MaxScore) === 100? "Accepted":
-                                                          String(MaxScore) + "/ 100";
+    else content = parseInt(MaxScore) === 100 ? "Accepted"
+                                              :String(MaxScore) + " / 100";
+
     let color = parseInt(MaxScore) === 100? "ProblemScore Green": "ProblemScore";
     
     return (
