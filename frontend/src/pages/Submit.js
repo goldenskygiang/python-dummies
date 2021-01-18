@@ -5,6 +5,7 @@ import "../css/Submit.css";
 import Layout from "../components/Layout";
 import Editor from "@monaco-editor/react";
 import { FillSpinner as Loader } from "react-spinners-kit";
+import Loading from "../components/Loading";
 import axios from "axios";
 
 const Submit = (props) => {
@@ -12,6 +13,7 @@ const Submit = (props) => {
   const theme = "dark";
   const language = "python";
   const [isEditorReady, setIsEditorReady] = useState(false);
+  const [isSumitting, setSummitting] = useState(false);
   const valueGetter = useRef();
 
   const handleEditorDidMount = (_valueGetter) => {
@@ -23,41 +25,39 @@ const Submit = (props) => {
     return valueGetter.current();
   };
 
-
-  const updateTotalScore = (header) => {
+  const updateTotalScore = async (header) => {
     const url = BASE_URL + "/api/users/";
-    axios.get(url, {
-      headers: {
-        'Authorization': header,
-        'Content-Type': `multipart/form-data`
-      }
-    })
-    .then((res) => {
+    try {
+      const res = await axios.get(url, {
+        headers: {
+          Authorization: header,
+          "Content-Type": `multipart/form-data`,
+        },
+      });
       // console.log("get high score", res.data.score)
       const TotalScore = res.data.score;
-
       localStorage.setItem("TotalScore", TotalScore);
-
-      window.location.href = '/SubmissionDetail';
-
-
-    })
-    .catch((error) => {
-      console.error(error)
-    })
-  }
-
+      window.location.href = "/SubmissionDetail";
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const submitCode = async () => {
-    // console.log("Submitting code...");
-    const header = 'Token ' + String(localStorage.token)
-    let url =  BASE_URL + "/api/check_problemset/"+String(props.match.params.id)+"/";
+    const header = "Token " + String(localStorage.token);
+    let url =
+      BASE_URL + "/api/check_problemset/" + String(props.match.params.id) + "/";
     // console.log("check url", props.match.params.id)
 
+    setSummitting(true);
     const res = await axios({
       method: "post",
       url: url,
-      data: JSON.stringify({ code: getValue() }, null, parseInt(props.match.params.id)),
+      data: JSON.stringify(
+        { code: getValue() },
+        null,
+        parseInt(props.match.params.id)
+      ),
       headers: {
         Authorization: header,
         "Content-Type": "application/json",
@@ -69,12 +69,14 @@ const Submit = (props) => {
     localStorage.setItem("Problemscore", resData.score);
     localStorage.setItem("res", resData.test_result);
     localStorage.setItem("time", resData.runtime_result);
+    await setTimeout(() => setSummitting(true), 1000);
 
-    updateTotalScore(header);
+    await updateTotalScore(header);
   };
 
   return (
     <Layout>
+      <Loading isLoading={isSumitting} />
       <div className="SubmitBody">
         <div className="SubmitTitle">
           <span>Submit a solution</span>
