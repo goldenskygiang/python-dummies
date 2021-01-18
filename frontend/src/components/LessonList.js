@@ -14,7 +14,7 @@ export default class LessonList extends Component {
   }
 
   render() {
-    const { Lessons = [], setContent, LessonId } = this.props;
+    const { Lessons = [], setContent, LessonId, onClick } = this.props;
     // console.log(Lessons);
     return (
       <div className="LessonList">
@@ -31,6 +31,7 @@ export default class LessonList extends Component {
                 Lesson={lesson}
                 setContent={setContent}
                 LessonId={LessonId}
+                onClick={onClick}
               ></LessonItem>
             ))
           )}

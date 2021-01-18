@@ -5,7 +5,7 @@ import LessonList from "../components/LessonList.js";
 import LessonContent from "../components/LessonContent.js";
 import Loading from "../components/Loading.js";
 
-import { isEmpty } from "lodash";
+import { isEmpty, times } from "lodash";
 import axios from "axios";
 
 export default class Homepage extends Component {
@@ -16,12 +16,13 @@ export default class Homepage extends Component {
       emb_url: "",
       LessonName: "",
       LessonId: 0,
+      changingLesson: false,
     };
   }
 
   componentDidMount() {
     const url = BASE_URL + "/api/lessons/";
-    console.log("check url", url)
+    console.log("check url", url);
     axios
       .get(url)
       .then((res) => {
@@ -56,11 +57,15 @@ export default class Homepage extends Component {
           {localStorage.getItem('user') &&  <Profile></Profile>} */}
         {/* {this.state.isLoading && <Loading />} */}
 
-        <Loading isLoading={isEmpty(lessons) ? true : false} />
+        <Loading isLoading={isEmpty(lessons) || this.state.changingLesson} />
         <LessonList
           Lessons={lessons}
           setContent={this.setContent.bind(this)}
           LessonId={LessonId}
+          onClick={() => {
+            this.setState({ changingLesson: true });
+            setTimeout(() => this.setState({ changingLesson: false }), 1500);
+          }}
         ></LessonList>
         {/* <LessonList Lessons = {lessons}></LessonList> */}
         <LessonContent
