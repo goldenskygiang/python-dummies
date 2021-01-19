@@ -6,26 +6,24 @@ export default class QuizItem extends Component {
     super(props);
   }
 
-  redirect(id){
-    window.location.href = '/Quizzes/' + id
+  redirect(id) {
+    window.location.href = "/Quizzes/" + id;
   }
 
   render() {
-    const {Quiz} = this.props
+    const { Quiz } = this.props;
     return (
-      <div className="QuizItem" onClick = {this.redirect.bind(this,Quiz.id)}>
+      <div className="QuizItem" onClick={this.redirect.bind(this, Quiz.id)}>
         {/* <span>{name}</span> */}
         <div className="ItemLeft">
-          <img className="ItemLeftImg" src = {Quiz.img}></img>
+          <img className="ItemLeftImg" src={Quiz.img} alt="Quiz Logo"></img>
         </div>
         <div className="ItemRight">
           <div className="ItemRightName">
             <span>{Quiz.title}</span>
           </div>
           <div className="QuizItemDescription">
-            <span>
-              {Quiz.description}
-            </span>
+            <span>{Quiz.description}</span>
           </div>
         </div>
       </div>
