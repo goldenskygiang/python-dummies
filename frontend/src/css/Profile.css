@@ -1,55 +1,54 @@
 .Profile {
-    margin: 76px 10px 0 1.5rem;
-    border: 1px solid rgba(0,0,0,0.5);
-    background: #FFF !important;
-    border-radius: 5px !important;
-    width: 22%;
-    height: 29rem;
-    padding-bottom: 1rem;
-  }
+  margin: 76px 10px 0 1.5rem;
+  border: 1px solid #2e344080;
+  background: #ECEFF4 !important;
+  border-radius: 5px !important;
+  width: 22%;
+  height: 29rem;
+  padding-bottom: 1rem;
+}
 
-  .ProfileHeader{
-      width: 100%;
-      height: 2rem;
-      background: #3174AE;
-      margin-bottom: 1rem;
-  }
-  
-  .Profile a {
-    color: #111;
-  }
+.ProfileHeader {
+  width: 100%;
+  height: 2rem;
+  background: #3174ae;
+  margin-bottom: 1rem;
+}
 
-  .UserInfo{
-      width: 75%;
-      margin-left:1rem;
-      margin-right:1rem;
-  }
+.Profile a {
+  color: #2E3440;
+}
 
-  .UserInfoName{
-    margin-top: 1rem;
-    font-size: 1.3rem;
-  }
-  
-  .Information {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  
+.UserInfo {
+  width: 75%;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
 
-  .Information a:visited {
-    color: #111;
-  }
-  
-  .UserInfo {
-    margin-bottom: 10px;
-  }
+.UserInfoName {
+  margin-top: 1rem;
+  font-size: 1.3rem;
+}
 
-  /* .UserOtherInfo table{
+.Information {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.Information a:visited {
+  color: #111;
+}
+
+.UserInfo {
+  margin-bottom: 10px;
+}
+
+/* .UserOtherInfo table{
       width: 100%;
       border: 0.5px solid #000;
       margin-top: 1rem;
@@ -57,40 +56,39 @@
       height: 25vh;
   } */
 
+.UserOtherInfo {
+  border: 0.5px solid #2E3440;
+  /* border-radius: 7px 7px 0 0; */
+  border-radius: 7px;
+  margin-top: 0.7rem;
+  border-collapse: collapse;
+  padding-bottom: 7px;
+}
 
-  .UserOtherInfo{
-      border: 0.5px solid #555;
-      border-radius: 7px 7px 0 0;
-      margin-top: 0.7rem;
-  }
+.UserOtherInfoTable {
+  width: 100%;
+  height: 25vh;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: 14px;
+  /* margin-bottom: 1rem; */
+}
 
+.UserOtherInfo table tr {
+  /* border-bottom: 1px solid #aaa; */
+  padding: 0.5rem 0 0.5rem 0;
+}
 
-  .UserOtherInfoTable {
-	  width: 100%;
-    height: 25vh;
-	/* border-collapse: collapse; */
-	  text-align: center;
-    font-size: 14px;
-    /* margin-bottom: 1rem; */
-  }
+.UserOtherInfo table tr:last-child {
+  border-bottom: none;
+}
 
-  .UserOtherInfo table tr{
-      /* border-bottom: 1px solid #aaa; */
-      padding: 0.5rem 0 0.5rem 0;
-  }
-  
-  .UserOtherInfo table tr:last-child{
-      border-bottom: none;
-  }
-
-  .UserOtherInfoHover td:hover {
-    cursor: pointer;
-    background-color: rgba(25,65,122,0.8);
-    /* opacity: 0.7; */
-    font-weight: bold;
-    border-left: 4px solid #C72127;
-    color: #ffffff;
-      /* opacity: 0.6; */
-  }
-
-  
+.UserOtherInfoHover td:hover {
+  cursor: pointer;
+  background-color: rgba(25, 65, 122, 0 .8);
+  /* opacity: 0.7; */
+  border-left: 3.5px solid #c72127;
+  font-weight: 700;
+  color: #ECEFF4;
+  /* opacity: 0.6; */
+}

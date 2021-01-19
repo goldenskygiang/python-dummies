@@ -60,10 +60,10 @@ export default class InsideProfileDetail extends Component {
                 {/* <img className="Picture" src={Avatar}></img> */}
                 <img className="Picture"></img>
                 {/* {localStorage.getItem('userId') === User.Id && (
-                                    <div className="StudentProfileLayer" onClick = {this.ChangingAva.bind(this)}>
-                                        Change Avatar
-                                    </div>
-                                )} */}
+																		<div className="StudentProfileLayer" onClick = {this.ChangingAva.bind(this)}>
+																				Change Avatar
+																		</div>
+																)} */}
 
                 <div
                   className="StudentProfileLayer"
@@ -84,12 +84,12 @@ export default class InsideProfileDetail extends Component {
                 </ul>
 
                 {/* {ConfirmSelected && (
-                                <ProfileDeleteConfirm
-                                    CloseConfirmSelected={this.CloseConfirmSelected.bind(this)}
-                                    // Id={User.Id}
-                                    // showLoading={this.showLoading.bind(this)}
-                                ></ProfileDeleteConfirm>
-                            )} */}
+																<ProfileDeleteConfirm
+																		CloseConfirmSelected={this.CloseConfirmSelected.bind(this)}
+																		// Id={User.Id}
+																		// showLoading={this.showLoading.bind(this)}
+																></ProfileDeleteConfirm>
+														)} */}
               </div>
             )}
 
