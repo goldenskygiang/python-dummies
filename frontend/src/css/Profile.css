@@ -1,11 +1,12 @@
 .Profile {
-  margin: 76px 10px 0 1.5rem;
+  margin: 75px 9px -1px calc(1.5rem - 1px);
   border: 1px solid #2e344080;
   background: #ECEFF4 !important;
   border-radius: 5px !important;
   width: 22%;
   height: 29rem;
   padding-bottom: 1rem;
+  overflow: hidden;
 }
 
 .ProfileHeader {
@@ -59,10 +60,11 @@
 .UserOtherInfo {
   border: 0.5px solid #2E3440;
   /* border-radius: 7px 7px 0 0; */
-  border-radius: 7px;
+  border-radius: 5px;
   margin-top: 0.7rem;
   border-collapse: collapse;
-  padding-bottom: 7px;
+  overflow: hidden;
+  /* padding-bottom: 7px; */
 }
 
 .UserOtherInfoTable {
@@ -87,7 +89,7 @@
   cursor: pointer;
   background-color: rgba(25, 65, 122, 0.8);
   /* opacity: 0.7; */
-  border-left: 3.5px solid #c72127;
+  border-left: 5px solid #c72127;
   font-weight: 700;
   color: #ECEFF4;
   /* opacity: 0.6; */
