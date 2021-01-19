@@ -85,7 +85,7 @@
 
 .UserOtherInfoHover td:hover {
   cursor: pointer;
-  background-color: rgba(25, 65, 122, 0 .8);
+  background-color: rgba(25, 65, 122, 0.8);
   /* opacity: 0.7; */
   border-left: 3.5px solid #c72127;
   font-weight: 700;
