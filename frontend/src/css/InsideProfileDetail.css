@@ -1,196 +1,186 @@
 .InsideProfileHeader {
-	display: flex;
-	flex-direction: row;
-	width: 94%;
-	border-bottom: 1px solid #bbbbbb;
-	/* padding-bottom: 0.1rem; */
-	align-items: left;
-	/* justify-content: space-around; */
+  display: flex;
+  flex-direction: row;
+  width: 94%;
+  border-bottom: 1px solid #bbbbbb;
+  /* padding-bottom: 0.1rem; */
+  align-items: left;
+  /* justify-content: space-around; */
 }
 
-.InsideProfileHeader span{
-    font-size: 1.9rem;
-    width: 70%;
-	text-align: left;
-	/* margin: 0px auto; */
-	/* margin-top: 0.5rem; */
-	margin-bottom: 0px;
-	padding-left: 15px;
+.InsideProfileHeader span {
+  font-size: 1.9rem;
+  width: 70%;
+  text-align: left;
+  /* margin: 0px auto; */
+  /* margin-top: 0.5rem; */
+  margin-bottom: 0px;
+  padding-left: 15px;
 }
-
 
 .InsideProfileDetail {
-	width: 67%;
-	/* margin: auto; */
-	margin-bottom: 20px;
-	/* margin-top: 10px; */
-	margin-left: 2rem;
+  width: 67%;
+  /* margin: auto; */
+  margin-bottom: 20px;
+  /* margin-top: 10px; */
+  margin-left: 2rem;
 }
-
 
 .InsideProfileDetailMain {
-	display: flex;
-	flex-direction: column;
-	width: 90%;
-	margin: 1rem 0 0 1rem;
-	margin-bottom: 0;
-	/* border: 1px solid rgb(185, 185, 185); */
-	border: 2px solid #5e81ac;
-	border-radius: 7px;
-	height: 17.5rem;
-	position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 1rem 0 0 1rem;
+  margin-bottom: 0;
+  /* border: 1px solid rgb(185, 185, 185); */
+  border: 2px solid #5e81ac;
+  border-radius: 7px;
+  height: 17.5rem;
+  position: relative;
 }
 
-.InsideProfileDetailMainUp{
-    display: flex;
-    flex-direction: row;
+.InsideProfileDetailMainUp {
+  display: flex;
+  flex-direction: row;
 }
 
 .Left {
-	width: 30%;
+  width: 30%;
 }
 
 .Right {
-	width: 70%;
-    text-align: left;
+  width: 70%;
+  text-align: left;
 }
 
-
-.AvatarRight{
-	width: 70%;
+.AvatarRight {
+  width: 70%;
 }
 
 .Right ul {
-	margin-top: 2.5rem;
-	padding-left: 0px;
+  margin-top: 2.5rem;
+  padding-left: 0px;
 }
 
 .Right ul li {
-	list-style: none;
-	border-bottom: 1px solid rgb(185, 185, 185);
-	height: 2.4rem;
-	line-height: 2.4rem;
-	width: 90%;
+  list-style: none;
+  border-bottom: 1px solid rgb(185, 185, 185);
+  height: 2.4rem;
+  line-height: 2.4rem;
+  width: 90%;
 }
 
 .Right ul li:last-child {
-	border-bottom: none;
+  border-bottom: none;
 }
 
 .StudentAvatar {
-	border-radius: 50%;
-	/* margin: 10px auto; */
-	margin: 3rem 0px 0px 2.7rem;
-	display: block;
-	width: 8rem;
-	height: 8rem;
-	border: 5px solid #ddd;
-	position: relative;
+  border-radius: 50%;
+  /* margin: 10px auto; */
+  margin: 3rem 0px 0px 2.7rem;
+  display: block;
+  width: 8rem;
+  height: 8rem;
+  border: 5px solid #ddd;
+  position: relative;
 }
 
-.StudentProfileLayer{
-	/* display: none; */
-	width: 100%;
-	height: 100%;
-	line-height: 100%;
-	text-align: center;
-	color: #ECEFF4;
+.StudentProfileLayer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  width: 100%;
+  height: 100%;
+  line-height: 100%;
+  text-align: center;
+  color: #eceff4;
 	font-size: 1rem;
-    /* border-radius: 50%; */
-    /* padding-top: 35%; */
 
-    position: absolute;
-	top: 0;
-    left: 0;
-    
-	background-color: rgba(0, 0, 0, 0.5);
-	border-radius: 50%;
-	opacity: 0;
-    transition: .3s all ease;
+	overflow: hidden;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  opacity: 0;
+  transition: 0.3s all ease;
 }
 
-.StudentProfileLayer:hover{
-	/* display: block; */
-	cursor: pointer;
-	opacity: 1;
-	transition: .3s all ease;
+.StudentProfileLayer:hover {
+  /* display: block; */
+  cursor: pointer;
+  opacity: 1;
+  transition: 0.3s all ease;
 }
-
-
-.StudentProfileLayerText{
-	margin-top: 4rem;
-}
-
-
 
 .DeleteCss {
-	border-radius: 10px;
-	cursor: pointer;
-	transition: all 600ms ease-in-out;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 600ms ease-in-out;
 }
 
 .DeleteCss:hover {
-	padding: 0.3rem 0.5rem;
-	background: rgba(136, 192, 208, 0.35);
+  padding: 0.3rem 0.5rem;
+  background: rgba(136, 192, 208, 0.35);
 }
 
 .DeleteCss:active {
-	opacity: 0.7;
+  opacity: 0.7;
 }
 
 .ChangeCss {
-	border-radius: 10px;
-	cursor: pointer;
-	transition: all 600ms ease-in-out;
-	position: absolute;
-	top: 9rem;
-	left: 0;
-	font-weight: bold;
-	font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 600ms ease-in-out;
+  position: absolute;
+  top: 9rem;
+  left: 0;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .ChangeCss:hover {
-	padding: 0.3rem 0.5rem;
-	background: rgba(136, 192, 208, 0.35);
+  padding: 0.3rem 0.5rem;
+  background: rgba(136, 192, 208, 0.35);
 }
 
 .ChangeCss:active {
-	opacity: 0.7;
+  opacity: 0.7;
 }
 
-
-
 .ProfileFooter {
-	height: 7vh;
-	line-height: 7vh;
-	width: 100%;
-    text-align: center;
-    border: 2px solid #5e81ac;
-	background: transparent;
-	background-color: #5e81ac;
-	color: #eceff4;
-	border-radius: 0 0 10px 10px;
-    position: absolute;
-    bottom: -1rem;
-    left: -0.12rem;
+  height: 7vh;
+  line-height: 7vh;
+  width: 100%;
+  text-align: center;
+  border: 2px solid #5e81ac;
+  background: transparent;
+  background-color: #5e81ac;
+  color: #eceff4;
+  border-radius: 0 0 10px 10px;
+  position: absolute;
+  bottom: -1rem;
+  left: -0.12rem;
 }
 
 .ProfileFooter:hover {
-	cursor: pointer;
-	background-color: rgb(65, 90, 120);
+  cursor: pointer;
+  background-color: rgb(65, 90, 120);
 }
 
 .Inactive:hover {
-	background-color: #5e81ac;
-	cursor: auto;
+  background-color: #5e81ac;
+  cursor: auto;
 }
 
 .ProfileFooter span {
-	/* margin-left: 29vw; */
+  /* margin-left: 29vw; */
 }
 
-.AvatarRightSpan{
-    font-size:18px;
+.AvatarRightSpan {
+  font-size: 18px;
 }
 
 .upload-btn-wrapper {
@@ -210,12 +200,11 @@
   font-weight: bold;
 }
 
-#avaInput:hover{
-	cursor: pointer;
+#avaInput:hover {
+  cursor: pointer;
 }
 
-
-.upload-btn-wrapper input[type=file] {
+.upload-btn-wrapper input[type="file"] {
   font-size: 1rem;
   position: absolute;
   left: 0;
@@ -225,55 +214,53 @@
   width: 37%;
 }
 
-.AvatarRight{
-	position: relative;
-    text-align:left;
-    display: flex;
-    flex-direction: column;
-    margin-top: 2.5rem;
+.AvatarRight {
+  position: relative;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2.5rem;
 }
 
-.AvatarRight .backBtn{
-	/* position: absolute;
+.AvatarRight .backBtn {
+  /* position: absolute;
 	top: 2.4rem;
 	left: 12rem; */
 }
 
-
-.AvatarRight .footer-icons{
-	margin-top: 0.5rem;
+.AvatarRight .footer-icons {
+  margin-top: 0.5rem;
 }
 
-.AvatarRight .footer-icons span{
-	display: inline-block;
-	width: 35px;
-	height: 35px;
-	cursor: pointer;
-	border-radius: 2px;
+.AvatarRight .footer-icons span {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  border-radius: 2px;
 
-	font-size: 25px;
-	color: #000000;
-	text-align: center;
-	line-height: 35px;
+  font-size: 25px;
+  color: #000000;
+  text-align: center;
+  line-height: 35px;
 
-	margin-right: 3px;
-	margin-bottom: 5px;
+  margin-right: 3px;
+  margin-bottom: 5px;
 }
 
-.AvatarRight .footer-icons a{
-	display: inline-block;
-	width: 35px;
-	height: 35px;
-	cursor: pointer;
-	background-color:  #33383b;
-	border-radius: 2px;
+.AvatarRight .footer-icons a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  background-color: #33383b;
+  border-radius: 2px;
 
-	font-size: 20px;
-	color: #ffffff;
-	text-align: center;
-	line-height: 35px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
 
-	margin-right: 3px;
-	margin-bottom: 5px;
+  margin-right: 3px;
+  margin-bottom: 5px;
 }
-
