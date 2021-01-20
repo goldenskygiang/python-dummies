@@ -17,7 +17,7 @@ export default class Reply extends Component {
 
   render() {
     const {Comment_set} = this.props;
-    console.log("check comment_set", Comment_set)
+    // console.log("check comment_set", Comment_set)
 
     let Date = Comment_set.date;
     Date = Date.split("T");

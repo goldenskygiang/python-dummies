@@ -48,9 +48,9 @@ export default class QuizContentStatus extends Component {
 
   componentDidMount() {
     let timeLeftVar = this.secondsToTime(this.state.seconds);
-    console.log("check Id", this.props.QuizId)
+    // console.log("check Id", this.props.QuizId)
 
-    console.log("check local storage", localStorage)
+    // console.log("check local storage", localStorage)
 
 
     const header = 'Token ' + String(localStorage.token)

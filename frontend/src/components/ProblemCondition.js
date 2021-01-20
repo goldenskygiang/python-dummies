@@ -31,7 +31,7 @@ export default class ProblemCondition extends Component {
       // console.log("get high score", res.data.score)
 
       let Submission = res.data;
-      console.log("check submission", Submission);
+      // console.log("check submission", Submission);
 
       // if(Submission.length === 0){
       //     Submission = [{score:-1}]

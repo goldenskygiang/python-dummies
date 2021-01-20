@@ -20,7 +20,7 @@ export default class SubmitResult extends Component {
 
   render() {
     const Res = localStorage.res.split(",");
-    console.log(Res)
+    // console.log(Res)
     return (
         <div className="SubmitResultBody">
           <div className="SubmitResultBodyHeader">

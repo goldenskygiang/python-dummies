@@ -15,7 +15,7 @@ export default class Problemlist extends Component {
 
     componentDidMount() {
         const url = BASE_URL + "/api/problems/";
-        console.log("check url", url);
+        // console.log("check url", url);
         axios.get(url)
           .then(res => {
             const Problems = res.data;

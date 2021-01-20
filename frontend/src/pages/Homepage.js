@@ -22,7 +22,7 @@ export default class Homepage extends Component {
 
   componentDidMount() {
     const url = BASE_URL + "/api/lessons/";
-    console.log("check url", url);
+    // console.log("check url", url);
     axios
       .get(url)
       .then((res) => {
